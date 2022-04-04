@@ -38,7 +38,7 @@ typedef enum {
 ///////////////////////////////////////////////////////////////////////////////
 // vordefinierte globale Variablen
 ///////////////////////////////////////////////////////////////////////////////
-  name_pvar_ro,      // nur lesbar      
+  name_pvar_ro,      // nur lesbar
   name_pvar_rw,      // lesbar und schreibbar
 ///////////////////////////////////////////////////////////////////////////////
 // vordefinierte Funktionen
@@ -187,9 +187,9 @@ union _nodedata {
 //              d = Namenseintrag der Funktion (p_name)
 //              son 0, 1, ...: Argumente (nicht vorhandene Argumente sind NULL)
 // oper_equ, oper_nequ, oper_less, oper_lequ, oper_grtr, oper_gequ
-//              = <> < <= > >=: son 0 und son 1 = Operanden   
+//              = <> < <= > >=: son 0 und son 1 = Operanden
 // oper_not     Logisches not: son 0 = Operand
-// oper_and, oper_or  Logisches and und or: son 0 und son 1 = Operanden  
+// oper_and, oper_or  Logisches and und or: son 0 und son 1 = Operanden
 // keyw_walk, keyw_jump
 //              walk oder jump in allen Kombinationen
 //              d = Art des walk: keyw_walk, keyw_back, keyw_home, keyw_mark
@@ -198,7 +198,7 @@ union _nodedata {
 // keyw_left    turn left: son 0 = expr
 // keyw_direction  direction: son 0 = expr
 // keyw_clear, keyw_stop, keyw_finish, keyw_mark
-//              clear, stop, finish, mark: Keine Operanden  
+//              clear, stop, finish, mark: Keine Operanden
 // keyw_path    path-Aufruf: d = Name der Pfadfunktion, son 0, 1, ...: Argumente
 //              nicht vorhandene Argumente sind NULL
 // keyw_color   color: son 0 = rot, son 1 = grün, son 2 = blau

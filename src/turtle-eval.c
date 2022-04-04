@@ -12,7 +12,7 @@
 
 #include "turtle.h"
 
-#include "sdlinterf.h"
+#include "sdl/sdlinterf.h"
 
 // RGB-Farbwerte der Default-Farbe, in der gezeichnet wird, 0 ... 100
 #define RED 100
@@ -212,8 +212,8 @@ static void walk(double x, double y, type_t t)
     int x1, y1, x2, y2;
     if (to_x_pixel(g_x, &x1) && to_y_pixel(g_y, &y1) &&
         to_x_pixel(x, &x2) && to_y_pixel(y, &y2)) {
-      sdlDrawLine(x1, y1, x2, y2, 
-                  to_color(g_red), to_color(g_green), to_color(g_blue));   
+      sdlDrawLine(x1, y1, x2, y2,
+                  to_color(g_red), to_color(g_green), to_color(g_blue));
       sdlUpdate();
       sdlMilliSleep(g_delay);
     } else {
@@ -273,7 +273,7 @@ static double *var_ptr(const treenode_t *t, bool ro)
       return n->d.p_val;
       break;
     default:
-      assert(false);      
+      assert(false);
   }
 }
 
@@ -313,8 +313,8 @@ static double *set_var(const treenode_t *t, const treenode_t *exp)
       return n->d.p_val;
       break;
     default:
-      assert(false);      
-  }  
+      assert(false);
+  }
 }
 
 
@@ -442,7 +442,7 @@ static double fcall(const treenode_t *t)
       break;
     }
     default:
-      assert(false);      
+      assert(false);
   }
 }
 
@@ -501,7 +501,7 @@ static double expr(const treenode_t *t)
   assert(t);
   switch (t->type) {
     case name_any:
-      return *(var_ptr(t, true)); 
+      return *(var_ptr(t, true));
     case oper_const:
       return t->d.val;
     case oper_neg:
@@ -521,7 +521,7 @@ static double expr(const treenode_t *t)
     case oper_lpar:
       return fcall(t);
     default:
-      assert(false);      
+      assert(false);
   }
 }
 
@@ -549,7 +549,7 @@ static bool cond(const treenode_t *t)
     case keyw_or:
       return cond(t->son[0]) || cond(t->son[1]);
     default:
-      assert(false);      
+      assert(false);
   }
 }
 
@@ -643,7 +643,7 @@ static void slist(const treenode_t *t)
         break;
       case keyw_do:
         for (int i = expr(t->son[0]); i > 0; --i) {
-          slist(t->son[1]);          
+          slist(t->son[1]);
         }
         break;
       case keyw_counter: {
@@ -676,7 +676,7 @@ static void slist(const treenode_t *t)
         } while (!cond(t->son[0]));
         break;
       default:
-        assert(false);      
+        assert(false);
     }
   }
 }

@@ -26,7 +26,7 @@ void mem_check(const void *p, const char *what, const srcpos_t *pos)
     fprintf(stderr, "%s: Fehler beim Anlegen von Speicher für %s "
                     "(Zeile %d, Spalte %d): %s\n",
             prog_name, what, pos->line, pos->col, strerror(errno));
-    exit(EXIT_FAILURE);    
+    exit(EXIT_FAILURE);
   }
 }
 
@@ -56,7 +56,7 @@ int main(int argc, const char *argv[])
             argv[0]);
     exit(EXIT_FAILURE);
   }
-  
+
   src_file = fopen(argv[1], "r");
   if (src_file == NULL) {
     fprintf(stderr, "%s: Fehler beim Öffnen von %s zum Lesen: %s\n",
