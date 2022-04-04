@@ -1,0 +1,64 @@
+
+" Testprogramm: Pythagoras-Fraktal (rekursiv)
+"
+" Optionale Befehlszeilen-Werte:
+" Anfängliche Seitenlänge, kleinste Seitenlänge, Winkel des Dreieckes
+"
+" Originalversion Alexander Hohmann & Max Jänichen 2021
+" Klaus Kusche, 2022
+
+path pythagoras(len, abort_len, w)
+
+	do 4 times
+		walk len
+		turn right 90
+	done
+
+	if len > abort_len then
+    store len * cos(w) in l_side
+    store len * cos(90 - w) in r_side
+		jump len
+		turn left w
+		path pythagoras(l_side, abort_len,w)
+		turn right 90
+		jump l_side
+		path pythagoras(r_side, abort_len,w)
+		turn right 90
+		jump r_side
+		turn left 180-w
+		jump back len
+		turn right 90
+		jump back len
+		turn left 90
+	endif
+endpath
+
+begin
+
+  store 3 in @delay
+
+  store 5 in side_len
+  if (@1 > 0) then 
+    store @1 in side_len
+  endif
+
+  store .2 in min_len
+  if (@2 > 0) then 
+    store @2 in min_len
+  endif
+
+  store 35 in w
+  if (@3 > 0) and (@3 < 90) then
+    store @3 in w 
+  endif
+
+  direction 90
+  jump back 2*side_len
+  turn left 90
+  jump side_len/2
+  turn right 90
+  path pythagoras(side_len,min_len,w)
+
+  stop
+
+end

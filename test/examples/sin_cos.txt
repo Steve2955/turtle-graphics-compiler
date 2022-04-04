@@ -1,0 +1,98 @@
+
+" Testprogramm: Sinuskurven
+"
+" Optionale Befehlszeilen-Werte:
+" Amplitude, Anzahl der Schwingungen, Abtast-Abstand
+"
+" Originalversion Alexander Hohmann & Max Jänichen 2021
+" Klaus Kusche, 2022
+
+path cos_path(len, stepwidth, amp, periods, dotted)
+	turn left 90
+	counter a from 0 to len step stepwidth do
+		if (dotted <> 0) then
+			jump amp*cos(180*periods*a/len)
+			path dot
+		else
+			walk amp*cos(180*periods*a/len)
+		endif
+		jump back amp*cos(180*periods*a/len)
+		turn right 90
+		jump stepwidth
+		turn left 90
+	done
+endpath
+
+path sin_path(len, stepwidth, amp, periods, dotted)
+	turn left 90
+	counter a from 0 to len step stepwidth do
+		if (dotted <> 0) then
+			jump amp*sin(180*periods*a/len)
+			path dot
+		else
+			walk amp*sin(180*periods*a/len)
+		endif
+		jump back amp*sin(180*periods*a/len)
+		turn right 90
+		jump stepwidth
+		turn left 90
+	done
+endpath
+
+" ganz kurzer Strich
+path dot
+  walk 0.01 
+  jump back 0.01
+endpath
+
+begin
+
+  if @1 = 0 then 
+    store 12 in amplitude_factor
+  else
+    store @1 in amplitude_factor
+  endif
+  if @2 = 0 then 
+    store 5 in number_of_periods
+  else
+    store @2 in number_of_periods
+  endif
+  if @3 = 0 then 
+    store 0.25 in step_width
+  else
+    store @3 in step_width
+  endif
+
+  store 0 in @delay
+
+  color 50, 50, 50
+
+" waagrechte Achse
+  jump back @max_x
+  walk 2*@max_x
+  jump home
+
+" senkrechte Achse
+  turn left 90
+  jump @max_y
+  turn 180 
+  walk 2*@max_y
+
+" Anfangspunkt links am Rand
+  jump home
+  turn left 180
+  jump @max_x
+  direction 0
+
+  color 100, 0, 100
+
+  mark
+  path cos_path(2*@max_x, step_width, amplitude_factor, number_of_periods, 0)
+  jump mark
+
+  color 0, 100, 100 
+  path sin_path(2*@max_x, step_width, amplitude_factor/2, number_of_periods*2, 1)
+
+  stop
+
+end
