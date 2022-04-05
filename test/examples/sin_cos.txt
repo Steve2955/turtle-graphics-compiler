@@ -41,23 +41,23 @@ endpath
 
 " ganz kurzer Strich
 path dot
-  walk 0.01 
+  walk 0.01
   jump back 0.01
 endpath
 
 begin
 
-  if @1 = 0 then 
+  if @1 = 0 then
     store 12 in amplitude_factor
   else
     store @1 in amplitude_factor
   endif
-  if @2 = 0 then 
+  if @2 = 0 then
     store 5 in number_of_periods
   else
     store @2 in number_of_periods
   endif
-  if @3 = 0 then 
+  if @3 = 0 then
     store 0.25 in step_width
   else
     store @3 in step_width
@@ -75,7 +75,7 @@ begin
 " senkrechte Achse
   turn left 90
   jump @max_y
-  turn 180 
+  turn 180
   walk 2*@max_y
 
 " Anfangspunkt links am Rand
@@ -90,7 +90,7 @@ begin
   path cos_path(2*@max_x, step_width, amplitude_factor, number_of_periods, 0)
   jump mark
 
-  color 0, 100, 100 
+  color 0, 100, 100
   path sin_path(2*@max_x, step_width, amplitude_factor/2, number_of_periods*2, 1)
 
   stop
