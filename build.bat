@@ -1,5 +1,5 @@
 :: Create build-folder if it does not exist
-mkdir -p build
+mkdir build
 
 :: Compile project
 gcc -I src\sdl\SDL2\include ^
@@ -11,4 +11,4 @@ gcc -I src\sdl\SDL2\include ^
     -lole32 -loleaut32 -lshell32 -lversion -luuid -lsetupapi -lhid -static-libgcc
 
 :: Copy examples to build-folder for testing
-cp test\examples\* build\
+copy /Y test\examples\* build\
