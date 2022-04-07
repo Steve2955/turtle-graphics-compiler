@@ -4,6 +4,7 @@
 //
 // Klaus Kusche 2021, 2022
 
+#define _USE_MATH_DEFINES
 #include <math.h>
 #include <stdlib.h>
 // Für ptrdiff_t: Integer in der Größe der Differenz zweier Pointer
