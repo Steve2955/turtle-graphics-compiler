@@ -38,6 +38,7 @@ void code_error(const srcpos_t *pos, const char *format, ...);
 #define MAX_NAMES 1000
 
 // die zentrale Namenstabelle
+extern int nameCount;
 extern nameentry_t name_tab[MAX_NAMES];
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -73,5 +74,11 @@ extern double g_red, g_green, g_blue; // Farbe des Striches
 // (ohne Programmname und Sourcefile-Name)
 extern void evaluate(const treenode_t *main_tree,
                      int arg_cnt, const char *arg_val[]);
+
+
+
+// ============================================================================
+
+extern token_t *readTokensFromFile(FILE *file);
 
 #endif

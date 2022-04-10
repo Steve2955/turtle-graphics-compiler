@@ -236,9 +236,9 @@ struct _treenode {
 };
 
 struct _token{
-  int start;
-  int length;
-  nodedata_t d;
+  char *tok;
+  type_t type;
+  //nodedata_t d;
 
   token_t *prev;
   token_t *next;
