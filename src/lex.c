@@ -83,8 +83,9 @@ token_t *readTokensFromFile(FILE *file){
 	while((c = fgetc(file)) != EOF){
 		//delete comments
 		if (c == '"') {
+			while ((c = fgetc(file)) != '\n'){
+			}
 			buf[len] = '\0';
-			len = 0;
 		}
 		if (c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|'){
 			
