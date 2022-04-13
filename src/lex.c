@@ -36,7 +36,7 @@ void addToken(char *tok, type_t type){
 	token_t *tokPtr = firstTok->tok == NULL ? firstTok : malloc(sizeof(token_t));
 	// Create own copy of token string
 	char *tokCopy = malloc(strlen(tok) + 1);
-  strcpy(tokCopy, tok);
+  	strcpy(tokCopy, tok);
 	// save data to token
 	tokPtr->tok = tokCopy;
 	tokPtr->type = type;
@@ -54,7 +54,7 @@ token_t *readTokensFromFile(FILE *file){
 	char c;
 	// length of current token
 	int len = 0;
-  // init token stream
+  	// init token stream
 	initTokenStream();
 	// read char by char
 	while((c = fgetc(file)) != EOF){
