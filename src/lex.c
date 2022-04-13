@@ -32,12 +32,12 @@ type_t getTokenType(char *tok){
 	}
 
 	if(isdigit(tok[0])) return oper_const;
-	
+
 	// Namenstabelle prüfen
 	for (int i = 0; i < nameCount; i++) {
 		if (strcmp(tok, name_tab[i].name) == 0) return name_tab[i].type;
 	}
-	printf("Type not found: %s\n", tok);
+	//printf("Type not found: %s\n", tok);
 	// ToDo: ggf. Namenstabelle hinzufügen
 //	return NULL;
 }
@@ -51,11 +51,13 @@ void initTokenStream(){
 }
 
 void addToken(char *tok, type_t type){
+	// some logging
+	printf("Token: %s\n", tok, type);
 	// Create new token
 	token_t *tokPtr = firstTok->tok == NULL ? firstTok : malloc(sizeof(token_t));
 	// Create own copy of token string
 	char *tokCopy = malloc(strlen(tok) + 1);
-  strcpy(tokCopy, tok);
+	strcpy(tokCopy, tok);
 	// save data to token
 	tokPtr->tok = tokCopy;
 	tokPtr->type = type;
@@ -65,78 +67,103 @@ void addToken(char *tok, type_t type){
 	currentTok = tokPtr;
 }
 
+void revertToken(){
+	token_t *tmp = currentTok;
+	currentTok = currentTok->prev;
+	free(tmp);
+}
+
+
+bool isSpecial(char c){
+	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|';
+}
+
 token_t *readTokensFromFile(FILE *file){
 	row = col = 0;
 	// Buffer for current token
 	char *buf = malloc(MAX_TOKEN_LENGTH * sizeof(char));
 	// last read char
 	char c;
+	char lastC;
 	// length of current token
 	int len = 0;
-	// Help Buffer for cutting tokens
-	char *help_buf = malloc(MAX_TOKEN_LENGTH * sizeof(char) + 1);
-	//Help char
-	char *help_c;
-  // init token stream
+	// init token stream
 	initTokenStream();
 	// read char by char
-	while((c = fgetc(file)) != EOF){
-		//delete comments
-		if (c == '"') {
-			while ((c = fgetc(file)) != '\n'){
+	while(lastC != EOF && (c = fgetc(file)) != EOF){
+		if(c == ' ' || c == '\t'){
+			// wird mit dem Whitespace ein Token abgeschlossen?
+			if(len > 0){
+				buf[len] = '\0';
+				type_t type = getTokenType((char *) buf);
+				addToken(buf, type);
+				// Spalte aktualisieren
+				col += len;
+				len = 0;
 			}
-			buf[len] = '\0';
-		}
-		if (c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|'){
-			
-			help_c = &c;
-
-			help_buf = strtok(buf, " ");
-			while ( help_buf != NULL) {
-				help_buf = strtok(NULL, " ");
+			// Whitespaces werden ignoriert
+			col++;
+			continue;
+		}else if (isSpecial(c)){
+			// wird mit dem Sonderzeichen ein Token abgeschlossen?
+			if(len > 0){
+				buf[len] = '\0';
+				type_t type = getTokenType((char *) buf);
+				addToken(buf, type);
+				// Spalte aktualisieren
+				col += len;
+				len = 0;
 			}
-			//wenn es nicht nur eine Klammer o.ä. im Token ist, sondern auch davor mehr ohne Leerzeichen
-			if (strcmp(help_buf, help_c) != 0) {
-				//ersetze das Zeichen z.B. Klammer durch Endzeichen
-				help_buf[strlen(help_buf)] = '\0';
-				type_t type = getTokenType((char *)help_buf);
-				printf("Token: %s, Type: %d\n", help_buf, type);
-				addToken(help_buf, type);
+			// das Sonderzeichen selbst ist ein Token und muss behandelt werden
 
-				type = getTokenType(help_c);
-				printf("Token: %s, Type: %d\n", help_c, type);
-				addToken(help_c, type);
+			// kombinierte Sonderzeichen ("<=", ">=") werden zu einem Token zusammengefasst
+			// ToDo: gibt es noch mehr zusammengesetzte Operatoren?
+			if((lastC == '>' || lastC == '<') && c == '='){
+				revertToken(); //ToDo
+				// Buffer befüllen
+				buf[0] = lastC;
+				buf[1] = c;
+				buf[2] = '\0';
+				// <>=
+				type_t type = getTokenType((char *) buf);
+				addToken(buf, type);
+				// Spalte aktualisieren
+				col++;
 			}
-			else {
-				type_t type = getTokenType(help_c);
-				printf("Token: %s, Type: %d\n", help_c, type);
-				addToken(help_c, type);
-			}
 
-			buf[len] = '\0';
-			buf[len+1] = c;
-			buf[len+2] = '\0';
-			len = 0;
-
-		}
-
-		if(c == '\n' || c == ' '){
-			buf[len] = '\0';
-			type_t type = getTokenType((char *)buf);
-			printf("Token: %s, Type: %d\n", buf, type);
+			// Sonderzeichen als Token hinzufügen
+			buf[0] = c;
+			buf[1] = '\0';
+			type_t type = getTokenType((char *) buf);
 			addToken(buf, type);
-			len = 0;
-		}else{
-			buf[len++] = c;
-			// ToDo: check max len
-		}
-	}
-	// add last token
-	buf[len] = '\0';
-	type_t type = getTokenType((char *)buf);
-	addToken(buf, type);
-	printf("Token: %s, Type: %d\n", buf, type);
 
+			// Spalte aktualisieren
+			col++;
+		}else if (c == '\"' && lastC == '\n'){ // Kommentare werden ignoriert
+			while((c = fgetc(file)) != '\n' && c != EOF);
+			lastC = c;
+			row++; col=0;
+		}else if(c == '\n'){ // aktuelle Zeile ist beendet
+			// Falls nötig, schließe den Token vor dem newline ab
+			if(len > 0){
+				buf[len] = '\0';
+				type_t type = getTokenType((char *)buf);
+				addToken(buf, type);
+			}
+			// Zeile, Spalte und Länge zurücksetzen
+			row++; col = 0; len = 0;
+		}else{
+			// Spalte für nächsten Durchlauf aktualisieren
+			buf[len++] = c;
+		}
+		lastC = c;
+	}
+	// remaining token
+	if(len > 0){
+		buf[len] = '\0';
+		type_t type = getTokenType((char *) buf);
+		addToken(buf, type);
+	}
 	// ToDo: einzelne Wörter auslesen -> Beispiel: "path circle(r,n)" wird zu "path|circle|(|r|,|n|)"
 	// ToDo: Wörter Typen zuordnen -> siehe getTokenType
 	// ToDo: Tokenliste verketten und zurückgeben
