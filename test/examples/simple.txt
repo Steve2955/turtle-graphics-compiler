@@ -1,14 +1,17 @@
 
 begin
-    walk 1
-    jump 1
+    walk 2
+    jump 2
     turn 90
-    walk 1
-    jump 1
+    color 0, 100, 0
+    walk 2
+    jump 2
     turn 90
-    walk 1
-    jump 1
+    color 100, 0,0
+    walk 2
+    jump 2
     turn 90
-    walk 1
-    jump 1
+    color 0,0,100
+    walk 2
+    jump 2
 end

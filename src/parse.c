@@ -58,6 +58,17 @@ treenode_t *statement(){
 			}
 			statement->son[0] = expression();
 			return statement;
+		case keyw_color:
+			statement->type = token->type;
+			next();
+			statement->son[0] = expression();
+			expectTokenType(oper_sep, "");
+			next();
+			statement->son[1] = expression();
+			expectTokenType(oper_sep, "");
+			next();
+			statement->son[2] = expression();
+			return statement;
 	}
 }
 
