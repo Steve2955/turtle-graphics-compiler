@@ -21,11 +21,54 @@ void expectTokenType(type_t expected, char *error){
 	}
 }
 
-void statement();
+treenode_t *constant(){
+	treenode_t *node = malloc(sizeof(treenode_t));
+	node->d.val = atof(token->tok);
+	node->type = oper_const;
+	next();
+	return node;
+}
+
+treenode_t *expression(){
+	switch(token->type){
+		case oper_const:
+			return constant();
+	}
+}
+
+treenode_t *statement(){
+	treenode_t *statement = malloc(sizeof(treenode_t));
+	switch(token->type){
+		case keyw_walk:
+		case keyw_jump:
+			statement->type = token->type;
+			next();
+			statement->d.walk = keyw_walk;
+			statement->son[0] = expression();
+			return statement;
+	}
+}
 
 // STATEMENTS ::= STATEMENT { STATEMENT }
-void statements(){
-	statement();
+treenode_t *statements(){
+	treenode_t *firstNode = NULL;
+	treenode_t *currentNode = firstNode;
+	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath){
+		//printf("Token: %s\n", token->tok);
+		treenode_t *newNode = statement();
+		if(newNode == NULL){
+			fprintf(stderr, "Fehler beim Parsen des aktuellen Statements");
+			exit(EXIT_FAILURE);
+		}
+		if(firstNode == NULL){
+			currentNode = firstNode = newNode;
+		} else {
+			currentNode->next = newNode;
+			currentNode = newNode;
+			currentNode->next = NULL;
+		}
+	}
+	return firstNode;
 }
 
 void var();
@@ -65,10 +108,11 @@ treenode_t *program(){
 	// "begin" found -> next
 	expectTokenType(keyw_begin, "\"begin\" erwartet");
 	next();
-	statements();
+	treenode_t *prog = statements();
 	// "end" expected after statements
 	expectTokenType(keyw_end, "\"end\" erwartet");
 	next();
+	return prog;
 }
 
 /*
@@ -81,57 +125,10 @@ treenode_t *parse(void){
 	// Lexer aufrufen -> Tokenstream
 	token = readTokensFromFile(src_file);
 
-	expectTokenType(tok_bofeof, "Dateianfang erwartet");
-	next();
+	//expectTokenType(tok_bofeof, "Dateianfang erwartet");
+	//next();
 	treenode_t *root = program();
-	expectTokenType(tok_bofeof, "Dateiende erwartet");
+	//expectTokenType(tok_bofeof, "Dateiende erwartet");
 
-
-
-	treenode_t *start = NULL;
-	treenode_t *last = NULL;
-
-	while(token->next != NULL){
-		treenode_t *cur = malloc(sizeof(treenode_t));
-		switch (token->type){
-			case keyw_walk:
-				cur->type = token->type;
-				cur->d.walk = keyw_walk;
-				treenode_t *sonW = malloc(sizeof(treenode_t));
-      			sonW->d.val = atof(token->next->tok);
-				sonW->type = oper_const;
-				cur->son[0] = sonW;
-				token = token->next; // skip oper
-				break;
-			case keyw_jump:
-				cur->type = token->type;
-				cur->d.walk = keyw_walk;
-				treenode_t *sonJ = malloc(sizeof(treenode_t));
-      			sonJ->d.val = atof(token->next->tok);
-				sonJ->type = oper_const;
-				cur->son[0] = sonJ;
-				token = token->next; // skip oper
-				break;
-			default:
-				printf("Error: Unknown keyword: %s\n", token->tok);
-				break;
-		}
-		// throw around some pointers
-		if(last == NULL){
-			start = last = cur;
-		}else{
-			last->next = cur;
-			last = cur;
-			cur->next = NULL;
-		}
-		// move to next token
-		token = token->next;
-		if(token == NULL){
-			break;
-		}
-	}
-
-	root = start;
-	expectTokenType(tok_bofeof, "Dateiende erwartet");
 	return root;
 }
