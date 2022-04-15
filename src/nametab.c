@@ -11,6 +11,8 @@
 
 #include "turtle.h"
 
+int nameCount = 70;
+
 // Das Array für alle Namen
 // ein linear durchsuchtes Array ist performancemäßig eine Katastrophe
 // (und limitiert die Anzahl der Namen),

@@ -125,6 +125,7 @@ typedef union _namedata namedata_t;
 typedef struct _nameentry nameentry_t;
 typedef union _nodedata nodedata_t;
 typedef struct _treenode treenode_t;
+typedef struct _token token_t;
 
 // Position eines Tokens oder Syntax-Knotens im Source-File (Zeile / Spalte)
 struct _srcpos {
@@ -232,6 +233,16 @@ struct _treenode {
                     // Bei allen anderen Knoten: NULL
   treenode_t *son[MAX_ARGS]; // Sohn-Syntaxbäume
   nodedata_t d;     // Daten zum Knoten
+};
+
+struct _token{
+  char *tok;
+  type_t type;
+  //nodedata_t d;
+
+  token_t *prev;
+  token_t *next;
+
 };
 
 #endif
