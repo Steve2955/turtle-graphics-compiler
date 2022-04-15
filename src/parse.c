@@ -46,6 +46,18 @@ treenode_t *statement(){
 			statement->d.walk = keyw_walk;
 			statement->son[0] = expression();
 			return statement;
+		case keyw_turn:
+			next();
+			if (token->type == keyw_left) {
+				statement->type = keyw_left;
+				next();
+			} else {
+				statement->type = keyw_right;
+				// turn "right" is optional
+				if (token->type == keyw_right) next();
+			}
+			statement->son[0] = expression();
+			return statement;
 	}
 }
 
@@ -54,7 +66,7 @@ treenode_t *statements(){
 	treenode_t *firstNode = NULL;
 	treenode_t *currentNode = firstNode;
 	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath){
-		//printf("Token: %s\n", token->tok);
+		printf("Token: %s\n", token->tok);
 		treenode_t *newNode = statement();
 		if(newNode == NULL){
 			fprintf(stderr, "Fehler beim Parsen des aktuellen Statements");

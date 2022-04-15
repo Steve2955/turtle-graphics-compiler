@@ -2,9 +2,13 @@
 begin
     walk 1
     jump 1
+    turn 90
     walk 1
     jump 1
+    turn 90
     walk 1
     jump 1
+    turn 90
     walk 1
+    jump 1
 end
