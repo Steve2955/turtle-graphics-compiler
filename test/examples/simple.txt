@@ -1,11 +1,11 @@
 
 begin
-    walk 2
-    jump 2
-    turn 90
+    walk 1+1
+    jump 1*2
+    turn 9*10
     color 0, 100, 0
-    walk 2
-    jump 2
+    walk 2^1
+    jump 2^2/2
     turn 90
     color 100, 0,0
     walk 2
