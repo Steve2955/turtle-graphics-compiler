@@ -1,7 +1,10 @@
-walk 1
-jump 1
-walk 1
-jump 1
-walk 1
-jump 1
-walk 1
+
+begin
+    walk 1
+    jump 1
+    walk 1
+    jump 1
+    walk 1
+    jump 1
+    walk 1
+end

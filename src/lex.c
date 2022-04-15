@@ -68,11 +68,10 @@ void addToken(char *tok, type_t type){
 }
 
 void revertToken(){
-	token_t *tmp = currentTok;
 	currentTok = currentTok->prev;
-	free(tmp);
+	free(currentTok->next);
+	currentTok->next = NULL;
 }
-
 
 bool isSpecial(char c){
 	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|';
