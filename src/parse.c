@@ -75,7 +75,19 @@ treenode_t *statement(){
 			statement->type = token->type;
 			next();
 			return statement;
+		case keyw_if:
+			// we don't do that here																								(yet)
+			while(next()->type != keyw_endif);
+			break;
+		case keyw_do:
+		case keyw_counter:
+		case keyw_while:
+			// we don't do that here																								(yet)
+			while(next()->type != keyw_done);
+			break;
 	}
+	free(statement);
+	return NULL;
 }
 
 // STATEMENTS ::= STATEMENT { STATEMENT }
@@ -87,8 +99,9 @@ treenode_t *statements(){
 		treenode_t *newNode = statement();
 		if(newNode == NULL){
 			fprintf(stderr, "Fehler beim Parsen des aktuellen Statements");
-			exit(EXIT_FAILURE);
+			continue;
 		}
+		// add statement to list
 		if(firstNode == NULL){
 			currentNode = firstNode = newNode;
 		} else {
