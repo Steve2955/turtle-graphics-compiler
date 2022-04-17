@@ -40,24 +40,38 @@ type_t getTokenType(char *tok){
 		if (strcmp(tok, name_tab[i].name) == 0) return name_tab[i].type;
 	}
 
-			// ToDo: Namenstabelle hinzufügen
-	//prüfen, ob zulässiger Variablen- oder Funktionsname
-	if (tok[0] == '_' || isalpha(tok[0])) {
+	//prüfen, ob zulässiger Variablen- oder Funktionsname, um es Namenstabelle hinzuzufügen
+	if ((tok[0] == '_' || isalpha(tok[0]) || tok[0] == '@') && (nameCount <= MAX_NAMES)) {
 			for(int i = 0; tok[i] != '\0'; i++){
-				if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_') {
+				//ToDo Verständnis: darf @ nur am Anfang stehen?
+				if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_' || (i == 0 && tok[0] == '@')) {
 					continue;
 				}
 				else {
 					//kein zulässiger Variablen- oder Funktionsname -> Fehlermeldung & Abbruch
+					fprintf(stderr, "Unzulässiger Variablen- oder Funktionsname\n");
+					exit(EXIT_FAILURE);
 				}
 			}
-			
-	return name_any;
-	}
+		type_t type = (tok[0] == '@') ? name_glob : name_any;
+		printf("type %d", type);
+		nameentry_t *name_entry = name_tab;
+		name_entry->type = type;
+		name_entry->name = tok;
+		if (type == name_glob) {
+			//das ist Quatsch.. muss der Wert sein, der nach dem "=" kommt -> eigentlich ja IMMER übernächstes Token, oder?
+			namedata_t d_name_entry;
+			d_name_entry.val = atof(tok);
+			name_entry->d = d_name_entry;
+		}
+		name_tab[nameCount] = *name_entry;
+		nameCount++;
+		return type;
+	} 
 
-	//printf("Type not found: %s\n", tok);
+	printf("Type not found: %s\n", tok);
 
-//	return NULL;
+	return name_glob;
 
 }
 
