@@ -167,10 +167,9 @@ token_t *readTokensFromFile(FILE *file){
 		type_t type = getTokenType((char *) buf);
 		addToken(buf, type);
 	}
-	
+
 	if (c == EOF){
 		buf[0] = c;
-		printf("EOF c");
 		addToken(buf, tok_bofeof);
 	}
 
