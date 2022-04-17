@@ -13,7 +13,7 @@ static srcpos_t tok_pos;
 static srcpos_t prev_tok_pos;     
 
 type_t getTokenType(char *tok){
-	// ToDo: const numbers
+
 	if (tok[0] == '^') return oper_pow;
 	if (tok[0] == '*') return oper_mul;
 	if (tok[0] == '/') return oper_div;
@@ -33,15 +33,32 @@ type_t getTokenType(char *tok){
 		else return oper_grtr;
 	}
 
-	if(isdigit(tok[0])) return oper_const;
+	if (tok[0] == '.' || isdigit(tok[0])) return oper_const;
 
 	// Namenstabelle prüfen
 	for (int i = 0; i < nameCount; i++) {
 		if (strcmp(tok, name_tab[i].name) == 0) return name_tab[i].type;
 	}
+
+			// ToDo: Namenstabelle hinzufügen
+	//prüfen, ob zulässiger Variablen- oder Funktionsname
+	if (tok[0] == '_' || isalpha(tok[0])) {
+			for(int i = 0; tok[i] != '\0'; i++){
+				if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_') {
+					continue;
+				}
+				else {
+					//kein zulässiger Variablen- oder Funktionsname -> Fehlermeldung & Abbruch
+				}
+			}
+			
+	return name_any;
+	}
+
 	//printf("Type not found: %s\n", tok);
-	// ToDo: ggf. Namenstabelle hinzufügen
+
 //	return NULL;
+
 }
 
 token_t *firstTok;
