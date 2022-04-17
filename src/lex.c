@@ -9,6 +9,8 @@
 #define MAX_TOKEN_LENGTH 128
 
 int row, col;
+static srcpos_t tok_pos;     
+static srcpos_t prev_tok_pos;     
 
 type_t getTokenType(char *tok){
 	// ToDo: const numbers
@@ -52,7 +54,7 @@ void initTokenStream(){
 
 void addToken(char *tok, type_t type){
 	// some logging
-	printf("Token: %s\n", tok, type);
+	printf("Token: %s, Col %d, Line %d \n", tok, col, row);
 	// Create new token
 	token_t *tokPtr = firstTok->tok == NULL ? firstTok : malloc(sizeof(token_t));
 	// Create own copy of token string
@@ -61,6 +63,8 @@ void addToken(char *tok, type_t type){
 	// save data to token
 	tokPtr->tok = tokCopy;
 	tokPtr->type = type;
+	tokPtr->pos.col = col;
+	tokPtr->pos.line = row;
 	// move pointers around
 	currentTok->next = tokPtr;
 	tokPtr->prev = currentTok;
@@ -163,6 +167,7 @@ token_t *readTokensFromFile(FILE *file){
 		type_t type = getTokenType((char *) buf);
 		addToken(buf, type);
 	}
+
 	// ToDo: einzelne Wörter auslesen -> Beispiel: "path circle(r,n)" wird zu "path|circle|(|r|,|n|)"
 	// ToDo: Wörter Typen zuordnen -> siehe getTokenType
 	// ToDo: Tokenliste verketten und zurückgeben

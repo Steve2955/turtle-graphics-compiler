@@ -239,7 +239,7 @@ struct _token{
   char *tok;
   type_t type;
   //nodedata_t d;
-
+  srcpos_t pos;
   token_t *prev;
   token_t *next;
 
