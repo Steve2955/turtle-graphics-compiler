@@ -171,7 +171,7 @@ token_t *readTokensFromFile(FILE *file){
 
 			// Spalte aktualisieren
 			col++;
-		}else if (c == '\"' && lastC == '\n'){ // Kommentare werden ignoriert
+		}else if ((c == '\"' && lastC == '\n') || (c == '\"' && row == 0)){ // Kommentare werden ignoriert
 			while((c = fgetc(file)) != '\n' && c != EOF);
 			lastC = c;
 			row++; col=0;
