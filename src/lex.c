@@ -71,8 +71,6 @@ type_t getTokenType(char *tok){
 
 	printf("Type not found: %s\n", tok);
 
-	return name_glob;
-
 }
 
 token_t *firstTok;
@@ -109,7 +107,7 @@ void revertToken(){
 }
 
 bool isSpecial(char c){
-	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|';
+	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|' || c == '=';
 }
 
 token_t *readTokensFromFile(FILE *file){
