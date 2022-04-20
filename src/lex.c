@@ -55,16 +55,9 @@ type_t getTokenType(char *tok){
 			}
 		type_t type = (tok[0] == '@') ? name_glob : name_any;
 		printf("type %d", type);
-		nameentry_t *name_entry = name_tab;
+		nameentry_t *name_entry = name_tab[nameCount];
 		name_entry->type = type;
-		name_entry->name = tok;
-		if (type == name_glob) {
-			//das ist Quatsch.. muss der Wert sein, der nach dem "=" kommt -> eigentlich ja IMMER übernächstes Token, oder?
-			namedata_t d_name_entry;
-			d_name_entry.val = atof(tok);
-			name_entry->d = d_name_entry;
-		}
-		name_tab[nameCount] = *name_entry;
+		name_entry->name = tok; // ToDo: create Copy of string (tok is not persistent!)
 		nameCount++;
 		return type;
 	} 
