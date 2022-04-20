@@ -34,21 +34,19 @@ type_t getTokenType(char *tok){
 	}
 
 	if (tok[0] == '.' || isdigit(tok[0])) {
-		int tok_len = sizeof tok / sizeof tok[0];
-		bool isDot = (tok[0] == '.') ? true : false;
-		for (int i = 1; i < tok_len-1; i++) {
-			if (isdigit(tok[i]) || (tok[i] == '.' && !isDot)) {
-				if (tok[i] == '.') {
-					isDot = true;
-				}
-				continue;
-			}
-			else {
-				fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col);
-				exit(EXIT_FAILURE);
-			}
+
+		bool hadDot = false;
+		int len = strlen(tok);
+
+	for(int i =0; i < len; i++){
+		if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
+			hadDot = hadDot || tok[i] == '.';
+		}else{
+			fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col);
+			exit(EXIT_FAILURE);
 		}
-		return oper_const;
+		if(i == len-1) return oper_const;
+		}
 	}
 	
 
@@ -70,7 +68,7 @@ type_t getTokenType(char *tok){
 				}
 			}
 
-			if (nameCount <= MAX_NAMES) {
+			if (nameCount > MAX_NAMES) {
 					fprintf(stderr, "Zu viele Variablen- und Funktionsnamen\n");
 					exit(EXIT_FAILURE);				
 			}
