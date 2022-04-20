@@ -33,7 +33,24 @@ type_t getTokenType(char *tok){
 		else return oper_grtr;
 	}
 
-	if (tok[0] == '.' || isdigit(tok[0])) return oper_const;
+	if (tok[0] == '.' || isdigit(tok[0])) {
+		int tok_len = sizeof tok / sizeof tok[0];
+		bool isDot = (tok[0] == '.') ? true : false;
+		for (int i = 1; i < tok_len-1; i++) {
+			if (isdigit(tok[i]) || (tok[i] == '.' && !isDot)) {
+				if (tok[i] == '.') {
+					isDot = true;
+				}
+				continue;
+			}
+			else {
+				fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col);
+				exit(EXIT_FAILURE);
+			}
+		}
+		return oper_const;
+	}
+	
 
 	// Namenstabelle prüfen
 	for (int i = 0; i < nameCount; i++) {
@@ -41,17 +58,21 @@ type_t getTokenType(char *tok){
 	}
 
 	//prüfen, ob zulässiger Variablen- oder Funktionsname, um es Namenstabelle hinzuzufügen
-	if ((tok[0] == '_' || isalpha(tok[0]) || tok[0] == '@') && (nameCount <= MAX_NAMES)) {
+	if (tok[0] == '_' || isalpha(tok[0]) || tok[0] == '@') {
 			for(int i = 0; tok[i] != '\0'; i++){
-				//ToDo Verständnis: darf @ nur am Anfang stehen?
-				if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_' || (i == 0 && tok[0] == '@')) {
+				if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_' || tok[0] == '@') {
 					continue;
 				}
 				else {
 					//kein zulässiger Variablen- oder Funktionsname -> Fehlermeldung & Abbruch
-					fprintf(stderr, "Unzulässiger Variablen- oder Funktionsname\n");
+					fprintf(stderr, "Unzulässiger Variablen- oder Funktionsname in Zeile %d, Spalte %d\n", row, col);
 					exit(EXIT_FAILURE);
 				}
+			}
+
+			if (nameCount <= MAX_NAMES) {
+					fprintf(stderr, "Zu viele Variablen- und Funktionsnamen\n");
+					exit(EXIT_FAILURE);				
 			}
 		type_t type = (tok[0] == '@') ? name_glob : name_any;
 		printf("type %d", type);
@@ -111,12 +132,12 @@ bool isSpecial(char c){
 }
 
 token_t *readTokensFromFile(FILE *file){
-	row = col = 0;
+	row = col = 1;
 	// Buffer for current token
 	char *buf = malloc(MAX_TOKEN_LENGTH * sizeof(char));
 	// last read char
 	char c;
-	char lastC;
+	char lastC = '\n';
 	// length of current token
 	int len = 0;
 	// init token stream
@@ -173,7 +194,7 @@ token_t *readTokensFromFile(FILE *file){
 
 			// Spalte aktualisieren
 			col++;
-		}else if ((c == '\"' && lastC == '\n') || (c == '\"' && row == 0)){ // Kommentare werden ignoriert
+		}else if (c == '\"' && lastC == '\n'){ // Kommentare werden ignoriert
 			while((c = fgetc(file)) != '\n' && c != EOF);
 			lastC = c;
 			row++; col=0;
