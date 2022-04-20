@@ -76,7 +76,7 @@ type_t getTokenType(char *tok){
 			}
 		type_t type = (tok[0] == '@') ? name_glob : name_any;
 		printf("type %d", type);
-		nameentry_t *name_entry = name_tab[nameCount];
+		nameentry_t *name_entry = name_tab;
 		name_entry->type = type;
 		name_entry->name = tok; // ToDo: create Copy of string (tok is not persistent!)
 		nameCount++;
