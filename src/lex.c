@@ -197,10 +197,7 @@ token_t *readTokensFromFile(FILE *file){
 		addToken(buf, type);
 	}
 
-	if (c == EOF){
-		buf[0] = c;
-		addToken(buf, tok_bofeof);
-	}
+	addToken("\0", tok_bofeof);
 
 	// ToDo: einzelne Wörter auslesen -> Beispiel: "path circle(r,n)" wird zu "path|circle|(|r|,|n|)"
 	// ToDo: Wörter Typen zuordnen -> siehe getTokenType
