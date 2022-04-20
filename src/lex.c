@@ -121,6 +121,8 @@ token_t *readTokensFromFile(FILE *file){
 	int len = 0;
 	// init token stream
 	initTokenStream();
+	// add bof to token stream
+	addToken("\0", tok_bofeof);
 	// read char by char
 	while(lastC != EOF && (c = fgetc(file)) != EOF){
 		if(c == ' ' || c == '\t'){
