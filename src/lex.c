@@ -9,9 +9,11 @@
 #define MAX_TOKEN_LENGTH 128
 
 int row, col;
+static srcpos_t tok_pos;
+static srcpos_t prev_tok_pos;
 
 type_t getTokenType(char *tok){
-	// ToDo: const numbers
+	// check for operator-types
 	if (tok[0] == '^') return oper_pow;
 	if (tok[0] == '*') return oper_mul;
 	if (tok[0] == '/') return oper_div;
@@ -31,15 +33,57 @@ type_t getTokenType(char *tok){
 		else return oper_grtr;
 	}
 
-	if(isdigit(tok[0])) return oper_const;
+	// check for const number
+	bool hadDot = false; // a const number may contain at most one dot
+	int tokLen = strlen(tok);
+	for(int i =0; i < tokLen; i++){
+		if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
+			hadDot = hadDot || tok[i] == '.';
+		}else{
+			fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col); // ToDo: einheitliche Fehlermedlungen
+			exit(EXIT_FAILURE);
+		}
+		if(i == tokLen-1) return oper_const;
+	}
+
 
 	// Namenstabelle prüfen
 	for (int i = 0; i < nameCount; i++) {
 		if (strcmp(tok, name_tab[i].name) == 0) return name_tab[i].type;
 	}
-	//printf("Type not found: %s\n", tok);
-	// ToDo: ggf. Namenstabelle hinzufügen
-//	return NULL;
+
+	//prüfen, ob zulässiger Variablen- oder Funktionsname, um es Namenstabelle hinzuzufügen
+	if (tok[0] == '_' || isalpha(tok[0]) || tok[0] == '@') {
+			for(int i = 0; tok[i] != '\0'; i++){
+				if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_' || tok[0] == '@') {
+					continue;
+				}
+				else {
+					//kein zulässiger Variablen- oder Funktionsname -> Fehlermeldung & Abbruch
+					fprintf(stderr, "Unzulässiger Variablen- oder Funktionsname in Zeile %d, Spalte %d\n", row, col);
+					exit(EXIT_FAILURE);
+				}
+			}
+
+			if (nameCount > MAX_NAMES) {
+					fprintf(stderr, "Zu viele Variablen- und Funktionsnamen\n");
+					exit(EXIT_FAILURE);
+			}
+		type_t type = (tok[0] == '@') ? name_glob : name_any;
+		printf("type %d", type);
+		nameentry_t *name_entry = &(name_tab[nameCount]);
+		name_entry->type = type;
+
+		char *nameCopy = malloc(strlen(tok) + 1);
+		strcpy(nameCopy, tok);
+
+		name_entry->name = nameCopy;
+		nameCount++;
+		return type;
+	}
+
+	printf("Type not found: %s\n", tok);
+
 }
 
 token_t *firstTok;
@@ -52,7 +96,7 @@ void initTokenStream(){
 
 void addToken(char *tok, type_t type){
 	// some logging
-	printf("Token: %s\n", tok, type);
+	printf("Token: %s, Col %d, Line %d \n", tok, col, row);
 	// Create new token
 	token_t *tokPtr = firstTok->tok == NULL ? firstTok : malloc(sizeof(token_t));
 	// Create own copy of token string
@@ -61,6 +105,8 @@ void addToken(char *tok, type_t type){
 	// save data to token
 	tokPtr->tok = tokCopy;
 	tokPtr->type = type;
+	tokPtr->pos.col = col;
+	tokPtr->pos.line = row;
 	// move pointers around
 	currentTok->next = tokPtr;
 	tokPtr->prev = currentTok;
@@ -74,20 +120,22 @@ void revertToken(){
 }
 
 bool isSpecial(char c){
-	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|';
+	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|' || c == '=';
 }
 
 token_t *readTokensFromFile(FILE *file){
-	row = col = 0;
+	row = col = 1;
 	// Buffer for current token
 	char *buf = malloc(MAX_TOKEN_LENGTH * sizeof(char));
 	// last read char
 	char c;
-	char lastC;
+	char lastC = '\n';
 	// length of current token
 	int len = 0;
 	// init token stream
 	initTokenStream();
+	// add bof to token stream
+	addToken("\0", tok_bofeof);
 	// read char by char
 	while(lastC != EOF && (c = fgetc(file)) != EOF){
 		if(c == ' ' || c == '\t'){
@@ -163,6 +211,9 @@ token_t *readTokensFromFile(FILE *file){
 		type_t type = getTokenType((char *) buf);
 		addToken(buf, type);
 	}
+
+	addToken("\0", tok_bofeof);
+
 	// ToDo: einzelne Wörter auslesen -> Beispiel: "path circle(r,n)" wird zu "path|circle|(|r|,|n|)"
 	// ToDo: Wörter Typen zuordnen -> siehe getTokenType
 	// ToDo: Tokenliste verketten und zurückgeben
