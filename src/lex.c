@@ -9,11 +9,11 @@
 #define MAX_TOKEN_LENGTH 128
 
 int row, col;
-static srcpos_t tok_pos;     
-static srcpos_t prev_tok_pos;     
+static srcpos_t tok_pos;
+static srcpos_t prev_tok_pos;
 
 type_t getTokenType(char *tok){
-
+	// check for operator-types
 	if (tok[0] == '^') return oper_pow;
 	if (tok[0] == '*') return oper_mul;
 	if (tok[0] == '/') return oper_div;
@@ -33,22 +33,19 @@ type_t getTokenType(char *tok){
 		else return oper_grtr;
 	}
 
-	if (tok[0] == '.' || isdigit(tok[0])) {
-
-		bool hadDot = false;
-		int len = strlen(tok);
-
-	for(int i =0; i < len; i++){
+	// check for const number
+	bool hadDot = false; // a const number may contain at most one dot
+	int tokLen = strlen(tok);
+	for(int i =0; i < tokLen; i++){
 		if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
 			hadDot = hadDot || tok[i] == '.';
 		}else{
-			fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col);
+			fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col); // ToDo: einheitliche Fehlermedlungen
 			exit(EXIT_FAILURE);
 		}
-		if(i == len-1) return oper_const;
-		}
+		if(i == tokLen-1) return oper_const;
 	}
-	
+
 
 	// Namenstabelle prüfen
 	for (int i = 0; i < nameCount; i++) {
@@ -70,7 +67,7 @@ type_t getTokenType(char *tok){
 
 			if (nameCount > MAX_NAMES) {
 					fprintf(stderr, "Zu viele Variablen- und Funktionsnamen\n");
-					exit(EXIT_FAILURE);				
+					exit(EXIT_FAILURE);
 			}
 		type_t type = (tok[0] == '@') ? name_glob : name_any;
 		printf("type %d", type);
@@ -79,7 +76,7 @@ type_t getTokenType(char *tok){
 		name_entry->name = tok; // ToDo: create Copy of string (tok is not persistent!)
 		nameCount++;
 		return type;
-	} 
+	}
 
 	printf("Type not found: %s\n", tok);
 
