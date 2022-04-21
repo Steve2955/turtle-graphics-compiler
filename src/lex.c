@@ -40,8 +40,7 @@ type_t getTokenType(char *tok){
 		if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
 			hadDot = hadDot || tok[i] == '.';
 		}else{
-			fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col); // ToDo: einheitliche Fehlermedlungen
-			exit(EXIT_FAILURE);
+			break;
 		}
 		if(i == tokLen-1) return oper_const;
 	}
@@ -96,14 +95,16 @@ void initTokenStream(){
 
 void addToken(char *tok, type_t type){
 	// some logging
-	printf("Token: %s, Col %d, Line %d \n", tok, col, row);
+	printf("Token: \"%s\" (%d:%d) \n", tok ? tok : "NONE", row, col);
 	// Create new token
 	token_t *tokPtr = firstTok->tok == NULL ? firstTok : malloc(sizeof(token_t));
 	// Create own copy of token string
-	char *tokCopy = malloc(strlen(tok) + 1);
-	strcpy(tokCopy, tok);
+	if(tok != NULL){
+		char *tokCopy = malloc(strlen(tok) + 1);
+		strcpy(tokCopy, tok);
+		tokPtr->tok = tokCopy;
+	}
 	// save data to token
-	tokPtr->tok = tokCopy;
 	tokPtr->type = type;
 	tokPtr->pos.col = col;
 	tokPtr->pos.line = row;
@@ -135,7 +136,7 @@ token_t *readTokensFromFile(FILE *file){
 	// init token stream
 	initTokenStream();
 	// add bof to token stream
-	addToken("\0", tok_bofeof);
+	addToken(NULL, tok_bofeof);
 	// read char by char
 	while(lastC != EOF && (c = fgetc(file)) != EOF){
 		if(c == ' ' || c == '\t'){
@@ -212,7 +213,7 @@ token_t *readTokensFromFile(FILE *file){
 		addToken(buf, type);
 	}
 
-	addToken("\0", tok_bofeof);
+	addToken(NULL, tok_bofeof);
 
 	// ToDo: einzelne Wörter auslesen -> Beispiel: "path circle(r,n)" wird zu "path|circle|(|r|,|n|)"
 	// ToDo: Wörter Typen zuordnen -> siehe getTokenType
