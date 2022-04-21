@@ -110,6 +110,12 @@ treenode_t *statement(){
 			next();
 			statement->son[2] = expression();
 			return statement;
+		case keyw_clear:
+		case keyw_stop:
+		case keyw_finish:
+			statement->type = token->type;
+			next();
+			return statement;
 	}
 }
 
