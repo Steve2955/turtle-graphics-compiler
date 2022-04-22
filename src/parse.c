@@ -73,6 +73,8 @@ treenode_t *operand(){
 			printf("global name\n");
 			break;
 		case name_math_sin:
+		case name_math_cos:
+		case name_math_tan:
 			a->type = oper_lpar;
 			a->d.p_name = findNameEntry(token->tok);
 			//a->d.p_name. =
@@ -238,7 +240,6 @@ Haupt-Funktion des Parser
 - Lexer liefer Tokenstream
 - Tokenstream wird in Syntax-Baum umgewandelt
 */
-
 treenode_t *parse(void){
 	// Lexer aufrufen -> Tokenstream
 	token = readTokensFromFile(src_file);
