@@ -1,17 +1,18 @@
 
 begin
+    color rand(0,100), rand(0,100), rand(0,100)
     walk sin(90)+1
     jump 1*2
     turn 9*10
-    color 0, 100, 0
+    color rand(0,100), rand(0,100), rand(0,100)
     walk 2^1
     jump 2^2/2
     turn 90
-    color 100, 0,0
+    color rand(0,100), rand(0,100), rand(0,100)
     walk 2
-    jump 2
+    jump sqrt(4)
     turn 90
-    color 0,0,100
+    color rand(0,100), rand(0,100), rand(0,100)
     walk 2
     jump 2
     stop

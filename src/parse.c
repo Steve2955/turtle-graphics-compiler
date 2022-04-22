@@ -75,9 +75,10 @@ treenode_t *operand(){
 		case name_math_sin:
 		case name_math_cos:
 		case name_math_tan:
+		case name_math_sqrt:
+		case name_math_rand:
 			a->type = oper_lpar;
 			a->d.p_name = findNameEntry(token->tok);
-			//a->d.p_name. =
 			next();
 			a = args(a);
 			return a;
