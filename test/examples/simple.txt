@@ -1,6 +1,6 @@
 
 begin
-    walk 1+1
+    walk sin(90)+1
     jump 1*2
     turn 9*10
     color 0, 100, 0

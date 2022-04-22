@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "turtle.h"
 #include "types.h"
 
+treenode_t *expression();
+
 token_t *token;
+
 
 token_t *next() {
 	return token = token->next;
@@ -21,18 +25,62 @@ void expectTokenType(type_t expected, char *error){
 	}
 }
 
+nameentry_t *findNameEntry(char *name){
+	for(int i = 0; i < nameCount; i++){
+		if(strcmp(name, name_tab[i].name) == 0){
+			return &name_tab[i];
+		}
+	}
+	return NULL;
+}
+
+treenode_t *args(treenode_t *f){
+	expectTokenType(oper_lpar, "'(' erwartet");
+	next();
+	int argc = 0;
+	while(token->type != oper_rpar){
+		if(argc >= MAX_ARGS){
+			fprintf(stderr, "Zu viele Argumente\n");
+			exit(EXIT_FAILURE);
+		}
+		treenode_t *a = expression();
+		f->son[argc] = a;
+		argc++;
+		if(token->type == oper_sep){
+			next();
+			continue;
+		}else{
+			expectTokenType(oper_rpar, "')' erwartet");
+		}
+	}
+	next();
+	return f;
+}
 
 // OPERAND ::= [ "-" ] ( "sqrt" | "sin" | "cos" | "tan" "(" EXPR ")" | "(" EXPR ")" | "|" EXPR "|" | "[" EXPR "]" | ZIFFER {ZIFFER} ["." {ZIFFER}] | VAR )
 treenode_t *operand(){
+	treenode_t *a = malloc(sizeof(treenode_t));
 	switch(token->type){
 		case oper_const:
-			treenode_t *a = malloc(sizeof(treenode_t));
 			a->d.val = atof(token->tok);
 			a->type = token->type;
 			next();
 			return a;
-		// ToDo
+		case name_any:
+			printf("any name\n");
+			break;
+		case name_glob:
+			printf("global name\n");
+			break;
+		case name_math_sin:
+			a->type = oper_lpar;
+			a->d.p_name = findNameEntry(token->tok);
+			//a->d.p_name. =
+			next();
+			a = args(a);
+			return a;
 	}
+	printf("unknown type: %d\n", token->type);
 }
 
 // FAKTOR ::= OPERAND [ "^" FAKTOR ]
