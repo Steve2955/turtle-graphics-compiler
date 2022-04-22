@@ -34,6 +34,13 @@ nameentry_t *findNameEntry(char *name){
 	return NULL;
 }
 
+nameentry_t *findVarName(void){
+	nameentry_t *v = findNameEntry(token->tok);
+	// ToDo check for var type
+	return v;
+}
+
+
 treenode_t *args(treenode_t *f){
 	expectTokenType(oper_lpar, "'(' erwartet");
 	next();
@@ -67,11 +74,19 @@ treenode_t *operand(){
 			next();
 			return a;
 		case name_any:
-			printf("any name\n");
-			break;
+			a->type = token->type;
+			nameentry_t *n = findNameEntry(token->tok);
+			n->type = name_var;
+			a->d.p_name = n;
+			next();
+			return a;
 		case name_glob:
-			printf("global name\n");
-			break;
+		case name_var:
+		case name_pvar_ro:
+		case name_pvar_rw:
+			a->d.p_name = findNameEntry(token->tok);
+			next();
+			return a;
 		case name_math_sin:
 		case name_math_cos:
 		case name_math_tan:
@@ -165,6 +180,15 @@ treenode_t *statement(){
 		case keyw_stop:
 		case keyw_finish:
 			statement->type = token->type;
+			next();
+			return statement;
+		case keyw_store:
+			statement->type = token->type;
+			next();
+			statement->son[0] = expression();
+			expectTokenType(keyw_in, "'in' erwartet");
+			next();
+			statement->d.p_name = findVarName();
 			next();
 			return statement;
 	}
