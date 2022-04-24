@@ -34,17 +34,20 @@ type_t getTokenType(char *tok){
 	}
 
 	// check for const number
-	bool hadDot = false; // a const number may contain at most one dot
-	int tokLen = strlen(tok);
-	for(int i =0; i < tokLen; i++){
-		if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
-			hadDot = hadDot || tok[i] == '.';
-		}else{
-			break;
-		}
-		if(i == tokLen-1) return oper_const;
-	}
+	if (tok[0] == '.' || isdigit(tok[0])) {
+		bool hadDot = tok[0] == '.'; // a const number may contain at most one dot
+		int tokLen = strlen(tok);
 
+		for(int i =0; i < tokLen; i++){
+			if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
+				hadDot = hadDot || tok[i] == '.';
+			}else{
+				fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col);
+				exit(EXIT_FAILURE);
+			}
+			if(i == tokLen-1) return oper_const;
+		}
+	}
 
 	// Namenstabelle prüfen
 	for (int i = 0; i < nameCount; i++) {
