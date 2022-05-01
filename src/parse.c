@@ -6,11 +6,13 @@
 #include "types.h"
 
 treenode_t *expression();
+treenode_t *statements();
 
 token_t *token;
 
 
 token_t *next() {
+	if(token->next != NULL) printf("Token: %s\n", token->next->tok);
 	return token = token->next;
 }
 
@@ -191,6 +193,16 @@ treenode_t *statement(){
 			statement->d.p_name = findVarName();
 			next();
 			return statement;
+		case keyw_do:
+			statement->type = token->type;
+			next();
+			statement->son[0] = expression();
+			expectTokenType(keyw_times, "'times' erwartet");
+			next();
+			statement->son[1] = statements();
+			expectTokenType(keyw_done, "'done' erwartet");
+			next();
+			return statement;
 	}
 }
 
@@ -198,8 +210,7 @@ treenode_t *statement(){
 treenode_t *statements(){
 	treenode_t *firstNode = NULL;
 	treenode_t *currentNode = firstNode;
-	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath){
-		printf("Token: %s\n", token->tok);
+	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath  && token->type != keyw_done){
 		treenode_t *newNode = statement();
 		if(newNode == NULL){
 			fprintf(stderr, "Fehler beim Parsen des aktuellen Statements");
