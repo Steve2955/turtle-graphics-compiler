@@ -203,6 +203,36 @@ treenode_t *statement(){
 			expectTokenType(keyw_done, "'done' erwartet");
 			next();
 			return statement;
+		case keyw_counter:
+			statement->type = token->type;
+			next();
+			statement->d.p_name = findVarName();
+			next();
+			expectTokenType(keyw_from, "'from' erwartet");
+			next();
+			statement->son[0] = expression();
+			if(token->type == keyw_downto){
+				next();
+				statement->son[2] = expression();
+				statement->son[1] = NULL;
+			}else if(token->type == keyw_to){
+				next();
+				statement->son[1] = expression();
+				statement->son[2] = NULL;
+			}else{
+				printf("'to' oder 'downto' erwartet\n");
+				exit(EXIT_FAILURE);
+			}
+			if(token->type == keyw_step){
+				next();
+				statement->son[3] = expression();
+			}
+			expectTokenType(keyw_do, "'do' erwartet");
+			next();
+			statement->son[4] = statements();
+			expectTokenType(keyw_done, "'done' erwartet");
+			next();
+			return statement;
 	}
 }
 
