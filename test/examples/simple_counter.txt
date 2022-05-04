@@ -1,0 +1,22 @@
+begin
+    store 10 in @delay
+    color 0,0,100
+    do 10 times
+        counter i from 0 to 20 step .1 do
+            walk i
+            turn 90
+        done
+        store @green in tg
+        store @red in tr
+        store @blue in tb
+        color 0,0,0
+        turn 90
+        counter i from 19.9 downto 0 step .1 do
+            walk i
+            turn left 90
+        done
+        clear
+        color tb, tr, tg
+    done
+    finish
+end

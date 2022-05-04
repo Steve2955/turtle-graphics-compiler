@@ -700,7 +700,5 @@ void evaluate(const treenode_t *main_tree, int arg_cnt, const char *arg_val[])
 
   slist(main_tree);
 
-  // we want to see some results
-  sdlMilliSleep(5000);
-  //end_prog();
+  end_prog();
 }

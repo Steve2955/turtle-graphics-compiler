@@ -1,0 +1,7 @@
+begin
+    do 100 times
+        walk 5
+        turn 85
+    done
+    stop
+end

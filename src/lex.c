@@ -35,10 +35,10 @@ type_t getTokenType(char *tok){
 
 	// check for const number
 	if (tok[0] == '.' || isdigit(tok[0])) {
-		bool hadDot = tok[0] == '.'; // a const number may contain at most one dot
+		bool hadDot = false; // a const number may contain at most one dot
 		int tokLen = strlen(tok);
 
-		for(int i =0; i < tokLen; i++){
+		for(int i = 0; i < tokLen; i++){
 			if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
 				hadDot = hadDot || tok[i] == '.';
 			}else{
