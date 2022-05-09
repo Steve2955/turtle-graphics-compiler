@@ -7,8 +7,11 @@ begin
     turn a
     div a by 9
     walk a
+    mark
     turn 90
     sub 5 from a
     walk a
+    jump home
+    walk mark
     stop
 end
