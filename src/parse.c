@@ -7,6 +7,7 @@
 
 treenode_t *expression();
 treenode_t *statements();
+treenode_t *condition();
 
 token_t *token;
 
@@ -129,6 +130,72 @@ treenode_t *term(){
 	return a;
 }
 
+treenode_t *val(){
+	treenode_t *a = malloc(sizeof(treenode_t));
+	if(token->type == oper_lpar){
+		next();
+		a = condition();
+		expectTokenType(oper_rpar, "')' erwartet");
+		next();
+		return a;
+	}
+	if(token->type == keyw_not){
+		a->type = token->type;
+		next();
+		a->son[0] = val();
+		a->pos = token->pos;
+		return a;
+	}
+	a = expression();
+	a->pos = token->pos;
+	switch(token->type){
+		case oper_equ:
+		case oper_nequ:
+		case oper_less:
+		case oper_lequ:
+		case oper_grtr:
+		case oper_gequ:
+			treenode_t *b = malloc(sizeof(treenode_t));
+			b->type = token->type;
+			b->pos = token->pos;
+			next();
+			b->son[0] = a;
+			b->son[1] = expression();
+			return b;
+		break;
+		default:
+			printf("Operator expected\n");
+			exit(EXIT_FAILURE);
+	}
+	printf("ERROR buildung val\n");
+}
+
+treenode_t *and(){
+	treenode_t *a = val();
+	while(token->type == keyw_and){
+		treenode_t *b = malloc(sizeof(treenode_t));
+		b->type = token->type;
+		next();
+		b->son[0] = a;
+		b->son[1] = val();
+		a = b;
+	}
+	return a;
+}
+
+
+treenode_t *condition(){
+	treenode_t *a = and();
+	while (token->type == keyw_or) {
+		treenode_t *b = malloc(sizeof(treenode_t));
+		b->type = token->type;
+		next();
+		b->son[0] = a;
+		b->son[1] = and();
+		a = b;
+	}
+	return a;
+}
 
 // EXPR ::= TERM(a) { ( "-" | "+" ) TERM(b) }
 treenode_t *expression(){
@@ -233,6 +300,23 @@ treenode_t *statement(){
 			expectTokenType(keyw_done, "'done' erwartet");
 			next();
 			return statement;
+		case keyw_if:
+			statement->type = token->type;
+			next();
+			statement->son[0] = condition();
+			expectTokenType(keyw_then, "'then' erwartet");
+			next();
+			statement->son[1] = statements();
+			if(token->type == keyw_else){
+				next();
+				statement->son[2] = statements();
+			}else{
+				statement->son[2] = NULL;
+			}
+			expectTokenType(keyw_endif, "'endif' erwartet");
+			printf("if statement done\n");
+			next();
+			return statement;
 	}
 }
 
@@ -240,7 +324,7 @@ treenode_t *statement(){
 treenode_t *statements(){
 	treenode_t *firstNode = NULL;
 	treenode_t *currentNode = firstNode;
-	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath  && token->type != keyw_done){
+	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath  && token->type != keyw_done && token->type != keyw_endif && token->type != keyw_else){
 		treenode_t *newNode = statement();
 		if(newNode == NULL){
 			fprintf(stderr, "Fehler beim Parsen des aktuellen Statements");
@@ -248,6 +332,7 @@ treenode_t *statements(){
 		}
 		if(firstNode == NULL){
 			currentNode = firstNode = newNode;
+			currentNode->next = NULL;
 		} else {
 			currentNode->next = newNode;
 			currentNode = newNode;
