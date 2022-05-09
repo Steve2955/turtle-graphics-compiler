@@ -1,0 +1,21 @@
+begin
+    if (5 > 0) and (27 < 90) then
+        color 0,100,0
+    else
+        color 100,0,0
+    endif
+    store 0 in a
+    "while a < 20 do
+    repeat
+        walk 5
+        turn 90
+        walk 0.1
+        turn 90
+        walk 5
+        turn left 90
+        walk 0.1
+        turn left 90
+        store a+1 in a
+    until a > 20
+    stop
+end
