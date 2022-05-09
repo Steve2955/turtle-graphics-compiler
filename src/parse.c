@@ -198,6 +198,30 @@ treenode_t *statement(){
 			statement->d.p_name = findVarName();
 			next();
 			return statement;
+		case keyw_add:
+		case keyw_sub:
+			statement->type = token->type;
+			next();
+			statement->son[0] = expression();
+			if(statement->type == keyw_add){
+				expectTokenType(keyw_to, "'to' erwartet");
+			}else{
+				expectTokenType(keyw_from, "'from' erwartet");
+			}
+			next();
+			statement->d.p_name = findVarName();
+			next();
+			return statement;
+		case keyw_mul:
+		case keyw_div:
+			statement->type = token->type;
+			next();
+			statement->d.p_name = findVarName();
+			next();
+			expectTokenType(keyw_by, "'by' erwartet");
+			next();
+			statement->son[0] = expression();
+			return statement;
 		case keyw_do:
 			statement->type = token->type;
 			next();
