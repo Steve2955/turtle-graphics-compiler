@@ -167,6 +167,11 @@ treenode_t *statement(){
 			}
 			statement->son[0] = expression();
 			return statement;
+		case keyw_direction:
+			next();
+			statement->type = keyw_direction;
+			statement->son[0] = expression();
+			return statement;
 		case keyw_color:
 			statement->type = token->type;
 			next();
