@@ -4,8 +4,9 @@ begin
     else
         color 100,0,0
     endif
-
-    do 40 times
+    store 0 in a
+    "while a < 20 do
+    repeat
         walk 5
         turn 90
         walk 0.1
@@ -14,6 +15,7 @@ begin
         turn left 90
         walk 0.1
         turn left 90
-        done
+        store a+1 in a
+    until a > 20
     stop
 end

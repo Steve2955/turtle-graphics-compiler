@@ -317,14 +317,35 @@ treenode_t *statement(){
 			printf("if statement done\n");
 			next();
 			return statement;
+		case keyw_while:
+			statement->type = token->type;
+			next();
+			statement->son[0] = condition();
+			expectTokenType(keyw_do, "'do' erwartet");
+			next();
+			statement->son[1] = statements();
+			expectTokenType(keyw_done, "'done' erwartet");
+			next();
+			return statement;
+		case keyw_repeat:
+			statement->type = token->type;
+			next();
+			statement->son[1] = statements();
+			expectTokenType(keyw_until, "'until' erwartet");
+			next();
+			statement->son[0] = condition();
+			printf("repeat statement done\n");
+			if(token->type == keyw_stop) printf("repeat statement with stop\n");
+			return statement;
 	}
+	printf("statement not found\n");
 }
 
 // STATEMENTS ::= STATEMENT { STATEMENT }
 treenode_t *statements(){
 	treenode_t *firstNode = NULL;
 	treenode_t *currentNode = firstNode;
-	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath  && token->type != keyw_done && token->type != keyw_endif && token->type != keyw_else){
+	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath  && token->type != keyw_done && token->type != keyw_endif && token->type != keyw_else && token->type != keyw_until){
 		treenode_t *newNode = statement();
 		if(newNode == NULL){
 			fprintf(stderr, "Fehler beim Parsen des aktuellen Statements");
