@@ -152,8 +152,20 @@ treenode_t *statement(){
 		case keyw_jump:
 			statement->type = token->type;
 			next();
-			statement->d.walk = keyw_walk;
-			statement->son[0] = expression();
+			if(token->type == keyw_mark){
+				statement->d.walk = keyw_mark;
+				next();
+			}else if(token->type == keyw_home){
+				statement->d.walk = keyw_home;
+				next();
+			}else if(token->type == keyw_back){
+				statement->d.walk = keyw_back;
+				next();
+				statement->son[0] = expression();
+			}else{
+				statement->d.walk = keyw_walk;
+				statement->son[0] = expression();
+			}
 			return statement;
 		case keyw_turn:
 			next();
@@ -165,6 +177,11 @@ treenode_t *statement(){
 				// turn "right" is optional
 				if (token->type == keyw_right) next();
 			}
+			statement->son[0] = expression();
+			return statement;
+		case keyw_direction:
+			next();
+			statement->type = keyw_direction;
 			statement->son[0] = expression();
 			return statement;
 		case keyw_color:
@@ -191,6 +208,34 @@ treenode_t *statement(){
 			expectTokenType(keyw_in, "'in' erwartet");
 			next();
 			statement->d.p_name = findVarName();
+			next();
+			return statement;
+		case keyw_add:
+		case keyw_sub:
+			statement->type = token->type;
+			next();
+			statement->son[0] = expression();
+			if(statement->type == keyw_add){
+				expectTokenType(keyw_to, "'to' erwartet");
+			}else{
+				expectTokenType(keyw_from, "'from' erwartet");
+			}
+			next();
+			statement->d.p_name = findVarName();
+			next();
+			return statement;
+		case keyw_mul:
+		case keyw_div:
+			statement->type = token->type;
+			next();
+			statement->d.p_name = findVarName();
+			next();
+			expectTokenType(keyw_by, "'by' erwartet");
+			next();
+			statement->son[0] = expression();
+			return statement;
+		case keyw_mark:
+			statement->type = token->type;
 			next();
 			return statement;
 		case keyw_do:

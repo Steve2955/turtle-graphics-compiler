@@ -1,0 +1,17 @@
+
+begin
+    store 0 in a
+    add 5 to a
+    walk a
+    mul a by 18
+    turn a
+    div a by 9
+    walk a
+    mark
+    turn 90
+    sub 5 from a
+    walk a
+    jump home
+    walk mark
+    stop
+end

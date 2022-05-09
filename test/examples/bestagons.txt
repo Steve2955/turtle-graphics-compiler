@@ -1,5 +1,6 @@
 begin
     color 100,100,100
+    direction 22 * 10 + sin(0)
     walk 3
     turn 360/6
     walk 3
