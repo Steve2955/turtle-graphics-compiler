@@ -9,18 +9,21 @@ treenode_t *expression();
 treenode_t *statements();
 treenode_t *condition();
 
+// aktueller Token
 token_t *token;
 
-
+// aktuellen Token auf den Nächsten setzen
 token_t *next() {
 	if(token->next != NULL) printf("Token: %s\n", token->next->tok);
 	return token = token->next;
 }
 
+// aktuellen Token auf den Vorherigen setzen
 token_t *prev() {
 	return token = token->prev;
 }
 
+// Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht -> Fehlermeldung + Programmabbruch wenn nicht
 void expectTokenType(type_t expected, char *error){
 	if(token == NULL || token->type != expected){
 		fprintf(stderr, "Unerwarteter Token-Typ: %s\n", error);
@@ -28,6 +31,7 @@ void expectTokenType(type_t expected, char *error){
 	}
 }
 
+// Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung -> normalerweise sind Hashtables üblich)
 nameentry_t *findNameEntry(char *name){
 	for(int i = 0; i < nameCount; i++){
 		if(strcmp(name, name_tab[i].name) == 0){
@@ -37,13 +41,14 @@ nameentry_t *findNameEntry(char *name){
 	return NULL;
 }
 
+// Namenseintrag des aktuellen Token in der Namenstabelle suchen
 nameentry_t *findVarName(void){
 	nameentry_t *v = findNameEntry(token->tok);
 	// ToDo check for var type
 	return v;
 }
 
-
+// Parsen von Argument-Listen
 treenode_t *args(treenode_t *f){
 	expectTokenType(oper_lpar, "'(' erwartet");
 	next();
@@ -67,7 +72,7 @@ treenode_t *args(treenode_t *f){
 	return f;
 }
 
-// OPERAND ::= [ "-" ] ( "sqrt" | "sin" | "cos" | "tan" "(" EXPR ")" | "(" EXPR ")" | "|" EXPR "|" | "[" EXPR "]" | ZIFFER {ZIFFER} ["." {ZIFFER}] | VAR )
+// Parsen von Operanden
 treenode_t *operand(){
 	treenode_t *a = malloc(sizeof(treenode_t));
 	switch(token->type){
@@ -104,7 +109,7 @@ treenode_t *operand(){
 	printf("unknown type: %d\n", token->type);
 }
 
-// FAKTOR ::= OPERAND [ "^" FAKTOR ]
+// Parsen von Faktoren
 treenode_t *faktor(){
 	treenode_t *a = operand();
 	if(token->type != oper_pow) return a;
@@ -116,7 +121,7 @@ treenode_t *faktor(){
 	return pow;
 }
 
-/// TERM ::= FAKTOR(a) { ( "*" | "/" ) FAKTOR(b) }
+/// Parsen von Termen
 treenode_t *term(){
 	treenode_t *a = faktor();
 	while(token->type == oper_mul || token->type == oper_div){
@@ -130,6 +135,7 @@ treenode_t *term(){
 	return a;
 }
 
+// Parsen von Wahrheitswerten (ToDo)
 treenode_t *val(){
 	treenode_t *a = malloc(sizeof(treenode_t));
 	if(token->type == oper_lpar){
@@ -170,6 +176,7 @@ treenode_t *val(){
 	printf("ERROR buildung val\n");
 }
 
+// Parsen logischer UND-Ausdrücke
 treenode_t *and(){
 	treenode_t *a = val();
 	while(token->type == keyw_and){
@@ -183,7 +190,7 @@ treenode_t *and(){
 	return a;
 }
 
-
+// Parsen logischer Ausdrücke
 treenode_t *condition(){
 	treenode_t *a = and();
 	while (token->type == keyw_or) {
@@ -197,7 +204,7 @@ treenode_t *condition(){
 	return a;
 }
 
-// EXPR ::= TERM(a) { ( "-" | "+" ) TERM(b) }
+// Parsen von mathematischen Ausdrücken
 treenode_t *expression(){
 	treenode_t *a = term();
 	while ((token->type == oper_add) || (token->type == oper_sub)) {
@@ -212,6 +219,7 @@ treenode_t *expression(){
 	return a;
 }
 
+// Parsen einzelner Anweisungen
 treenode_t *statement(){
 	treenode_t *statement = malloc(sizeof(treenode_t));
 	switch(token->type){
@@ -386,7 +394,7 @@ treenode_t *statement(){
 	printf("statement not found\n");
 }
 
-// STATEMENTS ::= STATEMENT { STATEMENT }
+// Parsen einer Liste von Anweisungen
 treenode_t *statements(){
 	treenode_t *firstNode = NULL;
 	treenode_t *currentNode = firstNode;
