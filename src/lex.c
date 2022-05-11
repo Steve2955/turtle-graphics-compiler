@@ -198,6 +198,7 @@ token_t *readTokensFromFile(FILE *file){
 				addToken(buf, type);
 				// Spalte aktualisieren
 				col++;
+				continue;
 			}
 
 			// Sonderzeichen als Token hinzufügen
