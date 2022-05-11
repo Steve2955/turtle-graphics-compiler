@@ -1,4 +1,3 @@
-// ToDo
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -12,6 +11,10 @@ int row, col;
 static srcpos_t tok_pos;
 static srcpos_t prev_tok_pos;
 
+/// Den Typen des geschriebenen Tokens bestimmen und ausgeben.
+/// Mittels if-Abfragen wird das char *tok auf den Inhalt geprüft um diesen daraufhin als type_t zurückzugeben
+/// @param *tok ist ein vom Programm eingegebener Token, den es zu interpretieren gilt.
+/// @return type_t ist der vordefinierte Typ des eingegebenen Tokens.
 type_t getTokenType(char *tok){
 	// check for operator-types
 	if (tok[0] == '^') return oper_pow;
@@ -91,11 +94,17 @@ type_t getTokenType(char *tok){
 token_t *firstTok;
 token_t *currentTok;
 
+/// Den Tokenstream initialisieren.
+/// Dient der dynamischen Reservierung des Speicherplatzes für Tokens.
 void initTokenStream(){
 	firstTok = currentTok = malloc(sizeof(token_t));
 	firstTok->tok = (char *) (firstTok->prev = firstTok->next = NULL);
 }
 
+/// Der Liste einen Token hinzufügen.
+/// Für jeden Token wir dynamisch Speicher reserviert, die Listen Pointer gewechselt und der Liste mit allen Daten hinzugefügt.
+/// @param *tok als der aktuell eingelesene Token. 
+/// @param type als der Typ des Tokens.
 void addToken(char *tok, type_t type){
 	// some logging
 	printf("Token: \"%s\" (%d:%d) \n", tok ? tok : "NONE", row, col);
@@ -117,16 +126,26 @@ void addToken(char *tok, type_t type){
 	currentTok = tokPtr;
 }
 
+/// Tokenreihenfolge tauschen.
+/// genutzt, um kombinierte Sonderzeichen für den Parser richtig anzuordnen.
 void revertToken(){
 	currentTok = currentTok->prev;
 	free(currentTok->next);
 	currentTok->next = NULL;
 }
 
+///Prüfen, ob ein character ein Sonderzeichen ist.
+///Es wird nach den Zeichen ( ) , + - * / ^ | = geprüft.
+///@param c ist das aktuell betrachtete Zeichen eines Tokens.
+/// @return insofern ein Sonderzeichen gefunden wird, wird true zurückgegeben.
 bool isSpecial(char c){
 	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|' || c == '=';
 }
 
+///Token des Programmes werden eingelesen.
+///solange kein EOF erreicht wird liest die Funktion jedes Zeichen ein und prüft den Input, ob es Sonderzeichen, welcher Typ das eingelesene Token hat und fügt es zuletzt dem TokenStream hinzu.
+/// @param file liest das geschriebene Programm als Datei ein.
+/// @return token_t ist die Liste aller im Programm vorhandenen Token
 token_t *readTokensFromFile(FILE *file){
 	row = col = 1;
 	// Buffer for current token
@@ -168,7 +187,6 @@ token_t *readTokensFromFile(FILE *file){
 			// das Sonderzeichen selbst ist ein Token und muss behandelt werden
 
 			// kombinierte Sonderzeichen ("<=", ">=") werden zu einem Token zusammengefasst
-			// ToDo: gibt es noch mehr zusammengesetzte Operatoren?
 			if((lastC == '>' || lastC == '<') && c == '='){
 				revertToken(); //ToDo
 				// Buffer befüllen
@@ -218,9 +236,6 @@ token_t *readTokensFromFile(FILE *file){
 
 	addToken(NULL, tok_bofeof);
 
-	// ToDo: einzelne Wörter auslesen -> Beispiel: "path circle(r,n)" wird zu "path|circle|(|r|,|n|)"
-	// ToDo: Wörter Typen zuordnen -> siehe getTokenType
-	// ToDo: Tokenliste verketten und zurückgeben
 	free(buf);
 	return firstTok;
 }
