@@ -460,11 +460,11 @@ treenode_t *program(){
 	return prog;
 }
 
-/*
-Haupt-Funktion des Parser
-- Lexer liefer Tokenstream
-- Tokenstream wird in Syntax-Baum umgewandelt
-*/
+/// Hauptfunktion des Parser.
+/// Aufruf des Lexers, der eine bereits geöffnete Eingabe-Datei in einen Tokenstream ließt. Der Tokenstream wird danach zu einem Syntaxbaum umgewandelt.
+/// @param *src_file Bereits geöffnete Eingabedatei
+/// @return Die Funktion gibt einen Pointer auf den ersten Token zurück
+/// @attention Die übergebene Eingabedatei muss bereits geöffnet sein!
 treenode_t *parse(void){
 	// Lexer aufrufen -> Tokenstream
 	token = readTokensFromFile(src_file);
