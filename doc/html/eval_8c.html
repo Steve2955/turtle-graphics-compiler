@@ -1,0 +1,2621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Turtle Graphics Compiler: src/eval.c-Dateireferenz</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Turtle Graphics Compiler<span id="projectnumber">&#160;v0.9</span>
+   </div>
+   <div id="projectbrief">Einfache &quot;Programmiersprache&quot; für Einsteiger</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Suchen','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Suchen');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('eval_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Datenstrukturen</a> &#124;
+<a href="#define-members">Makrodefinitionen</a> &#124;
+<a href="#func-members">Funktionen</a> &#124;
+<a href="#var-members">Variablen</a>  </div>
+  <div class="headertitle"><div class="title">eval.c-Dateireferenz</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="turtle_8h_source.html">turtle.h</a>&quot;</code><br />
+<code>#include &quot;sdl/sdlinterf.h&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include-Abhängigkeitsdiagramm für eval.c:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c__incl.png" border="0" usemap="#asrc_2eval_8c" alt=""/></div>
+<map name="asrc_2eval_8c" id="asrc_2eval_8c">
+<area shape="rect" title=" " alt="" coords="219,5,297,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,68,107"/>
+<area shape="rect" title=" " alt="" coords="92,80,155,107"/>
+<area shape="rect" title=" " alt="" coords="179,80,247,107"/>
+<area shape="rect" title=" " alt="" coords="271,80,339,107"/>
+<area shape="rect" href="turtle_8h.html" title=" " alt="" coords="363,80,425,107"/>
+<area shape="rect" title=" " alt="" coords="449,80,549,107"/>
+<area shape="rect" title=" " alt="" coords="321,155,381,181"/>
+<area shape="rect" href="types_8h.html" title=" " alt="" coords="405,155,468,181"/>
+<area shape="rect" title=" " alt="" coords="399,229,474,256"/>
+</map>
+</div>
+</div>
+<p><a href="eval_8c_source.html">gehe zum Quellcode dieser Datei</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Datenstrukturen</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structvstack__elem__t.html">vstack_elem_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmstack__elem__t.html">mstack_elem_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makrodefinitionen</h2></td></tr>
+<tr class="memitem:a525335710b53cb064ca56b936120431e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a525335710b53cb064ca56b936120431e">_USE_MATH_DEFINES</a></td></tr>
+<tr class="separator:a525335710b53cb064ca56b936120431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d23feea868a983c8c2b661e1e16972f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a8d23feea868a983c8c2b661e1e16972f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfbc006ea433ad708fdee3e82996e721"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#acfbc006ea433ad708fdee3e82996e721">GREEN</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:acfbc006ea433ad708fdee3e82996e721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d10e672abb49ad63eeaa8aaef57c38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a79d10e672abb49ad63eeaa8aaef57c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898606140dee9ce0adf096de00824d94"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a898606140dee9ce0adf096de00824d94">MAX_X</a>&#160;&#160;&#160;20.0</td></tr>
+<tr class="separator:a898606140dee9ce0adf096de00824d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a985cc18be96dda7f59fd0400725e4aef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a985cc18be96dda7f59fd0400725e4aef">MAX_Y</a>&#160;&#160;&#160;((<a class="el" href="eval_8c.html#a898606140dee9ce0adf096de00824d94">MAX_X</a> / SDL_X_SIZE) * SDL_Y_SIZE)</td></tr>
+<tr class="separator:a985cc18be96dda7f59fd0400725e4aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf858bdf004589284becf8ab00cc2760"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#acf858bdf004589284becf8ab00cc2760">WALK_DELAY</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:acf858bdf004589284becf8ab00cc2760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad521277149fee98a18d5f66c7e8d1f17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ad521277149fee98a18d5f66c7e8d1f17">END_DELAY</a>&#160;&#160;&#160;2000</td></tr>
+<tr class="separator:ad521277149fee98a18d5f66c7e8d1f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3afff225364d8bab65b41401048edeb3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a3afff225364d8bab65b41401048edeb3">STACK_INIT_SIZE</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a3afff225364d8bab65b41401048edeb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9a08fde405d94d30f80e4860e21c5c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa9a08fde405d94d30f80e4860e21c5c1">MARK_INIT_SIZE</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:aa9a08fde405d94d30f80e4860e21c5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a5d44ae5aa9326005cd76588b7724e2ac"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac">expr</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t)</td></tr>
+<tr class="separator:a5d44ae5aa9326005cd76588b7724e2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7255fc522dbc6c7f45f35843550b05b4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4">cond</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t)</td></tr>
+<tr class="separator:a7255fc522dbc6c7f45f35843550b05b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe074caebef01ff0146927c0532f3cc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc">slist</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t)</td></tr>
+<tr class="separator:a7fe074caebef01ff0146927c0532f3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa06fe04b80d6180cb9acd5fd690ac85c"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c">to_rad</a> (double x)</td></tr>
+<tr class="separator:aa06fe04b80d6180cb9acd5fd690ac85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7ffe4f84ea1dbac0b574e8b1e4d4993"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993">to_range</a> (double x)</td></tr>
+<tr class="separator:aa7ffe4f84ea1dbac0b574e8b1e4d4993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a832d147ee2154a80d30fd12353e319fa"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa">to_color</a> (double x)</td></tr>
+<tr class="separator:a832d147ee2154a80d30fd12353e319fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92928de2d53b21833e34f26f7f0af954"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954">to_x_pixel</a> (double x, int *xp)</td></tr>
+<tr class="separator:a92928de2d53b21833e34f26f7f0af954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f54fee4dbbc785f0ff811e551aa8747"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747">to_y_pixel</a> (double y, int *yp)</td></tr>
+<tr class="separator:a1f54fee4dbbc785f0ff811e551aa8747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa103be58b5070ecf4ec1830622825659"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659">walk</a> (double x, double y, <a class="el" href="types_8h.html#adee610a3c7375031538811d29f6a4124">type_t</a> t)</td></tr>
+<tr class="separator:aa103be58b5070ecf4ec1830622825659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c848bb9d6463b31dfc78522dd72f240"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240">eps_equal</a> (double x, double y)</td></tr>
+<tr class="separator:a3c848bb9d6463b31dfc78522dd72f240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3026b52aea751bf20e8674665206cd89"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89">end_prog</a> (void)</td></tr>
+<tr class="separator:a3026b52aea751bf20e8674665206cd89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ecdc7854271564169ca61956b2f15c"><td class="memItemLeft" align="right" valign="top">static double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c">var_ptr</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t, bool ro)</td></tr>
+<tr class="separator:ac7ecdc7854271564169ca61956b2f15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a711e3a83547cbf5cda6e8cc7f6ffc0c4"><td class="memItemLeft" align="right" valign="top">static double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4">set_var</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t, const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *exp)</td></tr>
+<tr class="separator:a711e3a83547cbf5cda6e8cc7f6ffc0c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fd4e53662d3e450f3f3a82facc51e09"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a7fd4e53662d3e450f3f3a82facc51e09">init_stack</a> (void)</td></tr>
+<tr class="separator:a7fd4e53662d3e450f3f3a82facc51e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21616ef7b9f6694d3ba523226213755e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e">push</a> (const <a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a> *<a class="el" href="parse_8c.html#a66e534895dc627672543e3dca09a168b">var</a>, double <a class="el" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc">val</a>, const <a class="el" href="types_8h.html#a60d3344e4c9a873b6f669e194c1df6e0">srcpos_t</a> *pos)</td></tr>
+<tr class="separator:a21616ef7b9f6694d3ba523226213755e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a61906d96f528029b8d36cba50e310"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310">param_cnt</a> (const <a class="el" href="types_8h.html#af27ab4bf7b8dd35c75bd814d9f2ad310">funcdef_t</a> *f)</td></tr>
+<tr class="separator:ae3a61906d96f528029b8d36cba50e310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ce05a41106efc725cca6ddc134712c5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5">check_arg_cnt</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t, int expected)</td></tr>
+<tr class="separator:a7ce05a41106efc725cca6ddc134712c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae26c99fcd5b82d115189b1122f5d0a0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0">start_call</a> (const <a class="el" href="types_8h.html#af27ab4bf7b8dd35c75bd814d9f2ad310">funcdef_t</a> *f, const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t)</td></tr>
+<tr class="separator:aae26c99fcd5b82d115189b1122f5d0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae727d4a925aff0911bbdd4510770a609"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609">end_call</a> (void)</td></tr>
+<tr class="separator:ae727d4a925aff0911bbdd4510770a609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7678808a3b57ca1539a03201cec88be"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be">fcall</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t)</td></tr>
+<tr class="separator:ac7678808a3b57ca1539a03201cec88be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1207df5be5fcfe8e47e9c54abadbed96"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96">pcall</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *t)</td></tr>
+<tr class="separator:a1207df5be5fcfe8e47e9c54abadbed96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dec4868333edc06d3d86f33e77258bc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a2dec4868333edc06d3d86f33e77258bc">init_marks</a> (void)</td></tr>
+<tr class="separator:a2dec4868333edc06d3d86f33e77258bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a141611acf81cb4595d1f48458dd1d343"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343">push_mark</a> (const <a class="el" href="types_8h.html#a60d3344e4c9a873b6f669e194c1df6e0">srcpos_t</a> *pos)</td></tr>
+<tr class="separator:a141611acf81cb4595d1f48458dd1d343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c4b9ecc642a069b47f478715506366b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b">pop_mark</a> (void)</td></tr>
+<tr class="separator:a0c4b9ecc642a069b47f478715506366b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c097f69f3e7ad2b6d18a5cd45edfd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3">evaluate</a> (const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *main_tree, int arg_cnt, const char *arg_val[])</td></tr>
+<tr class="separator:a33c097f69f3e7ad2b6d18a5cd45edfd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variablen</h2></td></tr>
+<tr class="memitem:acc21922fdffdeff5b75313613e3b13ba"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#acc21922fdffdeff5b75313613e3b13ba">g_dir</a> = 0</td></tr>
+<tr class="separator:acc21922fdffdeff5b75313613e3b13ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a969e245a29666ed0ade7151bbc3eb644"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a969e245a29666ed0ade7151bbc3eb644">g_dist</a> = 0</td></tr>
+<tr class="separator:a969e245a29666ed0ade7151bbc3eb644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b528247d00267f53e2843ad01d84060"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a4b528247d00267f53e2843ad01d84060">g_x</a> = 0</td></tr>
+<tr class="separator:a4b528247d00267f53e2843ad01d84060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb9558f61fa4c50c6349aa6906ec56d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aecb9558f61fa4c50c6349aa6906ec56d">g_y</a> = 0</td></tr>
+<tr class="separator:aecb9558f61fa4c50c6349aa6906ec56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ac2b6a0edbe6a70d5a3ba92ba1e58f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ac3ac2b6a0edbe6a70d5a3ba92ba1e58f">g_args</a> [10]</td></tr>
+<tr class="separator:ac3ac2b6a0edbe6a70d5a3ba92ba1e58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a211fce067293aedcef59aad95b77fa47"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a211fce067293aedcef59aad95b77fa47">g_pi</a> = M_PI</td></tr>
+<tr class="separator:a211fce067293aedcef59aad95b77fa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89ec009d6c2aa6a61d67f4e9aed2b8e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ab89ec009d6c2aa6a61d67f4e9aed2b8e">g_max_x</a> = <a class="el" href="eval_8c.html#a898606140dee9ce0adf096de00824d94">MAX_X</a></td></tr>
+<tr class="separator:ab89ec009d6c2aa6a61d67f4e9aed2b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4083a624a13d1cfcec0ea41011b0f5af"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a4083a624a13d1cfcec0ea41011b0f5af">g_max_y</a> = <a class="el" href="eval_8c.html#a985cc18be96dda7f59fd0400725e4aef">MAX_Y</a></td></tr>
+<tr class="separator:a4083a624a13d1cfcec0ea41011b0f5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40c10c0b4a22802c40ca102801f9060f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a40c10c0b4a22802c40ca102801f9060f">g_delay</a> = <a class="el" href="eval_8c.html#acf858bdf004589284becf8ab00cc2760">WALK_DELAY</a></td></tr>
+<tr class="separator:a40c10c0b4a22802c40ca102801f9060f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fce042b0f70dc3f3d40330e2dc50545"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a4fce042b0f70dc3f3d40330e2dc50545">g_red</a> = <a class="el" href="eval_8c.html#a8d23feea868a983c8c2b661e1e16972f">RED</a></td></tr>
+<tr class="separator:a4fce042b0f70dc3f3d40330e2dc50545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65593e02dbe02713c16fe2179e8705c1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a65593e02dbe02713c16fe2179e8705c1">g_green</a> = <a class="el" href="eval_8c.html#acfbc006ea433ad708fdee3e82996e721">GREEN</a></td></tr>
+<tr class="separator:a65593e02dbe02713c16fe2179e8705c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a241cecf332a8fd8c54b89818eef9776f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a241cecf332a8fd8c54b89818eef9776f">g_blue</a> = <a class="el" href="eval_8c.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a></td></tr>
+<tr class="separator:a241cecf332a8fd8c54b89818eef9776f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709ef4230f55bf35d76f082baa1da7c6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structvstack__elem__t.html">vstack_elem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a709ef4230f55bf35d76f082baa1da7c6">stack</a> = NULL</td></tr>
+<tr class="separator:a709ef4230f55bf35d76f082baa1da7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9623f590dcc7491fcf89d2deceb0f72"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structvstack__elem__t.html">vstack_elem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#ac9623f590dcc7491fcf89d2deceb0f72">stack_top</a> = NULL</td></tr>
+<tr class="separator:ac9623f590dcc7491fcf89d2deceb0f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c7ce253e4389a6a441cb7dfa7f69cba"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structvstack__elem__t.html">vstack_elem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a6c7ce253e4389a6a441cb7dfa7f69cba">stack_end</a> = NULL</td></tr>
+<tr class="separator:a6c7ce253e4389a6a441cb7dfa7f69cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e9b68866031a5c08b656bffcae9243"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structmstack__elem__t.html">mstack_elem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a66e9b68866031a5c08b656bffcae9243">first_mark</a> = NULL</td></tr>
+<tr class="separator:a66e9b68866031a5c08b656bffcae9243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7138c6cb84ce5690041c19600d90b44d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structmstack__elem__t.html">mstack_elem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a7138c6cb84ce5690041c19600d90b44d">top_mark</a> = NULL</td></tr>
+<tr class="separator:a7138c6cb84ce5690041c19600d90b44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa38612ba034317dd86e08ffc7a273919"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structmstack__elem__t.html">mstack_elem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#aa38612ba034317dd86e08ffc7a273919">end_marks</a> = NULL</td></tr>
+<tr class="separator:aa38612ba034317dd86e08ffc7a273919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758143639e426873a9362d02744fc174"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="types_8h.html#a60d3344e4c9a873b6f669e194c1df6e0">srcpos_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="eval_8c.html#a758143639e426873a9362d02744fc174">startpos</a> = { 1, 1 }</td></tr>
+<tr class="separator:a758143639e426873a9362d02744fc174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Makro-Dokumentation</h2>
+<a id="a525335710b53cb064ca56b936120431e" name="a525335710b53cb064ca56b936120431e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525335710b53cb064ca56b936120431e">&#9670;&nbsp;</a></span>_USE_MATH_DEFINES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _USE_MATH_DEFINES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00007">7</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="a79d10e672abb49ad63eeaa8aaef57c38" name="a79d10e672abb49ad63eeaa8aaef57c38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79d10e672abb49ad63eeaa8aaef57c38">&#9670;&nbsp;</a></span>BLUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BLUE&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00021">21</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="ad521277149fee98a18d5f66c7e8d1f17" name="ad521277149fee98a18d5f66c7e8d1f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad521277149fee98a18d5f66c7e8d1f17">&#9670;&nbsp;</a></span>END_DELAY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define END_DELAY&#160;&#160;&#160;2000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00031">31</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="acfbc006ea433ad708fdee3e82996e721" name="acfbc006ea433ad708fdee3e82996e721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfbc006ea433ad708fdee3e82996e721">&#9670;&nbsp;</a></span>GREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GREEN&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00020">20</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="aa9a08fde405d94d30f80e4860e21c5c1" name="aa9a08fde405d94d30f80e4860e21c5c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9a08fde405d94d30f80e4860e21c5c1">&#9670;&nbsp;</a></span>MARK_INIT_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MARK_INIT_SIZE&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00072">72</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="a898606140dee9ce0adf096de00824d94" name="a898606140dee9ce0adf096de00824d94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a898606140dee9ce0adf096de00824d94">&#9670;&nbsp;</a></span>MAX_X</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_X&#160;&#160;&#160;20.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00025">25</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="a985cc18be96dda7f59fd0400725e4aef" name="a985cc18be96dda7f59fd0400725e4aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985cc18be96dda7f59fd0400725e4aef">&#9670;&nbsp;</a></span>MAX_Y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_Y&#160;&#160;&#160;((<a class="el" href="eval_8c.html#a898606140dee9ce0adf096de00824d94">MAX_X</a> / SDL_X_SIZE) * SDL_Y_SIZE)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00026">26</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="a8d23feea868a983c8c2b661e1e16972f" name="a8d23feea868a983c8c2b661e1e16972f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d23feea868a983c8c2b661e1e16972f">&#9670;&nbsp;</a></span>RED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RED&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00019">19</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="a3afff225364d8bab65b41401048edeb3" name="a3afff225364d8bab65b41401048edeb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3afff225364d8bab65b41401048edeb3">&#9670;&nbsp;</a></span>STACK_INIT_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STACK_INIT_SIZE&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00055">55</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="acf858bdf004589284becf8ab00cc2760" name="acf858bdf004589284becf8ab00cc2760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf858bdf004589284becf8ab00cc2760">&#9670;&nbsp;</a></span>WALK_DELAY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WALK_DELAY&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00029">29</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentation der Funktionen</h2>
+<a id="a7ce05a41106efc725cca6ddc134712c5" name="a7ce05a41106efc725cca6ddc134712c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ce05a41106efc725cca6ddc134712c5">&#9670;&nbsp;</a></span>check_arg_cnt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void check_arg_cnt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>expected</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00365">365</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="main_8c_source.html#l00035">code_error()</a>, <a class="el" href="types_8h_source.html#l00013">MAX_ARGS</a>, <a class="el" href="types_8h_source.html#l00230">_treenode::pos</a> und <a class="el" href="types_8h_source.html#l00234">_treenode::son</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00414">fcall()</a> und <a class="el" href="eval_8c_source.html#l00382">start_call()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a7ce05a41106efc725cca6ddc134712c5_cgraph.png" border="0" usemap="#aeval_8c_a7ce05a41106efc725cca6ddc134712c5_cgraph" alt=""/></div>
+<map name="aeval_8c_a7ce05a41106efc725cca6ddc134712c5_cgraph" id="aeval_8c_a7ce05a41106efc725cca6ddc134712c5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,109,32"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="157,5,243,32"/>
+</map>
+</div>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a7ce05a41106efc725cca6ddc134712c5_icgraph.png" border="0" usemap="#aeval_8c_a7ce05a41106efc725cca6ddc134712c5_icgraph" alt=""/></div>
+<map name="aeval_8c_a7ce05a41106efc725cca6ddc134712c5_icgraph" id="aeval_8c_a7ce05a41106efc725cca6ddc134712c5_icgraph">
+<area shape="rect" title=" " alt="" coords="723,134,827,161"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="629,84,675,110"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="412,185,487,212"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="535,84,581,110"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="315,84,364,110"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="223,109,267,136"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="417,21,481,48"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,109,175,136"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="315,185,363,212"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,109,56,136"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7255fc522dbc6c7f45f35843550b05b4" name="a7255fc522dbc6c7f45f35843550b05b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7255fc522dbc6c7f45f35843550b05b4">&#9670;&nbsp;</a></span>cond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool cond </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00530">530</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00530">cond()</a>, <a class="el" href="eval_8c_source.html#l00229">eps_equal()</a>, <a class="el" href="eval_8c_source.html#l00500">expr()</a>, <a class="el" href="types_8h_source.html#l00094">keyw_and</a>, <a class="el" href="types_8h_source.html#l00096">keyw_not</a>, <a class="el" href="types_8h_source.html#l00095">keyw_or</a>, <a class="el" href="types_8h_source.html#l00112">oper_equ</a>, <a class="el" href="types_8h_source.html#l00117">oper_gequ</a>, <a class="el" href="types_8h_source.html#l00116">oper_grtr</a>, <a class="el" href="types_8h_source.html#l00115">oper_lequ</a>, <a class="el" href="types_8h_source.html#l00114">oper_less</a>, <a class="el" href="types_8h_source.html#l00113">oper_nequ</a>, <a class="el" href="types_8h_source.html#l00234">_treenode::son</a> und <a class="el" href="types_8h_source.html#l00229">_treenode::type</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00530">cond()</a> und <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a7255fc522dbc6c7f45f35843550b05b4_cgraph.png" border="0" usemap="#aeval_8c_a7255fc522dbc6c7f45f35843550b05b4_cgraph" alt=""/></div>
+<map name="aeval_8c_a7255fc522dbc6c7f45f35843550b05b4_cgraph" id="aeval_8c_a7255fc522dbc6c7f45f35843550b05b4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,309,55,336"/>
+<area shape="rect" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240" title=" " alt="" coords="103,259,183,285"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="119,411,166,437"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="231,461,276,488"/>
+<area shape="rect" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c" title=" " alt="" coords="424,613,487,640"/>
+<area shape="rect" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5" title=" " alt="" coords="669,563,773,589"/>
+<area shape="rect" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609" title=" " alt="" coords="547,480,617,507"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="324,309,368,336"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="545,379,619,405"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="824,588,909,615"/>
+<area shape="rect" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89" title=" " alt="" coords="417,157,493,184"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="431,360,479,387"/>
+<area shape="rect" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b" title=" " alt="" coords="416,259,495,285"/>
+<area shape="rect" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343" title=" " alt="" coords="679,85,764,112"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="423,5,487,32"/>
+<area shape="rect" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c" title=" " alt="" coords="426,309,485,336"/>
+<area shape="rect" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993" title=" " alt="" coords="419,107,492,133"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="431,208,479,235"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="1437,360,1484,387"/>
+<area shape="rect" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310" title=" " alt="" coords="680,379,763,405"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="697,249,746,276"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="1561,335,1684,361"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="960,480,1043,507"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="1599,588,1646,615"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="1091,549,1140,576"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="1188,549,1243,576"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="1291,512,1360,539"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="1408,461,1513,488"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="821,161,912,188"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="847,500,886,527"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="847,249,887,276"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="965,715,1038,741"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="1094,765,1137,792"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="548,208,616,235"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="543,259,621,285"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="543,157,621,184"/>
+</map>
+</div>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a7255fc522dbc6c7f45f35843550b05b4_icgraph.png" border="0" usemap="#aeval_8c_a7255fc522dbc6c7f45f35843550b05b4_icgraph" alt=""/></div>
+<map name="aeval_8c_a7255fc522dbc6c7f45f35843550b05b4_icgraph" id="aeval_8c_a7255fc522dbc6c7f45f35843550b05b4_icgraph">
+<area shape="rect" title=" " alt="" coords="533,54,583,80"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,130,485,156"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,130,393,156"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,28,381,55"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,243,53,270"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,130,275,156"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,79,273,106"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,155,171,182"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,79,176,106"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae727d4a925aff0911bbdd4510770a609" name="ae727d4a925aff0911bbdd4510770a609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae727d4a925aff0911bbdd4510770a609">&#9670;&nbsp;</a></span>end_call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void end_call </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00402">402</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00049">vstack_elem_t::name</a>, <a class="el" href="eval_8c_source.html#l00058">stack</a> und <a class="el" href="eval_8c_source.html#l00060">stack_top</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00414">fcall()</a> und <a class="el" href="eval_8c_source.html#l00451">pcall()</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_ae727d4a925aff0911bbdd4510770a609_icgraph.png" border="0" usemap="#aeval_8c_ae727d4a925aff0911bbdd4510770a609_icgraph" alt=""/></div>
+<map name="aeval_8c_ae727d4a925aff0911bbdd4510770a609_icgraph" id="aeval_8c_ae727d4a925aff0911bbdd4510770a609_icgraph">
+<area shape="rect" title=" " alt="" coords="723,155,792,182"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="629,105,675,131"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="315,179,363,206"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="535,105,581,131"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="315,129,364,155"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="223,91,267,118"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="417,54,481,81"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="412,155,487,182"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,91,175,118"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,91,56,118"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3026b52aea751bf20e8674665206cd89" name="a3026b52aea751bf20e8674665206cd89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3026b52aea751bf20e8674665206cd89">&#9670;&nbsp;</a></span>end_prog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void end_prog </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00237">237</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00031">END_DELAY</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00690">evaluate()</a> und <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a3026b52aea751bf20e8674665206cd89_icgraph.png" border="0" usemap="#aeval_8c_a3026b52aea751bf20e8674665206cd89_icgraph" alt=""/></div>
+<map name="aeval_8c_a3026b52aea751bf20e8674665206cd89_icgraph" id="aeval_8c_a3026b52aea751bf20e8674665206cd89_icgraph">
+<area shape="rect" title=" " alt="" coords="533,68,609,95"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,5,393,32"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,105,485,132"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,283,381,309"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,68,53,95"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,256,273,283"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,155,163,181"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,205,171,232"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,256,176,283"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3c848bb9d6463b31dfc78522dd72f240" name="a3c848bb9d6463b31dfc78522dd72f240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c848bb9d6463b31dfc78522dd72f240">&#9670;&nbsp;</a></span>eps_equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool eps_equal </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00229">229</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00530">cond()</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a3c848bb9d6463b31dfc78522dd72f240_icgraph.png" border="0" usemap="#aeval_8c_a3c848bb9d6463b31dfc78522dd72f240_icgraph" alt=""/></div>
+<map name="aeval_8c_a3c848bb9d6463b31dfc78522dd72f240_icgraph" id="aeval_8c_a3c848bb9d6463b31dfc78522dd72f240_icgraph">
+<area shape="rect" title=" " alt="" coords="631,54,711,80"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="533,54,583,80"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,130,485,156"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,130,393,156"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,28,381,55"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,243,53,270"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,130,275,156"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,79,273,106"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,155,171,182"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,79,176,106"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a33c097f69f3e7ad2b6d18a5cd45edfd3" name="a33c097f69f3e7ad2b6d18a5cd45edfd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33c097f69f3e7ad2b6d18a5cd45edfd3">&#9670;&nbsp;</a></span>evaluate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void evaluate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>main_tree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>arg_cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>arg_val</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00690">690</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00237">end_prog()</a>, <a class="el" href="eval_8c_source.html#l00039">g_args</a>, <a class="el" href="eval_8c_source.html#l00466">init_marks()</a>, <a class="el" href="eval_8c_source.html#l00325">init_stack()</a> und <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="main_8c_source.html#l00047">main()</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a33c097f69f3e7ad2b6d18a5cd45edfd3_cgraph.png" border="0" usemap="#aeval_8c_a33c097f69f3e7ad2b6d18a5cd45edfd3_cgraph" alt=""/></div>
+<map name="aeval_8c_a33c097f69f3e7ad2b6d18a5cd45edfd3_cgraph" id="aeval_8c_a33c097f69f3e7ad2b6d18a5cd45edfd3_cgraph">
+<area shape="rect" title=" " alt="" coords="5,484,76,511"/>
+<area shape="rect" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89" title=" " alt="" coords="255,36,331,63"/>
+<area shape="rect" href="eval_8c.html#a2dec4868333edc06d3d86f33e77258bc" title=" " alt="" coords="124,623,205,649"/>
+<area shape="rect" href="eval_8c.html#a7fd4e53662d3e450f3f3a82facc51e09" title=" " alt="" coords="508,743,583,769"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="143,389,187,416"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="916,667,1007,693"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="268,364,317,391"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="397,415,443,441"/>
+<area shape="rect" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c" title=" " alt="" coords="514,239,577,265"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="521,523,569,549"/>
+<area shape="rect" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b" title=" " alt="" coords="253,591,332,617"/>
+<area shape="rect" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343" title=" " alt="" coords="631,641,716,668"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="261,465,325,492"/>
+<area shape="rect" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c" title=" " alt="" coords="263,87,322,113"/>
+<area shape="rect" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993" title=" " alt="" coords="256,137,329,164"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="269,188,317,215"/>
+<area shape="rect" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240" title=" " alt="" coords="380,340,460,367"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="523,364,568,391"/>
+<area shape="rect" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5" title=" " alt="" coords="764,313,868,340"/>
+<area shape="rect" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609" title=" " alt="" coords="639,415,708,441"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="636,364,711,391"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="919,239,1004,265"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="1532,415,1579,441"/>
+<area shape="rect" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310" title=" " alt="" coords="775,364,857,391"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="791,465,841,492"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="1656,440,1779,467"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="1055,313,1137,340"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="1694,187,1741,213"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="1185,249,1235,276"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="1283,249,1337,276"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="1385,263,1455,289"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="1503,263,1608,289"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="942,313,981,340"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="941,465,981,492"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="1059,60,1133,87"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="1189,9,1231,36"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="386,87,454,113"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="381,137,459,164"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="381,188,459,215"/>
+</map>
+</div>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a33c097f69f3e7ad2b6d18a5cd45edfd3_icgraph.png" border="0" usemap="#aeval_8c_a33c097f69f3e7ad2b6d18a5cd45edfd3_icgraph" alt=""/></div>
+<map name="aeval_8c_a33c097f69f3e7ad2b6d18a5cd45edfd3_icgraph" id="aeval_8c_a33c097f69f3e7ad2b6d18a5cd45edfd3_icgraph">
+<area shape="rect" title=" " alt="" coords="104,5,175,32"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5d44ae5aa9326005cd76588b7724e2ac" name="a5d44ae5aa9326005cd76588b7724e2ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d44ae5aa9326005cd76588b7724e2ac">&#9670;&nbsp;</a></span>expr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double expr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00500">500</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00235">_treenode::d</a>, <a class="el" href="eval_8c_source.html#l00500">expr()</a>, <a class="el" href="eval_8c_source.html#l00414">fcall()</a>, <a class="el" href="types_8h_source.html#l00033">name_any</a>, <a class="el" href="types_8h_source.html#l00105">oper_abs</a>, <a class="el" href="types_8h_source.html#l00109">oper_add</a>, <a class="el" href="types_8h_source.html#l00101">oper_const</a>, <a class="el" href="types_8h_source.html#l00108">oper_div</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00107">oper_mul</a>, <a class="el" href="types_8h_source.html#l00111">oper_neg</a>, <a class="el" href="types_8h_source.html#l00106">oper_pow</a>, <a class="el" href="types_8h_source.html#l00110">oper_sub</a>, <a class="el" href="types_8h_source.html#l00234">_treenode::son</a>, <a class="el" href="types_8h_source.html#l00229">_treenode::type</a>, <a class="el" href="types_8h_source.html#l00171">_nodedata::val</a> und <a class="el" href="eval_8c_source.html#l00251">var_ptr()</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00530">cond()</a>, <a class="el" href="eval_8c_source.html#l00500">expr()</a>, <a class="el" href="eval_8c_source.html#l00414">fcall()</a>, <a class="el" href="eval_8c_source.html#l00286">set_var()</a>, <a class="el" href="eval_8c_source.html#l00558">slist()</a> und <a class="el" href="eval_8c_source.html#l00382">start_call()</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a5d44ae5aa9326005cd76588b7724e2ac_cgraph.png" border="0" usemap="#aeval_8c_a5d44ae5aa9326005cd76588b7724e2ac_cgraph" alt=""/></div>
+<map name="aeval_8c_a5d44ae5aa9326005cd76588b7724e2ac_cgraph" id="aeval_8c_a5d44ae5aa9326005cd76588b7724e2ac_cgraph">
+<area shape="rect" title=" " alt="" coords="5,398,52,424"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="100,398,145,424"/>
+<area shape="rect" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c" title=" " alt="" coords="293,195,356,222"/>
+<area shape="rect" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5" title=" " alt="" coords="540,246,644,272"/>
+<area shape="rect" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609" title=" " alt="" coords="417,499,487,526"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="193,550,237,576"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="415,347,489,374"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="695,195,780,222"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="300,878,349,904"/>
+<area shape="rect" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89" title=" " alt="" coords="287,550,363,576"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="301,499,349,526"/>
+<area shape="rect" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b" title=" " alt="" coords="285,600,364,627"/>
+<area shape="rect" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343" title=" " alt="" coords="549,727,635,754"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="293,448,357,475"/>
+<area shape="rect" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c" title=" " alt="" coords="295,651,354,678"/>
+<area shape="rect" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993" title=" " alt="" coords="288,702,361,728"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="301,752,349,779"/>
+<area shape="rect" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240" title=" " alt="" coords="412,878,492,904"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="1308,398,1355,424"/>
+<area shape="rect" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310" title=" " alt="" coords="551,347,633,374"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="567,448,617,475"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="1432,423,1555,450"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="831,270,913,296"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="1470,170,1517,196"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="961,270,1011,296"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="1059,246,1113,272"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="1161,246,1231,272"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="1279,246,1384,272"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="692,575,783,602"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="718,270,757,296"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="717,448,757,475"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="835,94,909,120"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="965,43,1007,70"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="418,651,486,678"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="413,702,491,728"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="413,752,491,779"/>
+</map>
+</div>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a5d44ae5aa9326005cd76588b7724e2ac_icgraph.png" border="0" usemap="#aeval_8c_a5d44ae5aa9326005cd76588b7724e2ac_icgraph" alt=""/></div>
+<map name="aeval_8c_a5d44ae5aa9326005cd76588b7724e2ac_icgraph" id="aeval_8c_a5d44ae5aa9326005cd76588b7724e2ac_icgraph">
+<area shape="rect" title=" " alt="" coords="457,127,504,154"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="353,51,402,78"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="238,102,282,129"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="117,183,162,210"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="345,102,409,129"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="223,153,297,179"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,77,175,103"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,127,163,154"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,77,56,103"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac7678808a3b57ca1539a03201cec88be" name="ac7678808a3b57ca1539a03201cec88be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7678808a3b57ca1539a03201cec88be">&#9670;&nbsp;</a></span>fcall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double fcall </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00414">414</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00138">_funcdef::body</a>, <a class="el" href="eval_8c_source.html#l00365">check_arg_cnt()</a>, <a class="el" href="types_8h_source.html#l00163">_nameentry::d</a>, <a class="el" href="types_8h_source.html#l00235">_treenode::d</a>, <a class="el" href="eval_8c_source.html#l00402">end_call()</a>, <a class="el" href="eval_8c_source.html#l00500">expr()</a>, <a class="el" href="types_8h_source.html#l00149">_namedata::func</a>, <a class="el" href="types_8h_source.html#l00153">_namedata::math</a>, <a class="el" href="types_8h_source.html#l00036">name_calc</a>, <a class="el" href="types_8h_source.html#l00046">name_math_cos</a>, <a class="el" href="types_8h_source.html#l00047">name_math_rand</a>, <a class="el" href="types_8h_source.html#l00046">name_math_sin</a>, <a class="el" href="types_8h_source.html#l00046">name_math_sqrt</a>, <a class="el" href="types_8h_source.html#l00046">name_math_tan</a>, <a class="el" href="types_8h_source.html#l00169">_nodedata::p_name</a>, <a class="el" href="types_8h_source.html#l00140">_funcdef::ret</a>, <a class="el" href="eval_8c_source.html#l00558">slist()</a>, <a class="el" href="types_8h_source.html#l00234">_treenode::son</a>, <a class="el" href="eval_8c_source.html#l00382">start_call()</a> und <a class="el" href="types_8h_source.html#l00160">_nameentry::type</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00500">expr()</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_ac7678808a3b57ca1539a03201cec88be_cgraph.png" border="0" usemap="#aeval_8c_ac7678808a3b57ca1539a03201cec88be_cgraph" alt=""/></div>
+<map name="aeval_8c_ac7678808a3b57ca1539a03201cec88be_cgraph" id="aeval_8c_ac7678808a3b57ca1539a03201cec88be_cgraph">
+<area shape="rect" title=" " alt="" coords="5,216,51,242"/>
+<area shape="rect" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5" title=" " alt="" coords="445,645,549,672"/>
+<area shape="rect" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609" title=" " alt="" coords="323,442,392,469"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="474,341,521,368"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="99,317,143,344"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="320,594,395,621"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="755,410,840,437"/>
+<area shape="rect" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c" title=" " alt="" coords="611,341,674,368"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="205,442,255,469"/>
+<area shape="rect" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89" title=" " alt="" coords="192,165,268,192"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="206,594,254,621"/>
+<area shape="rect" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b" title=" " alt="" coords="191,216,269,242"/>
+<area shape="rect" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343" title=" " alt="" coords="455,493,540,520"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="325,544,389,570"/>
+<area shape="rect" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c" title=" " alt="" coords="201,266,259,293"/>
+<area shape="rect" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993" title=" " alt="" coords="193,368,267,394"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="206,64,254,90"/>
+<area shape="rect" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240" title=" " alt="" coords="317,341,397,368"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="619,682,666,709"/>
+<area shape="rect" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310" title=" " alt="" coords="456,594,539,621"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="473,544,522,570"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="736,682,859,709"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="756,733,839,760"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="1253,733,1300,760"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="907,708,956,734"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="1004,657,1059,684"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="1107,532,1176,558"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="1224,532,1329,558"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="597,493,688,520"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="623,770,662,797"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="623,544,663,570"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="761,834,834,861"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="910,809,953,836"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="323,114,391,141"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="318,165,397,192"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="318,64,397,90"/>
+</map>
+</div>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_ac7678808a3b57ca1539a03201cec88be_icgraph.png" border="0" usemap="#aeval_8c_ac7678808a3b57ca1539a03201cec88be_icgraph" alt=""/></div>
+<map name="aeval_8c_ac7678808a3b57ca1539a03201cec88be_icgraph" id="aeval_8c_ac7678808a3b57ca1539a03201cec88be_icgraph">
+<area shape="rect" title=" " alt="" coords="629,156,675,183"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="535,131,581,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="315,29,364,56"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="223,156,267,183"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="417,131,481,157"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="412,181,487,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,156,175,183"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="315,181,363,208"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,156,56,183"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2dec4868333edc06d3d86f33e77258bc" name="a2dec4868333edc06d3d86f33e77258bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dec4868333edc06d3d86f33e77258bc">&#9670;&nbsp;</a></span>init_marks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void init_marks </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00466">466</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00067">mstack_elem_t::dir</a>, <a class="el" href="eval_8c_source.html#l00079">end_marks</a>, <a class="el" href="eval_8c_source.html#l00075">first_mark</a>, <a class="el" href="eval_8c_source.html#l00072">MARK_INIT_SIZE</a>, <a class="el" href="main_8c_source.html#l00023">mem_check()</a>, <a class="el" href="eval_8c_source.html#l00082">startpos</a>, <a class="el" href="eval_8c_source.html#l00077">top_mark</a>, <a class="el" href="eval_8c_source.html#l00066">mstack_elem_t::x</a> und <a class="el" href="eval_8c_source.html#l00066">mstack_elem_t::y</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00690">evaluate()</a>.</p>
+<div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a2dec4868333edc06d3d86f33e77258bc_cgraph.png" border="0" usemap="#aeval_8c_a2dec4868333edc06d3d86f33e77258bc_cgraph" alt=""/></div>
+<map name="aeval_8c_a2dec4868333edc06d3d86f33e77258bc_cgraph" id="aeval_8c_a2dec4868333edc06d3d86f33e77258bc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="135,5,225,32"/>
+</map>
+</div>
+<div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a2dec4868333edc06d3d86f33e77258bc_icgraph.png" border="0" usemap="#aeval_8c_a2dec4868333edc06d3d86f33e77258bc_icgraph" alt=""/></div>
+<map name="aeval_8c_a2dec4868333edc06d3d86f33e77258bc_icgraph" id="aeval_8c_a2dec4868333edc06d3d86f33e77258bc_icgraph">
+<area shape="rect" title=" " alt="" coords="223,5,304,32"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,5,175,32"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7fd4e53662d3e450f3f3a82facc51e09" name="a7fd4e53662d3e450f3f3a82facc51e09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fd4e53662d3e450f3f3a82facc51e09">&#9670;&nbsp;</a></span>init_stack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void init_stack </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00325">325</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="main_8c_source.html#l00023">mem_check()</a>, <a class="el" href="eval_8c_source.html#l00049">vstack_elem_t::name</a>, <a class="el" href="eval_8c_source.html#l00058">stack</a>, <a class="el" href="eval_8c_source.html#l00062">stack_end</a>, <a class="el" href="eval_8c_source.html#l00055">STACK_INIT_SIZE</a>, <a class="el" href="eval_8c_source.html#l00060">stack_top</a>, <a class="el" href="eval_8c_source.html#l00082">startpos</a> und <a class="el" href="eval_8c_source.html#l00050">vstack_elem_t::val</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00690">evaluate()</a>.</p>
+<div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a7fd4e53662d3e450f3f3a82facc51e09_cgraph.png" border="0" usemap="#aeval_8c_a7fd4e53662d3e450f3f3a82facc51e09_cgraph" alt=""/></div>
+<map name="aeval_8c_a7fd4e53662d3e450f3f3a82facc51e09_cgraph" id="aeval_8c_a7fd4e53662d3e450f3f3a82facc51e09_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,80,32"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="128,5,219,32"/>
+</map>
+</div>
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a7fd4e53662d3e450f3f3a82facc51e09_icgraph.png" border="0" usemap="#aeval_8c_a7fd4e53662d3e450f3f3a82facc51e09_icgraph" alt=""/></div>
+<map name="aeval_8c_a7fd4e53662d3e450f3f3a82facc51e09_icgraph" id="aeval_8c_a7fd4e53662d3e450f3f3a82facc51e09_icgraph">
+<area shape="rect" title=" " alt="" coords="223,5,297,32"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,5,175,32"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae3a61906d96f528029b8d36cba50e310" name="ae3a61906d96f528029b8d36cba50e310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3a61906d96f528029b8d36cba50e310">&#9670;&nbsp;</a></span>param_cnt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int param_cnt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#af27ab4bf7b8dd35c75bd814d9f2ad310">funcdef_t</a> *&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00354">354</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00013">MAX_ARGS</a> und <a class="el" href="types_8h_source.html#l00142">_funcdef::params</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00382">start_call()</a>.</p>
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_ae3a61906d96f528029b8d36cba50e310_icgraph.png" border="0" usemap="#aeval_8c_ae3a61906d96f528029b8d36cba50e310_icgraph" alt=""/></div>
+<map name="aeval_8c_ae3a61906d96f528029b8d36cba50e310_icgraph" id="aeval_8c_ae3a61906d96f528029b8d36cba50e310_icgraph">
+<area shape="rect" title=" " alt="" coords="737,181,820,208"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="615,181,689,208"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="521,181,567,208"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,156,163,183"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="427,131,473,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="322,29,371,56"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="223,131,267,157"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="315,131,379,157"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,105,175,132"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,105,56,132"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1207df5be5fcfe8e47e9c54abadbed96" name="a1207df5be5fcfe8e47e9c54abadbed96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1207df5be5fcfe8e47e9c54abadbed96">&#9670;&nbsp;</a></span>pcall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pcall </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00451">451</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00138">_funcdef::body</a>, <a class="el" href="types_8h_source.html#l00163">_nameentry::d</a>, <a class="el" href="types_8h_source.html#l00235">_treenode::d</a>, <a class="el" href="eval_8c_source.html#l00402">end_call()</a>, <a class="el" href="types_8h_source.html#l00149">_namedata::func</a>, <a class="el" href="types_8h_source.html#l00035">name_path</a>, <a class="el" href="types_8h_source.html#l00169">_nodedata::p_name</a>, <a class="el" href="types_8h_source.html#l00140">_funcdef::ret</a>, <a class="el" href="eval_8c_source.html#l00558">slist()</a>, <a class="el" href="eval_8c_source.html#l00382">start_call()</a> und <a class="el" href="types_8h_source.html#l00160">_nameentry::type</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a1207df5be5fcfe8e47e9c54abadbed96_cgraph.png" border="0" usemap="#aeval_8c_a1207df5be5fcfe8e47e9c54abadbed96_cgraph" alt=""/></div>
+<map name="aeval_8c_a1207df5be5fcfe8e47e9c54abadbed96_cgraph" id="aeval_8c_a1207df5be5fcfe8e47e9c54abadbed96_cgraph">
+<area shape="rect" title=" " alt="" coords="5,320,53,347"/>
+<area shape="rect" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609" title=" " alt="" coords="584,307,653,333"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="101,320,145,347"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="581,408,656,435"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="208,320,257,347"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="337,376,383,403"/>
+<area shape="rect" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c" title=" " alt="" coords="459,256,522,283"/>
+<area shape="rect" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89" title=" " alt="" coords="195,144,271,171"/>
+<area shape="rect" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b" title=" " alt="" coords="193,195,272,221"/>
+<area shape="rect" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343" title=" " alt="" coords="448,661,533,688"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="201,472,265,499"/>
+<area shape="rect" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c" title=" " alt="" coords="203,245,262,272"/>
+<area shape="rect" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993" title=" " alt="" coords="196,371,269,397"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="209,599,257,625"/>
+<area shape="rect" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240" title=" " alt="" coords="320,301,400,328"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="468,357,513,384"/>
+<area shape="rect" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5" title=" " alt="" coords="704,357,808,384"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="859,269,944,296"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="1472,459,1519,485"/>
+<area shape="rect" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310" title=" " alt="" coords="715,408,797,435"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="731,509,781,536"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="1596,484,1719,511"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="995,353,1077,380"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="1634,231,1681,257"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="1125,293,1175,320"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="1223,293,1277,320"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="1325,307,1395,333"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="1443,357,1548,384"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="856,585,947,612"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="882,347,921,373"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="881,509,921,536"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="999,155,1073,181"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="1129,104,1171,131"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="326,675,394,701"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="321,573,399,600"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="321,624,399,651"/>
+</map>
+</div>
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a1207df5be5fcfe8e47e9c54abadbed96_icgraph.png" border="0" usemap="#aeval_8c_a1207df5be5fcfe8e47e9c54abadbed96_icgraph" alt=""/></div>
+<map name="aeval_8c_a1207df5be5fcfe8e47e9c54abadbed96_icgraph" id="aeval_8c_a1207df5be5fcfe8e47e9c54abadbed96_icgraph">
+<area shape="rect" title=" " alt="" coords="437,131,485,157"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="345,131,389,157"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="227,212,297,239"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="239,156,285,183"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="128,219,179,245"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="130,117,177,144"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="18,92,67,119"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="11,5,75,32"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="5,168,80,195"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0c4b9ecc642a069b47f478715506366b" name="a0c4b9ecc642a069b47f478715506366b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c4b9ecc642a069b47f478715506366b">&#9670;&nbsp;</a></span>pop_mark()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pop_mark </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00493">493</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00075">first_mark</a> und <a class="el" href="eval_8c_source.html#l00077">top_mark</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a0c4b9ecc642a069b47f478715506366b_icgraph.png" border="0" usemap="#aeval_8c_a0c4b9ecc642a069b47f478715506366b_icgraph" alt=""/></div>
+<map name="aeval_8c_a0c4b9ecc642a069b47f478715506366b_icgraph" id="aeval_8c_a0c4b9ecc642a069b47f478715506366b_icgraph">
+<area shape="rect" title=" " alt="" coords="533,181,612,208"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a21616ef7b9f6694d3ba523226213755e" name="a21616ef7b9f6694d3ba523226213755e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21616ef7b9f6694d3ba523226213755e">&#9670;&nbsp;</a></span>push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void push </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a> *&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#a60d3344e4c9a873b6f669e194c1df6e0">srcpos_t</a> *&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00337">337</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="main_8c_source.html#l00023">mem_check()</a>, <a class="el" href="eval_8c_source.html#l00049">vstack_elem_t::name</a>, <a class="el" href="types_8h_source.html#l00034">name_var</a>, <a class="el" href="eval_8c_source.html#l00058">stack</a>, <a class="el" href="eval_8c_source.html#l00062">stack_end</a>, <a class="el" href="eval_8c_source.html#l00060">stack_top</a>, <a class="el" href="eval_8c_source.html#l00050">vstack_elem_t::val</a>, <a class="el" href="parse_8c_source.html#l00133">val()</a> und <a class="el" href="parse_8c.html#a66e534895dc627672543e3dca09a168b">var()</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00286">set_var()</a> und <a class="el" href="eval_8c_source.html#l00382">start_call()</a>.</p>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a21616ef7b9f6694d3ba523226213755e_cgraph.png" border="0" usemap="#aeval_8c_a21616ef7b9f6694d3ba523226213755e_cgraph" alt=""/></div>
+<map name="aeval_8c_a21616ef7b9f6694d3ba523226213755e_cgraph" id="aeval_8c_a21616ef7b9f6694d3ba523226213755e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,105,55,132"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="103,31,193,57"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="129,105,167,132"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="128,156,168,183"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="246,55,319,81"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="881,169,927,196"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="843,423,965,449"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="241,181,324,208"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="375,93,418,120"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="372,195,421,221"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="469,269,524,296"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="572,296,641,323"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="719,397,765,424"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="689,347,795,373"/>
+</map>
+</div>
+<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a21616ef7b9f6694d3ba523226213755e_icgraph.png" border="0" usemap="#aeval_8c_a21616ef7b9f6694d3ba523226213755e_icgraph" alt=""/></div>
+<map name="aeval_8c_a21616ef7b9f6694d3ba523226213755e_icgraph" id="aeval_8c_a21616ef7b9f6694d3ba523226213755e_icgraph">
+<area shape="rect" title=" " alt="" coords="645,17,695,44"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="533,43,597,69"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,119,176,145"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,195,485,221"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,320,393,347"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,93,381,120"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,257,53,284"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,320,275,347"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,195,163,221"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a141611acf81cb4595d1f48458dd1d343" name="a141611acf81cb4595d1f48458dd1d343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a141611acf81cb4595d1f48458dd1d343">&#9670;&nbsp;</a></span>push_mark()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void push_mark </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#a60d3344e4c9a873b6f669e194c1df6e0">srcpos_t</a> *&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00476">476</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00067">mstack_elem_t::dir</a>, <a class="el" href="eval_8c_source.html#l00079">end_marks</a>, <a class="el" href="eval_8c_source.html#l00075">first_mark</a>, <a class="el" href="eval_8c_source.html#l00035">g_dir</a>, <a class="el" href="eval_8c_source.html#l00038">g_x</a>, <a class="el" href="eval_8c_source.html#l00038">g_y</a>, <a class="el" href="main_8c_source.html#l00023">mem_check()</a>, <a class="el" href="eval_8c_source.html#l00077">top_mark</a>, <a class="el" href="eval_8c_source.html#l00066">mstack_elem_t::x</a> und <a class="el" href="eval_8c_source.html#l00066">mstack_elem_t::y</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a141611acf81cb4595d1f48458dd1d343_cgraph.png" border="0" usemap="#aeval_8c_a141611acf81cb4595d1f48458dd1d343_cgraph" alt=""/></div>
+<map name="aeval_8c_a141611acf81cb4595d1f48458dd1d343_cgraph" id="aeval_8c_a141611acf81cb4595d1f48458dd1d343_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,91,32"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="139,5,229,32"/>
+</map>
+</div>
+<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a141611acf81cb4595d1f48458dd1d343_icgraph.png" border="0" usemap="#aeval_8c_a141611acf81cb4595d1f48458dd1d343_icgraph" alt=""/></div>
+<map name="aeval_8c_a141611acf81cb4595d1f48458dd1d343_icgraph" id="aeval_8c_a141611acf81cb4595d1f48458dd1d343_icgraph">
+<area shape="rect" title=" " alt="" coords="533,181,619,208"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a711e3a83547cbf5cda6e8cc7f6ffc0c4" name="a711e3a83547cbf5cda6e8cc7f6ffc0c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711e3a83547cbf5cda6e8cc7f6ffc0c4">&#9670;&nbsp;</a></span>set_var()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double * set_var </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>exp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00286">286</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00163">_nameentry::d</a>, <a class="el" href="types_8h_source.html#l00235">_treenode::d</a>, <a class="el" href="eval_8c_source.html#l00500">expr()</a>, <a class="el" href="eval_8c_source.html#l00049">vstack_elem_t::name</a>, <a class="el" href="types_8h_source.html#l00037">name_glob</a>, <a class="el" href="types_8h_source.html#l00041">name_pvar_ro</a>, <a class="el" href="types_8h_source.html#l00042">name_pvar_rw</a>, <a class="el" href="types_8h_source.html#l00034">name_var</a>, <a class="el" href="types_8h_source.html#l00169">_nodedata::p_name</a>, <a class="el" href="types_8h_source.html#l00151">_namedata::p_val</a>, <a class="el" href="types_8h_source.html#l00230">_treenode::pos</a>, <a class="el" href="eval_8c_source.html#l00337">push()</a>, <a class="el" href="eval_8c_source.html#l00060">stack_top</a>, <a class="el" href="types_8h_source.html#l00160">_nameentry::type</a>, <a class="el" href="eval_8c_source.html#l00050">vstack_elem_t::val</a> und <a class="el" href="types_8h_source.html#l00148">_namedata::val</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a711e3a83547cbf5cda6e8cc7f6ffc0c4_cgraph.png" border="0" usemap="#aeval_8c_a711e3a83547cbf5cda6e8cc7f6ffc0c4_cgraph" alt=""/></div>
+<map name="aeval_8c_a711e3a83547cbf5cda6e8cc7f6ffc0c4_cgraph" id="aeval_8c_a711e3a83547cbf5cda6e8cc7f6ffc0c4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,320,69,347"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="117,421,164,448"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="679,192,729,219"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="212,497,257,524"/>
+<area shape="rect" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c" title=" " alt="" coords="405,421,468,448"/>
+<area shape="rect" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5" title=" " alt="" coords="652,547,756,573"/>
+<area shape="rect" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609" title=" " alt="" coords="529,484,599,511"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="305,320,349,347"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="527,547,601,573"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="807,484,892,511"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="412,67,461,93"/>
+<area shape="rect" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89" title=" " alt="" coords="399,269,475,296"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="413,472,461,499"/>
+<area shape="rect" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b" title=" " alt="" coords="397,168,476,195"/>
+<area shape="rect" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343" title=" " alt="" coords="661,117,747,144"/>
+<area shape="rect" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c" title=" " alt="" coords="407,219,466,245"/>
+<area shape="rect" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993" title=" " alt="" coords="400,371,473,397"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="413,320,461,347"/>
+<area shape="rect" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240" title=" " alt="" coords="524,67,604,93"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="1420,496,1467,523"/>
+<area shape="rect" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310" title=" " alt="" coords="663,496,745,523"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="1544,547,1667,573"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="943,408,1025,435"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="1582,268,1629,295"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="1073,369,1123,396"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="1171,369,1225,396"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="1273,344,1343,371"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="1391,344,1496,371"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="804,117,895,144"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="830,192,869,219"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="829,243,869,269"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="947,192,1021,219"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="1077,141,1119,168"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="530,320,598,347"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="525,371,603,397"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="525,269,603,296"/>
+</map>
+</div>
+<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a711e3a83547cbf5cda6e8cc7f6ffc0c4_icgraph.png" border="0" usemap="#aeval_8c_a711e3a83547cbf5cda6e8cc7f6ffc0c4_icgraph" alt=""/></div>
+<map name="aeval_8c_a711e3a83547cbf5cda6e8cc7f6ffc0c4_icgraph" id="aeval_8c_a711e3a83547cbf5cda6e8cc7f6ffc0c4_icgraph">
+<area shape="rect" title=" " alt="" coords="533,54,597,81"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,130,485,157"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,130,393,157"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,29,381,55"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,243,53,270"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,130,275,157"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,79,273,106"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,167,163,194"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,79,176,106"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7fe074caebef01ff0146927c0532f3cc" name="a7fe074caebef01ff0146927c0532f3cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe074caebef01ff0146927c0532f3cc">&#9670;&nbsp;</a></span>slist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void slist </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00558">558</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00530">cond()</a>, <a class="el" href="types_8h_source.html#l00235">_treenode::d</a>, <a class="el" href="eval_8c_source.html#l00067">mstack_elem_t::dir</a>, <a class="el" href="eval_8c_source.html#l00237">end_prog()</a>, <a class="el" href="eval_8c_source.html#l00500">expr()</a>, <a class="el" href="eval_8c_source.html#l00045">g_blue</a>, <a class="el" href="eval_8c_source.html#l00044">g_delay</a>, <a class="el" href="eval_8c_source.html#l00035">g_dir</a>, <a class="el" href="eval_8c_source.html#l00045">g_green</a>, <a class="el" href="eval_8c_source.html#l00045">g_red</a>, <a class="el" href="eval_8c_source.html#l00038">g_x</a>, <a class="el" href="eval_8c_source.html#l00038">g_y</a>, <a class="el" href="types_8h_source.html#l00067">keyw_add</a>, <a class="el" href="types_8h_source.html#l00054">keyw_back</a>, <a class="el" href="types_8h_source.html#l00060">keyw_clear</a>, <a class="el" href="types_8h_source.html#l00064">keyw_color</a>, <a class="el" href="types_8h_source.html#l00082">keyw_counter</a>, <a class="el" href="types_8h_source.html#l00059">keyw_direction</a>, <a class="el" href="types_8h_source.html#l00073">keyw_div</a>, <a class="el" href="types_8h_source.html#l00079">keyw_do</a>, <a class="el" href="types_8h_source.html#l00062">keyw_finish</a>, <a class="el" href="types_8h_source.html#l00055">keyw_home</a>, <a class="el" href="types_8h_source.html#l00075">keyw_if</a>, <a class="el" href="types_8h_source.html#l00053">keyw_jump</a>, <a class="el" href="types_8h_source.html#l00057">keyw_left</a>, <a class="el" href="types_8h_source.html#l00074">keyw_mark</a>, <a class="el" href="types_8h_source.html#l00071">keyw_mul</a>, <a class="el" href="types_8h_source.html#l00063">keyw_path</a>, <a class="el" href="types_8h_source.html#l00086">keyw_repeat</a>, <a class="el" href="types_8h_source.html#l00058">keyw_right</a>, <a class="el" href="types_8h_source.html#l00061">keyw_stop</a>, <a class="el" href="types_8h_source.html#l00065">keyw_store</a>, <a class="el" href="types_8h_source.html#l00069">keyw_sub</a>, <a class="el" href="types_8h_source.html#l00052">keyw_walk</a>, <a class="el" href="types_8h_source.html#l00085">keyw_while</a>, <a class="el" href="types_8h_source.html#l00231">_treenode::next</a>, <a class="el" href="eval_8c_source.html#l00451">pcall()</a>, <a class="el" href="eval_8c_source.html#l00493">pop_mark()</a>, <a class="el" href="types_8h_source.html#l00230">_treenode::pos</a>, <a class="el" href="eval_8c_source.html#l00476">push_mark()</a>, <a class="el" href="eval_8c_source.html#l00286">set_var()</a>, <a class="el" href="eval_8c_source.html#l00558">slist()</a>, <a class="el" href="types_8h_source.html#l00234">_treenode::son</a>, <a class="el" href="eval_8c_source.html#l00169">to_rad()</a>, <a class="el" href="eval_8c_source.html#l00175">to_range()</a>, <a class="el" href="eval_8c_source.html#l00077">top_mark</a>, <a class="el" href="types_8h_source.html#l00229">_treenode::type</a>, <a class="el" href="eval_8c_source.html#l00251">var_ptr()</a>, <a class="el" href="eval_8c_source.html#l00209">walk()</a>, <a class="el" href="types_8h_source.html#l00172">_nodedata::walk</a>, <a class="el" href="eval_8c_source.html#l00066">mstack_elem_t::x</a> und <a class="el" href="eval_8c_source.html#l00066">mstack_elem_t::y</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00690">evaluate()</a>, <a class="el" href="eval_8c_source.html#l00414">fcall()</a>, <a class="el" href="eval_8c_source.html#l00451">pcall()</a> und <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a7fe074caebef01ff0146927c0532f3cc_cgraph.png" border="0" usemap="#aeval_8c_a7fe074caebef01ff0146927c0532f3cc_cgraph" alt=""/></div>
+<map name="aeval_8c_a7fe074caebef01ff0146927c0532f3cc_cgraph" id="aeval_8c_a7fe074caebef01ff0146927c0532f3cc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,461,49,487"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="112,297,161,323"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="241,347,287,374"/>
+<area shape="rect" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c" title=" " alt="" coords="352,222,415,249"/>
+<area shape="rect" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89" title=" " alt="" coords="99,574,175,601"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="359,458,407,485"/>
+<area shape="rect" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b" title=" " alt="" coords="97,625,176,651"/>
+<area shape="rect" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343" title=" " alt="" coords="463,510,548,537"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="105,398,169,425"/>
+<area shape="rect" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c" title=" " alt="" coords="107,675,166,702"/>
+<area shape="rect" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993" title=" " alt="" coords="100,726,173,753"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="113,777,161,803"/>
+<area shape="rect" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240" title=" " alt="" coords="224,273,304,299"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="361,297,406,323"/>
+<area shape="rect" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5" title=" " alt="" coords="596,297,700,323"/>
+<area shape="rect" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609" title=" " alt="" coords="471,454,540,481"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="468,347,543,374"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="751,222,836,249"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="1364,398,1411,425"/>
+<area shape="rect" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310" title=" " alt="" coords="607,347,689,374"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="623,449,673,475"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="1488,423,1611,450"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="887,297,969,323"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="1526,170,1573,197"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="1017,233,1067,259"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="1115,233,1169,259"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="1217,246,1287,273"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="1335,297,1440,323"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="748,502,839,529"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="774,297,813,323"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="773,449,813,475"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="891,94,965,121"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="1021,43,1063,70"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="230,726,298,753"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="225,777,303,803"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="225,827,303,854"/>
+</map>
+</div>
+<div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a7fe074caebef01ff0146927c0532f3cc_icgraph.png" border="0" usemap="#aeval_8c_a7fe074caebef01ff0146927c0532f3cc_icgraph" alt=""/></div>
+<map name="aeval_8c_a7fe074caebef01ff0146927c0532f3cc_icgraph" id="aeval_8c_a7fe074caebef01ff0146927c0532f3cc_icgraph">
+<area shape="rect" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aae26c99fcd5b82d115189b1122f5d0a0" name="aae26c99fcd5b82d115189b1122f5d0a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae26c99fcd5b82d115189b1122f5d0a0">&#9670;&nbsp;</a></span>start_call()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void start_call </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#af27ab4bf7b8dd35c75bd814d9f2ad310">funcdef_t</a> *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00382">382</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00047">args()</a>, <a class="el" href="eval_8c_source.html#l00365">check_arg_cnt()</a>, <a class="el" href="eval_8c_source.html#l00500">expr()</a>, <a class="el" href="types_8h_source.html#l00013">MAX_ARGS</a>, <a class="el" href="eval_8c_source.html#l00354">param_cnt()</a>, <a class="el" href="types_8h_source.html#l00142">_funcdef::params</a>, <a class="el" href="types_8h_source.html#l00230">_treenode::pos</a>, <a class="el" href="eval_8c_source.html#l00337">push()</a> und <a class="el" href="types_8h_source.html#l00234">_treenode::son</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00414">fcall()</a> und <a class="el" href="eval_8c_source.html#l00451">pcall()</a>.</p>
+<div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_aae26c99fcd5b82d115189b1122f5d0a0_cgraph.png" border="0" usemap="#aeval_8c_aae26c99fcd5b82d115189b1122f5d0a0_cgraph" alt=""/></div>
+<map name="aeval_8c_aae26c99fcd5b82d115189b1122f5d0a0_cgraph" id="aeval_8c_aae26c99fcd5b82d115189b1122f5d0a0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,466,80,492"/>
+<area shape="rect" href="parse_8c.html#a8325001117e7e70182bd12d604f7fca9" title=" " alt="" coords="786,188,833,215"/>
+<area shape="rect" href="eval_8c.html#a7ce05a41106efc725cca6ddc134712c5" title=" " alt="" coords="352,364,456,391"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="146,466,193,492"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="649,290,698,316"/>
+<area shape="rect" href="eval_8c.html#ae3a61906d96f528029b8d36cba50e310" title=" " alt="" coords="128,516,211,543"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title=" " alt="" coords="903,239,1025,266"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title=" " alt="" coords="923,188,1005,215"/>
+<area shape="rect" href="parse_8c.html#a48ac3c38abd44f60005399a63bf5e611" title=" " alt="" coords="1420,214,1467,240"/>
+<area shape="rect" href="parse_8c.html#a03de0899eb74183d9fb14eebc4abcd05" title="TERM ::= FAKTOR(a) { ( &quot;*&quot; | &quot;/&quot; ) FAKTOR(b) }." alt="" coords="1073,188,1123,215"/>
+<area shape="rect" href="parse_8c.html#af43a3e8523cf720ae0025abe08deaa6e" title=" " alt="" coords="1171,138,1225,164"/>
+<area shape="rect" href="parse_8c.html#ae323bb982ecdc24f97f5cb4d0e63f6e2" title=" " alt="" coords="1273,12,1343,39"/>
+<area shape="rect" href="parse_8c.html#ab9a8fde8e00eb71b7654d08023825330" title=" " alt="" coords="1391,12,1496,39"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="631,364,716,391"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="259,567,304,594"/>
+<area shape="rect" href="eval_8c.html#ac7ecdc7854271564169ca61956b2f15c" title=" " alt="" coords="512,391,575,418"/>
+<area shape="rect" href="eval_8c.html#ae727d4a925aff0911bbdd4510770a609" title=" " alt="" coords="639,846,708,872"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="382,567,426,594"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="519,466,568,492"/>
+<area shape="rect" href="eval_8c.html#a3026b52aea751bf20e8674665206cd89" title=" " alt="" coords="505,719,581,746"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="519,820,567,847"/>
+<area shape="rect" href="eval_8c.html#a0c4b9ecc642a069b47f478715506366b" title=" " alt="" coords="504,567,583,594"/>
+<area shape="rect" href="eval_8c.html#a141611acf81cb4595d1f48458dd1d343" title=" " alt="" coords="631,719,716,746"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="511,290,575,316"/>
+<area shape="rect" href="eval_8c.html#aa06fe04b80d6180cb9acd5fd690ac85c" title=" " alt="" coords="514,618,573,644"/>
+<area shape="rect" href="eval_8c.html#aa7ffe4f84ea1dbac0b574e8b1e4d4993" title=" " alt="" coords="507,668,580,695"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="519,516,567,543"/>
+<area shape="rect" href="eval_8c.html#a3c848bb9d6463b31dfc78522dd72f240" title=" " alt="" coords="633,440,713,467"/>
+<area shape="rect" href="main_8c.html#a0d74806279f74450fea21a03b1825563" title=" " alt="" coords="764,555,855,582"/>
+<area shape="rect" href="parse_8c.html#abd9fbe2a6d803db148e1c63b628b6fdc" title=" " alt="" coords="790,290,829,316"/>
+<area shape="rect" href="parse_8c.html#a66e534895dc627672543e3dca09a168b" title=" " alt="" coords="789,340,829,367"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title=" " alt="" coords="927,290,1001,316"/>
+<area shape="rect" href="parse_8c.html#ae17db80e216b0734c34531251f71130f" title=" " alt="" coords="1077,340,1119,367"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="639,491,707,518"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="634,542,713,568"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="634,592,713,619"/>
+</map>
+</div>
+<div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-31-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_aae26c99fcd5b82d115189b1122f5d0a0_icgraph.png" border="0" usemap="#aeval_8c_aae26c99fcd5b82d115189b1122f5d0a0_icgraph" alt=""/></div>
+<map name="aeval_8c_aae26c99fcd5b82d115189b1122f5d0a0_icgraph" id="aeval_8c_aae26c99fcd5b82d115189b1122f5d0a0_icgraph">
+<area shape="rect" title=" " alt="" coords="615,181,689,208"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="521,181,567,208"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,156,163,183"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="427,131,473,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="322,29,371,56"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="223,131,267,157"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="315,131,379,157"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,105,175,132"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,105,56,132"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a832d147ee2154a80d30fd12353e319fa" name="a832d147ee2154a80d30fd12353e319fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a832d147ee2154a80d30fd12353e319fa">&#9670;&nbsp;</a></span>to_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int to_color </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00183">183</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+<div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-32-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a832d147ee2154a80d30fd12353e319fa_icgraph.png" border="0" usemap="#aeval_8c_a832d147ee2154a80d30fd12353e319fa_icgraph" alt=""/></div>
+<map name="aeval_8c_a832d147ee2154a80d30fd12353e319fa_icgraph" id="aeval_8c_a832d147ee2154a80d30fd12353e319fa_icgraph">
+<area shape="rect" title=" " alt="" coords="629,181,697,208"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="533,181,581,208"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa06fe04b80d6180cb9acd5fd690ac85c" name="aa06fe04b80d6180cb9acd5fd690ac85c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa06fe04b80d6180cb9acd5fd690ac85c">&#9670;&nbsp;</a></span>to_rad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double to_rad </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00169">169</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-33" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-33-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-33-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_aa06fe04b80d6180cb9acd5fd690ac85c_icgraph.png" border="0" usemap="#aeval_8c_aa06fe04b80d6180cb9acd5fd690ac85c_icgraph" alt=""/></div>
+<map name="aeval_8c_aa06fe04b80d6180cb9acd5fd690ac85c_icgraph" id="aeval_8c_aa06fe04b80d6180cb9acd5fd690ac85c_icgraph">
+<area shape="rect" title=" " alt="" coords="533,181,592,208"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa7ffe4f84ea1dbac0b574e8b1e4d4993" name="aa7ffe4f84ea1dbac0b574e8b1e4d4993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7ffe4f84ea1dbac0b574e8b1e4d4993">&#9670;&nbsp;</a></span>to_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double to_range </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00175">175</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-34" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-34-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-34-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_aa7ffe4f84ea1dbac0b574e8b1e4d4993_icgraph.png" border="0" usemap="#aeval_8c_aa7ffe4f84ea1dbac0b574e8b1e4d4993_icgraph" alt=""/></div>
+<map name="aeval_8c_aa7ffe4f84ea1dbac0b574e8b1e4d4993_icgraph" id="aeval_8c_aa7ffe4f84ea1dbac0b574e8b1e4d4993_icgraph">
+<area shape="rect" title=" " alt="" coords="533,181,607,208"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a92928de2d53b21833e34f26f7f0af954" name="a92928de2d53b21833e34f26f7f0af954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92928de2d53b21833e34f26f7f0af954">&#9670;&nbsp;</a></span>to_x_pixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool to_x_pixel </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>xp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00194">194</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00042">g_max_x</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+<div id="dynsection-35" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-35-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-35-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-35-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a92928de2d53b21833e34f26f7f0af954_icgraph.png" border="0" usemap="#aeval_8c_a92928de2d53b21833e34f26f7f0af954_icgraph" alt=""/></div>
+<map name="aeval_8c_a92928de2d53b21833e34f26f7f0af954_icgraph" id="aeval_8c_a92928de2d53b21833e34f26f7f0af954_icgraph">
+<area shape="rect" title=" " alt="" coords="629,181,708,208"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="533,181,581,208"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1f54fee4dbbc785f0ff811e551aa8747" name="a1f54fee4dbbc785f0ff811e551aa8747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f54fee4dbbc785f0ff811e551aa8747">&#9670;&nbsp;</a></span>to_y_pixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool to_y_pixel </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>yp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00200">200</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00042">g_max_y</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+<div id="dynsection-36" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-36-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-36-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-36-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_a1f54fee4dbbc785f0ff811e551aa8747_icgraph.png" border="0" usemap="#aeval_8c_a1f54fee4dbbc785f0ff811e551aa8747_icgraph" alt=""/></div>
+<map name="aeval_8c_a1f54fee4dbbc785f0ff811e551aa8747_icgraph" id="aeval_8c_a1f54fee4dbbc785f0ff811e551aa8747_icgraph">
+<area shape="rect" title=" " alt="" coords="629,181,708,208"/>
+<area shape="rect" href="eval_8c.html#aa103be58b5070ecf4ec1830622825659" title=" " alt="" coords="533,181,581,208"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac7ecdc7854271564169ca61956b2f15c" name="ac7ecdc7854271564169ca61956b2f15c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ecdc7854271564169ca61956b2f15c">&#9670;&nbsp;</a></span>var_ptr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double * var_ptr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ro</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00251">251</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="main_8c_source.html#l00035">code_error()</a>, <a class="el" href="types_8h_source.html#l00163">_nameentry::d</a>, <a class="el" href="types_8h_source.html#l00235">_treenode::d</a>, <a class="el" href="eval_8c_source.html#l00049">vstack_elem_t::name</a>, <a class="el" href="types_8h_source.html#l00161">_nameentry::name</a>, <a class="el" href="types_8h_source.html#l00037">name_glob</a>, <a class="el" href="types_8h_source.html#l00041">name_pvar_ro</a>, <a class="el" href="types_8h_source.html#l00042">name_pvar_rw</a>, <a class="el" href="types_8h_source.html#l00034">name_var</a>, <a class="el" href="types_8h_source.html#l00169">_nodedata::p_name</a>, <a class="el" href="types_8h_source.html#l00151">_namedata::p_val</a>, <a class="el" href="types_8h_source.html#l00230">_treenode::pos</a>, <a class="el" href="eval_8c_source.html#l00060">stack_top</a>, <a class="el" href="types_8h_source.html#l00160">_nameentry::type</a> und <a class="el" href="types_8h_source.html#l00148">_namedata::val</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00500">expr()</a> und <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-37" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-37-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-37-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-37-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_ac7ecdc7854271564169ca61956b2f15c_cgraph.png" border="0" usemap="#aeval_8c_ac7ecdc7854271564169ca61956b2f15c_cgraph" alt=""/></div>
+<map name="aeval_8c_ac7ecdc7854271564169ca61956b2f15c_cgraph" id="aeval_8c_ac7ecdc7854271564169ca61956b2f15c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,68,32"/>
+<area shape="rect" href="main_8c.html#ad480f9b7ef4d4e46ba6713afd0ffa0be" title=" " alt="" coords="116,5,201,32"/>
+</map>
+</div>
+<div id="dynsection-38" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-38-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-38-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-38-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_ac7ecdc7854271564169ca61956b2f15c_icgraph.png" border="0" usemap="#aeval_8c_ac7ecdc7854271564169ca61956b2f15c_icgraph" alt=""/></div>
+<map name="aeval_8c_ac7ecdc7854271564169ca61956b2f15c_icgraph" id="aeval_8c_ac7ecdc7854271564169ca61956b2f15c_icgraph">
+<area shape="rect" title=" " alt="" coords="552,187,615,214"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="457,111,504,138"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="238,130,282,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="353,111,402,138"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="117,18,162,45"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="345,162,409,189"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="223,37,297,63"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,143,175,170"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,93,163,119"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,143,56,170"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa103be58b5070ecf4ec1830622825659" name="aa103be58b5070ecf4ec1830622825659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa103be58b5070ecf4ec1830622825659">&#9670;&nbsp;</a></span>walk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void walk </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="types_8h.html#adee610a3c7375031538811d29f6a4124">type_t</a>&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00209">209</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="eval_8c_source.html#l00045">g_blue</a>, <a class="el" href="eval_8c_source.html#l00044">g_delay</a>, <a class="el" href="eval_8c_source.html#l00037">g_dist</a>, <a class="el" href="eval_8c_source.html#l00045">g_green</a>, <a class="el" href="eval_8c_source.html#l00045">g_red</a>, <a class="el" href="eval_8c_source.html#l00038">g_x</a>, <a class="el" href="eval_8c_source.html#l00038">g_y</a>, <a class="el" href="types_8h_source.html#l00052">keyw_walk</a>, <a class="el" href="eval_8c_source.html#l00183">to_color()</a>, <a class="el" href="eval_8c_source.html#l00194">to_x_pixel()</a> und <a class="el" href="eval_8c_source.html#l00200">to_y_pixel()</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+<div id="dynsection-39" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-39-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-39-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-39-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_aa103be58b5070ecf4ec1830622825659_cgraph.png" border="0" usemap="#aeval_8c_aa103be58b5070ecf4ec1830622825659_cgraph" alt=""/></div>
+<map name="aeval_8c_aa103be58b5070ecf4ec1830622825659_cgraph" id="aeval_8c_aa103be58b5070ecf4ec1830622825659_cgraph">
+<area shape="rect" title=" " alt="" coords="5,56,53,83"/>
+<area shape="rect" href="eval_8c.html#a832d147ee2154a80d30fd12353e319fa" title=" " alt="" coords="107,5,175,32"/>
+<area shape="rect" href="eval_8c.html#a92928de2d53b21833e34f26f7f0af954" title=" " alt="" coords="101,56,180,83"/>
+<area shape="rect" href="eval_8c.html#a1f54fee4dbbc785f0ff811e551aa8747" title=" " alt="" coords="101,107,180,133"/>
+</map>
+</div>
+<div id="dynsection-40" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-40-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-40-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-40-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="eval_8c_aa103be58b5070ecf4ec1830622825659_icgraph.png" border="0" usemap="#aeval_8c_aa103be58b5070ecf4ec1830622825659_icgraph" alt=""/></div>
+<map name="aeval_8c_aa103be58b5070ecf4ec1830622825659_icgraph" id="aeval_8c_aa103be58b5070ecf4ec1830622825659_icgraph">
+<area shape="rect" title=" " alt="" coords="533,181,581,208"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,181,485,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,17,393,44"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,80,381,107"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,295,53,321"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,5,275,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,131,273,157"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,181,163,208"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="107,232,171,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variablen-Dokumentation</h2>
+<a id="aa38612ba034317dd86e08ffc7a273919" name="aa38612ba034317dd86e08ffc7a273919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa38612ba034317dd86e08ffc7a273919">&#9670;&nbsp;</a></span>end_marks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmstack__elem__t.html">mstack_elem_t</a>* end_marks = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00079">79</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00466">init_marks()</a> und <a class="el" href="eval_8c_source.html#l00476">push_mark()</a>.</p>
+
+</div>
+</div>
+<a id="a66e9b68866031a5c08b656bffcae9243" name="a66e9b68866031a5c08b656bffcae9243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66e9b68866031a5c08b656bffcae9243">&#9670;&nbsp;</a></span>first_mark</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmstack__elem__t.html">mstack_elem_t</a>* first_mark = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00075">75</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00466">init_marks()</a>, <a class="el" href="eval_8c_source.html#l00493">pop_mark()</a> und <a class="el" href="eval_8c_source.html#l00476">push_mark()</a>.</p>
+
+</div>
+</div>
+<a id="ac3ac2b6a0edbe6a70d5a3ba92ba1e58f" name="ac3ac2b6a0edbe6a70d5a3ba92ba1e58f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ac2b6a0edbe6a70d5a3ba92ba1e58f">&#9670;&nbsp;</a></span>g_args</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_args[10]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00039">39</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00690">evaluate()</a>.</p>
+
+</div>
+</div>
+<a id="a241cecf332a8fd8c54b89818eef9776f" name="a241cecf332a8fd8c54b89818eef9776f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a241cecf332a8fd8c54b89818eef9776f">&#9670;&nbsp;</a></span>g_blue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_blue = <a class="el" href="eval_8c.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00045">45</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a> und <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+
+</div>
+</div>
+<a id="a40c10c0b4a22802c40ca102801f9060f" name="a40c10c0b4a22802c40ca102801f9060f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c10c0b4a22802c40ca102801f9060f">&#9670;&nbsp;</a></span>g_delay</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_delay = <a class="el" href="eval_8c.html#acf858bdf004589284becf8ab00cc2760">WALK_DELAY</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00044">44</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a> und <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+
+</div>
+</div>
+<a id="acc21922fdffdeff5b75313613e3b13ba" name="acc21922fdffdeff5b75313613e3b13ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc21922fdffdeff5b75313613e3b13ba">&#9670;&nbsp;</a></span>g_dir</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_dir = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00035">35</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00476">push_mark()</a> und <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+
+</div>
+</div>
+<a id="a969e245a29666ed0ade7151bbc3eb644" name="a969e245a29666ed0ade7151bbc3eb644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a969e245a29666ed0ade7151bbc3eb644">&#9670;&nbsp;</a></span>g_dist</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_dist = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00037">37</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+
+</div>
+</div>
+<a id="a65593e02dbe02713c16fe2179e8705c1" name="a65593e02dbe02713c16fe2179e8705c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65593e02dbe02713c16fe2179e8705c1">&#9670;&nbsp;</a></span>g_green</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_green = <a class="el" href="eval_8c.html#acfbc006ea433ad708fdee3e82996e721">GREEN</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00045">45</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a> und <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+
+</div>
+</div>
+<a id="ab89ec009d6c2aa6a61d67f4e9aed2b8e" name="ab89ec009d6c2aa6a61d67f4e9aed2b8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab89ec009d6c2aa6a61d67f4e9aed2b8e">&#9670;&nbsp;</a></span>g_max_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_max_x = <a class="el" href="eval_8c.html#a898606140dee9ce0adf096de00824d94">MAX_X</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00042">42</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00194">to_x_pixel()</a>.</p>
+
+</div>
+</div>
+<a id="a4083a624a13d1cfcec0ea41011b0f5af" name="a4083a624a13d1cfcec0ea41011b0f5af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4083a624a13d1cfcec0ea41011b0f5af">&#9670;&nbsp;</a></span>g_max_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_max_y = <a class="el" href="eval_8c.html#a985cc18be96dda7f59fd0400725e4aef">MAX_Y</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00042">42</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00200">to_y_pixel()</a>.</p>
+
+</div>
+</div>
+<a id="a211fce067293aedcef59aad95b77fa47" name="a211fce067293aedcef59aad95b77fa47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a211fce067293aedcef59aad95b77fa47">&#9670;&nbsp;</a></span>g_pi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_pi = M_PI</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00041">41</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+</div>
+</div>
+<a id="a4fce042b0f70dc3f3d40330e2dc50545" name="a4fce042b0f70dc3f3d40330e2dc50545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fce042b0f70dc3f3d40330e2dc50545">&#9670;&nbsp;</a></span>g_red</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_red = <a class="el" href="eval_8c.html#a8d23feea868a983c8c2b661e1e16972f">RED</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00045">45</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00558">slist()</a> und <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+
+</div>
+</div>
+<a id="a4b528247d00267f53e2843ad01d84060" name="a4b528247d00267f53e2843ad01d84060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b528247d00267f53e2843ad01d84060">&#9670;&nbsp;</a></span>g_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_x = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00038">38</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00476">push_mark()</a>, <a class="el" href="eval_8c_source.html#l00558">slist()</a> und <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+
+</div>
+</div>
+<a id="aecb9558f61fa4c50c6349aa6906ec56d" name="aecb9558f61fa4c50c6349aa6906ec56d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb9558f61fa4c50c6349aa6906ec56d">&#9670;&nbsp;</a></span>g_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double g_y = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00038">38</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00476">push_mark()</a>, <a class="el" href="eval_8c_source.html#l00558">slist()</a> und <a class="el" href="eval_8c_source.html#l00209">walk()</a>.</p>
+
+</div>
+</div>
+<a id="a709ef4230f55bf35d76f082baa1da7c6" name="a709ef4230f55bf35d76f082baa1da7c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a709ef4230f55bf35d76f082baa1da7c6">&#9670;&nbsp;</a></span>stack</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvstack__elem__t.html">vstack_elem_t</a>* stack = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00058">58</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00402">end_call()</a>, <a class="el" href="eval_8c_source.html#l00325">init_stack()</a> und <a class="el" href="eval_8c_source.html#l00337">push()</a>.</p>
+
+</div>
+</div>
+<a id="a6c7ce253e4389a6a441cb7dfa7f69cba" name="a6c7ce253e4389a6a441cb7dfa7f69cba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c7ce253e4389a6a441cb7dfa7f69cba">&#9670;&nbsp;</a></span>stack_end</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvstack__elem__t.html">vstack_elem_t</a>* stack_end = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00062">62</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00325">init_stack()</a> und <a class="el" href="eval_8c_source.html#l00337">push()</a>.</p>
+
+</div>
+</div>
+<a id="ac9623f590dcc7491fcf89d2deceb0f72" name="ac9623f590dcc7491fcf89d2deceb0f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9623f590dcc7491fcf89d2deceb0f72">&#9670;&nbsp;</a></span>stack_top</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvstack__elem__t.html">vstack_elem_t</a>* stack_top = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00060">60</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00402">end_call()</a>, <a class="el" href="eval_8c_source.html#l00325">init_stack()</a>, <a class="el" href="eval_8c_source.html#l00337">push()</a>, <a class="el" href="eval_8c_source.html#l00286">set_var()</a> und <a class="el" href="eval_8c_source.html#l00251">var_ptr()</a>.</p>
+
+</div>
+</div>
+<a id="a758143639e426873a9362d02744fc174" name="a758143639e426873a9362d02744fc174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758143639e426873a9362d02744fc174">&#9670;&nbsp;</a></span>startpos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="types_8h.html#a60d3344e4c9a873b6f669e194c1df6e0">srcpos_t</a> startpos = { 1, 1 }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00082">82</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00466">init_marks()</a> und <a class="el" href="eval_8c_source.html#l00325">init_stack()</a>.</p>
+
+</div>
+</div>
+<a id="a7138c6cb84ce5690041c19600d90b44d" name="a7138c6cb84ce5690041c19600d90b44d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7138c6cb84ce5690041c19600d90b44d">&#9670;&nbsp;</a></span>top_mark</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmstack__elem__t.html">mstack_elem_t</a>* top_mark = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="eval_8c_source.html#l00077">77</a> der Datei <a class="el" href="eval_8c_source.html">eval.c</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00466">init_marks()</a>, <a class="el" href="eval_8c_source.html#l00493">pop_mark()</a>, <a class="el" href="eval_8c_source.html#l00476">push_mark()</a> und <a class="el" href="eval_8c_source.html#l00558">slist()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="eval_8c.html">eval.c</a></li>
+    <li class="footer">Erzeugt am Die Mai 10 2022 13:07:13 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>
