@@ -9,21 +9,21 @@ treenode_t *expression();
 treenode_t *statements();
 treenode_t *condition();
 
-// aktueller Token
+/// aktueller Token
 token_t *token;
 
-// aktuellen Token auf den Nächsten setzen
+/// aktuellen Token auf den Nächsten setzen
 token_t *next() {
 	if(token->next != NULL) printf("Token: %s\n", token->next->tok);
 	return token = token->next;
 }
 
-// aktuellen Token auf den Vorherigen setzen
+/// aktuellen Token auf den Vorherigen setzen
 token_t *prev() {
 	return token = token->prev;
 }
 
-// Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht -> Fehlermeldung + Programmabbruch wenn nicht
+/// Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht -> Fehlermeldung + Programmabbruch wenn nicht
 void expectTokenType(type_t expected, char *error){
 	if(token == NULL || token->type != expected){
 		fprintf(stderr, "Unerwarteter Token-Typ: %s\n", error);
@@ -31,7 +31,7 @@ void expectTokenType(type_t expected, char *error){
 	}
 }
 
-// Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung -> normalerweise sind Hashtables üblich)
+/// Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung -> normalerweise sind Hashtables üblich)
 nameentry_t *findNameEntry(char *name){
 	for(int i = 0; i < nameCount; i++){
 		if(strcmp(name, name_tab[i].name) == 0){
@@ -41,14 +41,32 @@ nameentry_t *findNameEntry(char *name){
 	return NULL;
 }
 
-// Namenseintrag des aktuellen Token in der Namenstabelle suchen
-nameentry_t *findVarName(void){
-	nameentry_t *v = findNameEntry(token->tok);
-	// ToDo check for var type
-	return v;
+/// Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt, falls dies noch nicht erfolgt ist)
+nameentry_t *findNameEntryOfType(type_t type){
+	nameentry_t *n = findNameEntry(token->tok);
+	if(n->type == name_any){
+		n->type = type;
+	}else if(n->type != type){
+		fprintf(stderr, "Namenseintrag bereits al anderer Typ vorhanden\n"); // ToDo
+		exit(EXIT_FAILURE);
+	}
+	return n;
 }
 
-// Parsen von Argument-Listen
+nameentry_t *findVarNameEntry(){
+	nameentry_t *n = findNameEntry(token->tok);
+	expectTokenType(name_any, "Variable erwartet");
+	if(n->type == name_any){
+		n->type = name_var;
+	}
+	if(n->type != name_var && n->type != name_glob && n->type != name_pvar_rw && n->type != name_pvar_ro){
+		fprintf(stderr, "Namenseintrag bereits vorhanden\n"); // ToDo
+		exit(EXIT_FAILURE);
+	}
+	return n;
+}
+
+/// Parsen von Argument-Listen
 treenode_t *args(treenode_t *f){
 	expectTokenType(oper_lpar, "'(' erwartet");
 	next();
@@ -72,7 +90,7 @@ treenode_t *args(treenode_t *f){
 	return f;
 }
 
-// Parsen von Operanden
+/// Parsen von Operanden
 treenode_t *operand(){
 	treenode_t *a = malloc(sizeof(treenode_t));
 	switch(token->type){
@@ -122,7 +140,7 @@ treenode_t *operand(){
 	return NULL;
 }
 
-// Parsen von Faktoren
+/// Parsen von Faktoren
 treenode_t *faktor(){
 	treenode_t *a = operand();
 	if(token->type != oper_pow) return a;
@@ -148,7 +166,7 @@ treenode_t *term(){
 	return a;
 }
 
-// Parsen von Wahrheitswerten (ToDo)
+/// Parsen von Wahrheitswerten (ToDo)
 treenode_t *val(){
 	treenode_t *a = malloc(sizeof(treenode_t));
 	if(token->type == oper_lpar){
@@ -189,7 +207,7 @@ treenode_t *val(){
 	printf("ERROR buildung val\n");
 }
 
-// Parsen logischer UND-Ausdrücke
+/// Parsen logischer UND-Ausdrücke
 treenode_t *and(){
 	treenode_t *a = val();
 	while(token->type == keyw_and){
@@ -203,7 +221,7 @@ treenode_t *and(){
 	return a;
 }
 
-// Parsen logischer Ausdrücke
+/// Parsen logischer Ausdrücke
 treenode_t *condition(){
 	treenode_t *a = and();
 	while (token->type == keyw_or) {
@@ -217,7 +235,7 @@ treenode_t *condition(){
 	return a;
 }
 
-// Parsen von mathematischen Ausdrücken
+/// Parsen von mathematischen Ausdrücken
 treenode_t *expression(){
 	treenode_t *a = term();
 	while ((token->type == oper_add) || (token->type == oper_sub)) {
@@ -232,7 +250,7 @@ treenode_t *expression(){
 	return a;
 }
 
-// Parsen einzelner Anweisungen
+/// Parsen einzelner Anweisungen
 treenode_t *statement(){
 	treenode_t *statement = malloc(sizeof(treenode_t));
 	switch(token->type){
@@ -295,7 +313,7 @@ treenode_t *statement(){
 			statement->son[0] = expression();
 			expectTokenType(keyw_in, "'in' erwartet");
 			next();
-			statement->d.p_name = findVarName();
+			statement->d.p_name = findNameEntry(token->tok);
 			next();
 			return statement;
 		case keyw_add:
@@ -309,14 +327,14 @@ treenode_t *statement(){
 				expectTokenType(keyw_from, "'from' erwartet");
 			}
 			next();
-			statement->d.p_name = findVarName();
+			statement->d.p_name = findVarNameEntry(token->tok);
 			next();
 			return statement;
 		case keyw_mul:
 		case keyw_div:
 			statement->type = token->type;
 			next();
-			statement->d.p_name = findVarName();
+			statement->d.p_name = findVarNameEntry(token->tok);
 			next();
 			expectTokenType(keyw_by, "'by' erwartet");
 			next();
@@ -339,7 +357,7 @@ treenode_t *statement(){
 		case keyw_counter:
 			statement->type = token->type;
 			next();
-			statement->d.p_name = findVarName();
+			statement->d.p_name = findVarNameEntry(token->tok);
 			next();
 			expectTokenType(keyw_from, "'from' erwartet");
 			next();
@@ -407,7 +425,7 @@ treenode_t *statement(){
 	printf("statement not found\n");
 }
 
-// Parsen einer Liste von Anweisungen
+/// Parsen einer Liste von Anweisungen
 treenode_t *statements(){
 	treenode_t *firstNode = NULL;
 	treenode_t *currentNode = firstNode;
