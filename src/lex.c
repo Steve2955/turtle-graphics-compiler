@@ -87,7 +87,8 @@ type_t getTokenType(char *tok){
 		return type;
 	}
 
-	printf("Type not found: %s\n", tok);
+	printf("Typ ist nicht bekannt: %s\n", tok);
+	exit(EXIT_FAILURE);
 
 }
 
@@ -110,7 +111,7 @@ void addToken(char *tok, type_t type){
 	printf("Token: \"%s\" (%d:%d) \n", tok ? tok : "NONE", row, col);
 	// Create new token
 	token_t *tokPtr = firstTok->tok == NULL ? firstTok : malloc(sizeof(token_t));
-	// Create own copy of token string
+	// Create own copy of token stringgi
 	if(tok != NULL){
 		char *tokCopy = malloc(strlen(tok) + 1);
 		strcpy(tokCopy, tok);
@@ -198,6 +199,7 @@ token_t *readTokensFromFile(FILE *file){
 				addToken(buf, type);
 				// Spalte aktualisieren
 				col++;
+				continue;
 			}
 
 			// Sonderzeichen als Token hinzufügen
