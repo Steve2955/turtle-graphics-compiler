@@ -104,7 +104,7 @@ void initTokenStream(){
 
 /// Der Liste einen Token hinzufügen.
 /// Für jeden Token wir dynamisch Speicher reserviert, die Listen Pointer gewechselt und der Liste mit allen Daten hinzugefügt.
-/// @param *tok als der aktuell eingelesene Token. 
+/// @param *tok als der aktuell eingelesene Token.
 /// @param type als der Typ des Tokens.
 void addToken(char *tok, type_t type){
 	// some logging
