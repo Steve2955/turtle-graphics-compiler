@@ -34,6 +34,7 @@ type_t getTokenType(char *tok){
 	if (tok[0] == '*') return oper_mul;
 	if (tok[0] == '/') return oper_div;
 	if (tok[0] == '+') return oper_add;
+	if (tok[0] == '-') return oper_sub;
 	if (tok[0] == '|') return oper_abs;
 	if (tok[0] == '(') return oper_lpar;
 	if (tok[0] == ')') return oper_rpar;

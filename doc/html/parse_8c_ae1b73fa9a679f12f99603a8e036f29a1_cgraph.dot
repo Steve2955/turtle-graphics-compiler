@@ -1,0 +1,27 @@
+digraph "expression"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="LiberationSans-Regular.ttf",fontsize="10",labelfontname="LiberationSans-Regular.ttf",labelfontsize="10"];
+  node [fontname="LiberationSans-Regular.ttf",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="expression",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node2 [label="next",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node3 [label="term",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parse_8c.html#a8455fef910204ded541f8f1aa43f2a69",tooltip="Parsen von Termen."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node4 [label="faktor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf",tooltip=" "];
+  Node4 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node5 [label="operand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106",tooltip=" "];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node6 [label="args",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7",tooltip=" "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node7 [label="expectTokenType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parse_8c.html#a72766d9d606eee9f4032df8622a6d70d",tooltip=" "];
+  Node6 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node6 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node5 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node8 [label="findNameEntry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d",tooltip=" "];
+  Node5 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node3 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+}

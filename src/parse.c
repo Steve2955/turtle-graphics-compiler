@@ -105,8 +105,21 @@ treenode_t *operand(){
 			next();
 			a = args(a);
 			return a;
+		case oper_abs:
+			a->type = token->type;
+			next();
+			a->son[0] = expression();
+			expectTokenType(oper_abs, "\"|\" erwartet");
+			next();
+			return a;
+		case oper_sub:
+			a->type = oper_neg;
+			next();
+			a->son[0] = expression();
+			return a;
 	}
-	printf("unknown type: %d\n", token->type);
+	printf("unknown type: %d\n", token->type); //ToDo: Error
+	return NULL;
 }
 
 // Parsen von Faktoren

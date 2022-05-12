@@ -1,0 +1,20 @@
+digraph "_treenode"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="LiberationSans-Regular.ttf",fontsize="10",labelfontname="LiberationSans-Regular.ttf",labelfontsize="10"];
+  node [fontname="LiberationSans-Regular.ttf",fontsize="10",shape=record];
+  Node1 [label="_treenode",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Typ eines Syntaxbaum-Knotens."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pos" ,fontname="LiberationSans-Regular.ttf"];
+  Node2 [label="_srcpos",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct__srcpos.html",tooltip="Position eines Tokens oder Syntax-Knotens im Source-File (Zeile / Spalte)"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" d" ,fontname="LiberationSans-Regular.ttf"];
+  Node3 [label="_nodedata",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$union__nodedata.html",tooltip="Unterschiedliche Nutzdaten eines Syntaxbaum-Knotens, je nach Art des Knotens."];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" p_name" ,fontname="LiberationSans-Regular.ttf"];
+  Node4 [label="_nameentry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct__nameentry.html",tooltip="Typ eines Eintrags in der Namens-Tabelle."];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" d" ,fontname="LiberationSans-Regular.ttf"];
+  Node5 [label="_namedata",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$union__namedata.html",tooltip="Unterschiedliche Nutzdaten eines Eintrags in der Namens-Tabelle, je nach Art des Namens."];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" func" ,fontname="LiberationSans-Regular.ttf"];
+  Node6 [label="_funcdef",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$struct__funcdef.html",tooltip="Daten einer Funktions- oder Pfaddefinition: Parameternamen und Code (hängt am Funktions- oder Pfadnam..."];
+  Node4 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" params" ,fontname="LiberationSans-Regular.ttf"];
+  Node1 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" body\nret" ,fontname="LiberationSans-Regular.ttf"];
+  Node1 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" next\nson" ,fontname="LiberationSans-Regular.ttf"];
+}

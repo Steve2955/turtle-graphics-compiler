@@ -127,51 +127,67 @@ typedef union _nodedata nodedata_t;
 typedef struct _treenode treenode_t;
 typedef struct _token token_t;
 
-// Position eines Tokens oder Syntax-Knotens im Source-File (Zeile / Spalte)
+/// Position eines Tokens oder Syntax-Knotens im Source-File (Zeile / Spalte)
 struct _srcpos {
-  unsigned short int line, col;   // Zeilennummer und Spaltennummer
+  /// Zeilennummer
+  unsigned short int line;
+  /// Spaltennummer
+  unsigned short int col;
 };
 
-// Daten einer Funktions- oder Pfaddefinition: Parameternamen und Code
-// (hängt am Funktions- oder Pfadnamen in der Namenstabelle)
+/// Daten einer Funktions- oder Pfaddefinition: Parameternamen und Code
+/// (hängt am Funktions- oder Pfadnamen in der Namenstabelle)
 struct _funcdef {
-  treenode_t *body; // Pointer auf den Syntaxbaum des Funktionsrumpfes
-                    // für name_calc ohne Rumpf: NULL
-  treenode_t *ret;  // für name_calc: Pointer auf den Syntaxbaum des Returnwerts
-                    // für name_path: NULL
-  nameentry_t *params[MAX_ARGS]; // Pointer auf die Namenseinträge der Parameter
+  /// Pointer auf den Syntaxbaum des Funktionsrumpfes
+  /// für name_calc ohne Rumpf: NULL
+  treenode_t *body;
+  /// für name_calc: Pointer auf den Syntaxbaum des Returnwerts
+  /// für name_path: NULL
+  treenode_t *ret;
+  /// Pointer auf die Namenseinträge der Parameter
+  nameentry_t *params[MAX_ARGS];
 };
 
-// Unterschiedliche Nutzdaten eines Eintrags in der Namens-Tabelle,
-// je nach Art des Namens
+/// Unterschiedliche Nutzdaten eines Eintrags in der Namens-Tabelle,
+/// je nach Art des Namens
 union _namedata {
-  double val;       // für name_glob: Aktueller Wert der globalen Variable
-  funcdef_t *func;  // für name_path und name_calc:
-                    //   Pointer auf die Funktionsdaten
-  double *p_val;    // für name_pvar_...: Pointer auf den Variablenwert
-                    // (d.h. auf die globale Variable im Evaluator)
-  double (*math)(double); // für name_math_... außer name_math_rand:
-                          // Function Pointer auf die math.h-Funktion
-  // leer für name_var, name_any, name_math_rand und keyw_...
+  /// für name_glob: Aktueller Wert der globalen Variable
+  double val;
+  /// für name_path und name_calc:
+  ///   Pointer auf die Funktionsdaten
+  funcdef_t *func;
+  // für name_pvar_...: Pointer auf den Variablenwert
+  // (d.h. auf die globale Variable im Evaluator)
+  double *p_val;
+  /// für name_math_... außer name_math_rand:
+  /// Function Pointer auf die math.h-Funktion
+  /// leer für name_var, name_any, name_math_rand und keyw_...
+  double (*math)(double);
 };
 
-// Typ eines Eintrags in der Namens-Tabelle
+/// Typ eines Eintrags in der Namens-Tabelle
 struct _nameentry {
-  type_t type;      // Art des Namens
-  const char *name; // Namens-String (bei name_glob und name_pvar_... *mit* @):
-                    // Pointer auf den mit strdup dynamisch gespeicherten Namen
-  namedata_t d;     // Daten zum Namen
+  /// Art des Namens
+  type_t type;
+  /// Namens-String (bei name_glob und name_pvar_... *mit* @):
+  /// Pointer auf den mit strdup dynamisch gespeicherten Namen
+  const char *name;
+  /// Daten zum Namen
+  namedata_t d;
 };
 
-// Unterschiedliche Nutzdaten eines Syntaxbaum-Knotens,
-// je nach Art des Knotens
+/// Unterschiedliche Nutzdaten eines Syntaxbaum-Knotens,
+/// je nach Art des Knotens
 union _nodedata {
-  nameentry_t *p_name; // für jeden Knoten mit Variablen- oder Funktionsnamen:
-                       // Pointer auf den Namens-Eintrag
-  double val;          // für Zahl-Konstanten: Wert der Zahl
-  type_t walk;         // Art von walk und jump: keyw_back, keyw_home, keyw_mark
-                       // oder keyw_walk für normales walk/jump,
-  // leer für alle anderen Knotentypen
+  /// für jeden Knoten mit Variablen- oder Funktionsnamen:
+  /// Pointer auf den Namens-Eintrag
+  nameentry_t *p_name;
+  /// für Zahl-Konstanten: Wert der Zahl
+  double val;
+  /// Art von walk und jump: keyw_back, keyw_home, keyw_mark
+  /// oder keyw_walk für normales walk/jump,
+  /// leer für alle anderen Knotentypen
+  type_t walk;
 };
 
 // Im Syntaxbaum werden folgende Knotentypen verwendet,
@@ -224,23 +240,33 @@ union _nodedata {
 // sind *keine* eigenen Knoten im Syntaxbaum
 // sondern beeinflussen beim Parsen nur die Struktur des Syntaxbaumes
 
-// Typ eines Syntaxbaum-Knotens
+/// Typ eines Syntaxbaum-Knotens
 struct _treenode {
-  type_t type;      // Art des Knotens
-  srcpos_t pos;     // Position im Sourcefile (für Fehlermeldungen)
-  treenode_t *next; // Bei allen Statements: Nächstes Statement
-                    // (oder NULL beim letzten Statement einer Statement-Liste)
-                    // Bei allen anderen Knoten: NULL
-  treenode_t *son[MAX_ARGS]; // Sohn-Syntaxbäume
-  nodedata_t d;     // Daten zum Knoten
+  /// Art des Knotens
+  type_t type;
+  /// Position im Sourcefile (für Fehlermeldungen)
+  srcpos_t pos;
+  /// Bei allen Statements: Nächstes Statement
+  /// (oder NULL beim letzten Statement einer Statement-Liste)
+  /// Bei allen anderen Knoten: NULL
+  treenode_t *next;
+  /// Sohn-Syntaxbäume
+  treenode_t *son[MAX_ARGS];
+  /// Daten zum Knoten
+  nodedata_t d;
 };
 
+/// Typ für einen Token (Output des Lexers)
 struct _token{
+  /// Inhalt des Tokens
   char *tok;
+  /// Typ des Tokens
   type_t type;
-  //nodedata_t d;
+  /// Position im Sourcefile (für Fehlermeldungen)
   srcpos_t pos;
+  /// Pointer des nachfolgenden Token (NULL wenn letztes Token)
   token_t *prev;
+  /// Pointer des verherigen Token (NULL wenn erstes Token)
   token_t *next;
 
 };

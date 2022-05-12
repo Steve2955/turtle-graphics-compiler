@@ -1,0 +1,14 @@
+digraph "addToken"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="LiberationSans-Regular.ttf",fontsize="10",labelfontname="LiberationSans-Regular.ttf",labelfontsize="10"];
+  node [fontname="LiberationSans-Regular.ttf",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="addToken",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node2 [label="readTokensFromFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lex_8c.html#a0097ef79a764af14f2cdf602a816465e",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node3 [label="parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982",tooltip="Hauptfunktion des Parser."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
+  Node4 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html#ac0f2228420376f4db7e1274f2b41667c",tooltip=" "];
+}
