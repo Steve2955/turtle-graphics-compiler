@@ -23,7 +23,7 @@ token_t *prev() {
 
 void expectTokenType(type_t expected, char *error){
 	if(token == NULL || token->type != expected){
-		fprintf(stderr, "Unerwarteter Token-Typ: %s\n", error);
+		fprintf(stderr, "Error: Parser (%d:%d) - Unerwarteter Token-Typ: %s\n", token->pos.line, token->pos.col, error);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -50,7 +50,7 @@ treenode_t *args(treenode_t *f){
 	int argc = 0;
 	while(token->type != oper_rpar){
 		if(argc >= MAX_ARGS){
-			fprintf(stderr, "Zu viele Argumente\n");
+			fprintf(stderr, "Error: Parser (%d:%d) - Zu viele Argumente\n", token->pos.line, token->pos.col);
 			exit(EXIT_FAILURE);
 		}
 		treenode_t *a = expression();
@@ -101,7 +101,8 @@ treenode_t *operand(){
 			a = args(a);
 			return a;
 	}
-	printf("unknown type: %d\n", token->type);
+	printf("Error: Parser (%d:%d) - Unbekannter Tokentyp: %d\n", token->pos.line, token->pos.col, token->type);
+	exit(EXIT_FAILURE);
 }
 
 // FAKTOR ::= OPERAND [ "^" FAKTOR ]
@@ -164,10 +165,10 @@ treenode_t *val(){
 			return b;
 		break;
 		default:
-			printf("Operator expected\n");
+			fprintf("Error: Parser (%d:%d) Operator erwartet\n", token->pos.line, token->pos.col);
 			exit(EXIT_FAILURE);
 	}
-	printf("ERROR buildung val\n");
+	fprintf("Error: Parser (%d:%d) buildung val\n", token->pos.line, token->pos.col);
 }
 
 treenode_t *and(){
@@ -332,7 +333,7 @@ treenode_t *statement(){
 				statement->son[1] = expression();
 				statement->son[2] = NULL;
 			}else{
-				printf("'to' oder 'downto' erwartet\n");
+				fprintf("Error: Parser (%d:%d) 'to' oder 'downto' erwartet\n", token->pos.line, token->pos.col);
 				exit(EXIT_FAILURE);
 			}
 			if(token->type == keyw_step){
@@ -393,7 +394,7 @@ treenode_t *statements(){
 	while(token->type != keyw_end && token->type != keyw_endcalc && token->type != keyw_endpath  && token->type != keyw_done && token->type != keyw_endif && token->type != keyw_else && token->type != keyw_until){
 		treenode_t *newNode = statement();
 		if(newNode == NULL){
-			fprintf(stderr, "Fehler beim Parsen des aktuellen Statements");
+			fprintf(stderr, "Error: Parser (%d:%d) - Fehler beim Parsen des aktuellen Statements", token->pos.line, token->pos.col);
 			exit(EXIT_FAILURE);
 		}
 		if(firstNode == NULL){
@@ -438,7 +439,7 @@ treenode_t *program(){
 		}else if(token->type == keyw_calculation){
 			calcdef();
 		}else{
-			fprintf(stderr, "Unerwarteter Token-Typ: Pfad- oder Calculation-Definition erwartet\n");
+			fprintf(stderr, "Error: Parser (%d:%d) - Unerwarteter Token-Typ: Pfad- oder Calculation-Definition erwartet\n", token->pos.line, token->pos.col);
 			exit(EXIT_FAILURE);
 		}
 	}
