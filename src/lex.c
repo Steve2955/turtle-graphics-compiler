@@ -45,7 +45,7 @@ type_t getTokenType(char *tok){
 			if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
 				hadDot = hadDot || tok[i] == '.';
 			}else{
-				fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col);
+				fprintf(stderr, "Error: Lexer (%d:%d) - Unzulässiger Zahlenwert\n", row, col);
 				exit(EXIT_FAILURE);
 			}
 			if(i == tokLen-1) return oper_const;
@@ -65,13 +65,13 @@ type_t getTokenType(char *tok){
 				}
 				else {
 					//kein zulässiger Variablen- oder Funktionsname -> Fehlermeldung & Abbruch
-					fprintf(stderr, "Unzulässiger Variablen- oder Funktionsname in Zeile %d, Spalte %d\n", row, col);
+					fprintf(stderr, "Error: Lexer (%d:%d) - Unzulässiger Variablen- oder Funktionsname\n", row, col);
 					exit(EXIT_FAILURE);
 				}
 			}
 
 			if (nameCount > MAX_NAMES) {
-					fprintf(stderr, "Zu viele Variablen- und Funktionsnamen\n");
+					fprintf(stderr, "Error: Lexer (%d:%d) - Zu viele Variablen- und Funktionsnamen\n", row, col);
 					exit(EXIT_FAILURE);
 			}
 		type_t type = (tok[0] == '@') ? name_glob : name_any;
@@ -87,7 +87,7 @@ type_t getTokenType(char *tok){
 		return type;
 	}
 
-	printf("Typ ist nicht bekannt: %s\n", tok);
+	fprintf("Error: Lexer (%d:%d) - Typ ist nicht bekannt: %s\n", row, col, tok);
 	exit(EXIT_FAILURE);
 
 }
