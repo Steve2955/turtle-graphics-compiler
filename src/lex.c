@@ -12,6 +12,22 @@ int row, col;
 static srcpos_t tok_pos;
 static srcpos_t prev_tok_pos;
 
+// Doxygen Beispiel:
+// Im folgenden ist ein Beispiel für das Einfuegen von Funktionsbeschreibungen in Doxygen.
+// Diese müssen sich direkt oberhalb der Funktion befinden und mit 3 mal Slash beginnen.
+// Wichtig: Bis zum ersten '.' kommt der Text in die Kurzbeschreibung, alle Sätze nach dem
+// ersten '.' kommen in die Detailbeschreibung, ausser sie haben ein spezielles Prefix wie
+// z.B. '@param'.
+// Ihr könnt Euch auch gerne das Beispiel in der Dokumentation anschauen unter '../doc/html/index.html'.
+// Dort zur Funktion getTokenType() in der Datei lex.c navigieren.
+
+/// Kurze Beschreibung.
+/// Detaillierte Beschreibung.
+/// @param *tok Das beschreibt Parameter *tok. Test.
+/// @return Die Funktion gibt das zurück.Test.
+/// @note Eine kleine Notiz.
+/// @attention Wichtiger als eine Notiz.
+/// @warning Eine richtige Warnung.
 type_t getTokenType(char *tok){
 	// check for operator-types
 	if (tok[0] == '^') return oper_pow;
