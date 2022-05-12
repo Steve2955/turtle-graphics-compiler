@@ -488,20 +488,25 @@ void var();
 /// Parsen einer Parameterliste
 /// @param funcdef_t Funktionsdefinition in die die Parameterliste eingetragen wird
 void params(funcdef_t *f){
+	printf("params\n");
 	if(f==NULL) return;
 	expectTokenType(oper_lpar, "'(' erwartet");
 	next();
 	int i = 0;
 	if(token->type != oper_rpar) do {
+		printf("param %d\n", i);
 		if(i == MAX_ARGS){
 			fprintf(stderr, "Maximale Anzahl von Argumenten überschritten");
 			exit(EXIT_FAILURE);
 		}
 		nameentry_t *p = findNameEntryOfType(name_var);
+		if(p == NULL){
+			fprintf(stderr, "Namenseintrag nicht gefunden!");
+		}
 		//ToDo auf Doppelte Parameter prüfen
 		f->params[i++] = p;
 		next();
-	}while (token->type == oper_sep);
+	}while (token->type == oper_sep && next());
 	if(i < MAX_ARGS){
 		f->params[i] = NULL;
 		printf("%d = NULL\n", i);

@@ -1,10 +1,10 @@
-calculation two()
-returns 2
+calculation somecalc(a,b)
+returns 2*a - b
 endcalc
 
 
 begin
-    store |-two()| in a
+    store |-somecalc(2,2)| in a
     store 20 in color_ll
     store 100 in color_ul
     color rand(color_ll,color_ul), rand(color_ll,color_ul), rand(color_ll,color_ul)
