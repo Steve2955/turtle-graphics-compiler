@@ -98,6 +98,7 @@ type_t getTokenType(char *tok){
 		name_entry->name = nameCopy;
 		// Anzahl der Namen erhöhen
 		nameCount++;
+		printf("Namenseintrag \"%s\" wurde hinzugefügt.\n", tok);
 		return name_any;
 	}
 

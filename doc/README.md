@@ -14,7 +14,7 @@ Captain:
 	- Placeholder
 
 @section sec_course Verlauf des Projektes
-        
+
 @subsection sec_problems Schwierigkeiten
 Captain Placeholder
 

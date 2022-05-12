@@ -1,6 +1,10 @@
+calculation two()
+returns 2
+endcalc
+
 
 begin
-    store |-2| in a
+    store |-two()| in a
     store 20 in color_ll
     store 100 in color_ul
     color rand(color_ll,color_ul), rand(color_ll,color_ul), rand(color_ll,color_ul)
