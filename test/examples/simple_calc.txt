@@ -1,0 +1,34 @@
+
+" Kleines Testprogramm: "Schnecke" aus Quadraten
+"
+" Optional ein Befehlszeilen-Wert: Skalierungsfaktor
+"
+" Klaus Kusche, 2022
+
+" nur um eine Funktion zu testen
+calculation testfunc(a)
+  mul a by 1.1
+returns a
+endcalc
+
+begin
+    store 2 in a
+    store 20 in color_ll
+    store 100 in color_ul
+    color rand(color_ll,color_ul), rand(color_ll,color_ul), rand(color_ll,color_ul)
+    walk sin(90)+1
+    jump 1*2
+    turn 9*10
+    color rand(color_ll,color_ul), rand(color_ll,color_ul), rand(color_ll,color_ul)
+    walk testfunc(2)
+    jump 2^2/2
+    turn left @dir
+    color rand(color_ll,color_ul), rand(color_ll,color_ul), rand(color_ll,color_ul)
+    walk a
+    jump sqrt(4)
+    turn 90
+    color rand(color_ll,color_ul), rand(color_ll,color_ul), rand(color_ll,color_ul)
+    walk a
+    jump a
+    stop
+end

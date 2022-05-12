@@ -34,6 +34,7 @@ type_t getTokenType(char *tok){
 	if (tok[0] == '*') return oper_mul;
 	if (tok[0] == '/') return oper_div;
 	if (tok[0] == '+') return oper_add;
+	if (tok[0] == '-') return oper_sub;
 	if (tok[0] == '|') return oper_abs;
 	if (tok[0] == '(') return oper_lpar;
 	if (tok[0] == ')') return oper_rpar;
@@ -72,32 +73,33 @@ type_t getTokenType(char *tok){
 
 	//prüfen, ob zulässiger Variablen- oder Funktionsname, um es Namenstabelle hinzuzufügen
 	if (tok[0] == '_' || isalpha(tok[0]) || tok[0] == '@') {
-			for(int i = 0; tok[i] != '\0'; i++){
-				if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_' || tok[0] == '@') {
-					continue;
-				}
-				else {
-					//kein zulässiger Variablen- oder Funktionsname -> Fehlermeldung & Abbruch
-					fprintf(stderr, "Unzulässiger Variablen- oder Funktionsname in Zeile %d, Spalte %d\n", row, col);
-					exit(EXIT_FAILURE);
-				}
+		for(int i = 0; tok[i] != '\0'; i++){
+			if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_' || tok[0] == '@') {
+				continue;
 			}
-
-			if (nameCount > MAX_NAMES) {
-					fprintf(stderr, "Zu viele Variablen- und Funktionsnamen\n");
-					exit(EXIT_FAILURE);
+			else {
+				//kein zulässiger Variablen- oder Funktionsname -> Fehlermeldung & Abbruch
+				fprintf(stderr, "Unzulässiger Variablen- oder Funktionsname in Zeile %d, Spalte %d\n", row, col);
+				exit(EXIT_FAILURE);
 			}
-		type_t type = (tok[0] == '@') ? name_glob : name_any;
-		printf("type %d", type);
+		}
+		// Überprufe, ob in der Namenstabelle noch Platz ist
+		if (nameCount > MAX_NAMES) {
+			fprintf(stderr, "Zu viele Variablen- und Funktionsnamen\n");
+			exit(EXIT_FAILURE);
+		}
+		// Pointer auf ersten Freien Namenseintrag
 		nameentry_t *name_entry = &(name_tab[nameCount]);
+		type_t type = (tok[0] == '@') ? name_glob : name_any;
 		name_entry->type = type;
-
+		// Kopie des Namens für die Namenstabelle erstellen
 		char *nameCopy = malloc(strlen(tok) + 1);
 		strcpy(nameCopy, tok);
-
 		name_entry->name = nameCopy;
+		// Anzahl der Namen erhöhen
 		nameCount++;
-		return type;
+		printf("Namenseintrag \"%s\" wurde hinzugefügt.\n", tok);
+		return name_any;
 	}
 
 	printf("Type not found: %s\n", tok);

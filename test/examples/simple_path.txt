@@ -1,0 +1,11 @@
+path test
+  walk 2
+  jump 2
+endpath
+
+begin
+    store 2 in a
+    walk a
+    path test
+    stop
+end
