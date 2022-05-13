@@ -14,7 +14,7 @@ token_t *token;
 
 /// aktuellen Token auf den Nächsten setzen
 token_t *next() {
-	if(token->next != NULL) printf("Token: %s\n", token->next->tok);
+	//if(token->next != NULL) printf("Token: %s\n", token->next->tok);
 	return token = token->next;
 }
 
@@ -55,7 +55,6 @@ nameentry_t *findNameEntryOfType(type_t type){
 
 nameentry_t *findVarNameEntry(){
 	nameentry_t *n = findNameEntry(token->tok);
-	expectTokenType(name_any, "Variable erwartet");
 	if(n->type == name_any){
 		n->type = name_var;
 	}
@@ -68,7 +67,6 @@ nameentry_t *findVarNameEntry(){
 
 /// Parsen von Argument-Listen
 treenode_t *args(treenode_t *f){
-	printf("args\n");
 	expectTokenType(oper_lpar, "'(' erwartet");
 	next();
 	int argc = 0;
@@ -88,7 +86,6 @@ treenode_t *args(treenode_t *f){
 		}
 	}
 	next();
-	printf("args done\n");
 	return f;
 }
 
@@ -97,12 +94,11 @@ treenode_t *operand(){
 	treenode_t *a = malloc(sizeof(treenode_t));
 	switch(token->type){
 		case oper_const:
-			a->d.val = atof(token->tok);
 			a->type = token->type;
+			a->d.val = atof(token->tok);
 			next();
 			return a;
 		case name_any:
-			printf("Any Name %s\n", token->tok);
 			a->type = token->type;
 
 			nameentry_t *n = findNameEntry(token->tok);
@@ -114,7 +110,6 @@ treenode_t *operand(){
 			next();
 			if(token->type == oper_lpar){ // Funktionsaufruf
 				a->type = oper_lpar;
-				printf("Funktionsaufruf\n");
 				if(n->type == name_any){ // bisher nicht zugewiesener Name -> sollte eine Funktion sein
 					n->type = name_calc;
 				}
@@ -127,7 +122,6 @@ treenode_t *operand(){
 				args(a);
 				return a;
 			}else{ // Variable
-				printf("Variable\n");
 				if(n->type == name_any){ // bisher nicht zugewiesener Name -> sollte eine Variable sein
 					n->type = name_var;
 				}
@@ -142,6 +136,7 @@ treenode_t *operand(){
 		case name_var:
 		case name_pvar_ro:
 		case name_pvar_rw:
+			a->type = name_any;
 			a->d.p_name = findNameEntry(token->tok);
 			next();
 			return a;
@@ -166,6 +161,12 @@ treenode_t *operand(){
 			a->type = oper_neg;
 			next();
 			a->son[0] = expression();
+			return a;
+		case oper_lpar:
+			next();
+			a = expression();
+			expectTokenType(oper_rpar, "')' erwartet");
+			next();
 			return a;
 	}
 	printf("unknown type: %d\n", token->type); //ToDo: Error
@@ -233,7 +234,7 @@ treenode_t *val(){
 			return b;
 		break;
 		default:
-			printf("Operator expected\n");
+			printf("Operator erwartet\n");
 			exit(EXIT_FAILURE);
 	}
 	printf("ERROR buildung val\n");
@@ -430,7 +431,6 @@ treenode_t *statement(){
 				statement->son[2] = NULL;
 			}
 			expectTokenType(keyw_endif, "'endif' erwartet");
-			printf("if statement done\n");
 			next();
 			return statement;
 		case keyw_while:
@@ -450,11 +450,8 @@ treenode_t *statement(){
 			expectTokenType(keyw_until, "'until' erwartet");
 			next();
 			statement->son[0] = condition();
-			printf("repeat statement done\n");
-			if(token->type == keyw_stop) printf("repeat statement with stop\n");
 			return statement;
 		case keyw_path:
-			printf("path statement!!!!!!!!!!!!!!!!1\n");
 			statement->type = token->type;
 			next();
 			statement->d.p_name = findNameEntryOfType(name_path);
@@ -489,7 +486,6 @@ treenode_t *statements(){
 			currentNode->next = NULL;
 		}
 	}
-	printf("statements done\n");
 	return firstNode;
 }
 
@@ -498,13 +494,11 @@ void var();
 /// Parsen einer Parameterliste
 /// @param funcdef_t Funktionsdefinition in die die Parameterliste eingetragen wird
 void params(funcdef_t *f){
-	printf("params\n");
 	if(f==NULL) return;
 	expectTokenType(oper_lpar, "'(' erwartet");
 	next();
 	int i = 0;
 	if(token->type != oper_rpar) do {
-		printf("param %d\n", i);
 		if(i == MAX_ARGS){
 			fprintf(stderr, "Maximale Anzahl von Argumenten überschritten");
 			exit(EXIT_FAILURE);
@@ -519,11 +513,9 @@ void params(funcdef_t *f){
 	}while (token->type == oper_sep && next());
 	if(i < MAX_ARGS){
 		f->params[i] = NULL;
-		printf("%d = NULL\n", i);
 	}
 	expectTokenType(oper_rpar, "')' erwartet");
 	next();
-	printf("params done\n");
 }
 
 /// Parsen einer Calc-Definition
@@ -553,7 +545,6 @@ void calcdef(){
 	f->ret = expression();
 	expectTokenType(keyw_endcalc, "\"endcalc\" erwartet");
 	next();
-	printf("calcdef done\n");
 	n->d.func = f;
 }
 
@@ -583,7 +574,6 @@ void pathdef(){
 	f->ret = NULL;
 	expectTokenType(keyw_endpath, "\"endpath\" erwartet");
 	next();
-	printf("pathdef done\n");
 	n->d.func = f;
 }
 
