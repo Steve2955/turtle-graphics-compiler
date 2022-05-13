@@ -1,4 +1,3 @@
-// ToDo
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -12,22 +11,10 @@ int row, col;
 static srcpos_t tok_pos;
 static srcpos_t prev_tok_pos;
 
-// Doxygen Beispiel:
-// Im folgenden ist ein Beispiel für das Einfuegen von Funktionsbeschreibungen in Doxygen.
-// Diese müssen sich direkt oberhalb der Funktion befinden und mit 3 mal Slash beginnen.
-// Wichtig: Bis zum ersten '.' kommt der Text in die Kurzbeschreibung, alle Sätze nach dem
-// ersten '.' kommen in die Detailbeschreibung, ausser sie haben ein spezielles Prefix wie
-// z.B. '@param'.
-// Ihr könnt Euch auch gerne das Beispiel in der Dokumentation anschauen unter '../doc/html/index.html'.
-// Dort zur Funktion getTokenType() in der Datei lex.c navigieren.
-
-/// Kurze Beschreibung.
-/// Detaillierte Beschreibung.
-/// @param *tok Das beschreibt Parameter *tok. Test.
-/// @return Die Funktion gibt das zurück.Test.
-/// @note Eine kleine Notiz.
-/// @attention Wichtiger als eine Notiz.
-/// @warning Eine richtige Warnung.
+/// Den Typen des geschriebenen Tokens bestimmen und ausgeben.
+/// Mittels if-Abfragen wird das char *tok auf den Inhalt geprüft um diesen daraufhin als type_t zurückzugeben
+/// @param *tok ist ein vom Programm eingegebener Token, den es zu interpretieren gilt.
+/// @return type_t ist der vordefinierte Typ des eingegebenen Tokens.
 type_t getTokenType(char *tok){
 	// check for operator-types
 	if (tok[0] == '^') return oper_pow;
@@ -59,7 +46,7 @@ type_t getTokenType(char *tok){
 			if(isdigit(tok[i]) || (tok[i] == '.' && !hadDot)){
 				hadDot = hadDot || tok[i] == '.';
 			}else{
-				fprintf(stderr, "Unzulässiger Zahlenwert in Zeile %d, Spalte %d\n", row, col);
+				fprintf(stderr, "Error: Lexer (%d:%d) - Unzulässiger Zahlenwert\n", row, col);
 				exit(EXIT_FAILURE);
 			}
 			if(i == tokLen-1) return oper_const;
@@ -76,50 +63,60 @@ type_t getTokenType(char *tok){
 		for(int i = 0; tok[i] != '\0'; i++){
 			if(isalpha(tok[i]) || isdigit(tok[i]) || tok[i] == '_' || tok[0] == '@') {
 				continue;
-			}
-			else {
+			} else {
 				//kein zulässiger Variablen- oder Funktionsname -> Fehlermeldung & Abbruch
-				fprintf(stderr, "Unzulässiger Variablen- oder Funktionsname in Zeile %d, Spalte %d\n", row, col);
+				fprintf(stderr, "Error: Lexer (%d:%d) - Unzulässiger Variablen- oder Funktionsname\n", row, col);
 				exit(EXIT_FAILURE);
 			}
 		}
+
 		// Überprufe, ob in der Namenstabelle noch Platz ist
 		if (nameCount > MAX_NAMES) {
-			fprintf(stderr, "Zu viele Variablen- und Funktionsnamen\n");
+			fprintf(stderr, "Error: Lexer (%d:%d) - Zu viele Variablen- und Funktionsnamen\n", row, col);
 			exit(EXIT_FAILURE);
 		}
+
 		// Pointer auf ersten Freien Namenseintrag
 		nameentry_t *name_entry = &(name_tab[nameCount]);
 		type_t type = (tok[0] == '@') ? name_glob : name_any;
 		name_entry->type = type;
+
 		// Kopie des Namens für die Namenstabelle erstellen
 		char *nameCopy = malloc(strlen(tok) + 1);
 		strcpy(nameCopy, tok);
 		name_entry->name = nameCopy;
+
 		// Anzahl der Namen erhöhen
 		nameCount++;
 		printf("Namenseintrag \"%s\" wurde hinzugefügt.\n", tok);
 		return name_any;
 	}
 
-	printf("Type not found: %s\n", tok);
+	fprintf("Error: Lexer (%d:%d) - Typ des Tokens ist nicht bekannt: %s\n", row, col, tok);
+	exit(EXIT_FAILURE);
 
 }
 
 token_t *firstTok;
 token_t *currentTok;
 
+/// Den Tokenstream initialisieren.
+/// Dient der dynamischen Reservierung des Speicherplatzes für Tokens.
 void initTokenStream(){
 	firstTok = currentTok = malloc(sizeof(token_t));
 	firstTok->tok = (char *) (firstTok->prev = firstTok->next = NULL);
 }
 
+/// Der Liste einen Token hinzufügen.
+/// Für jeden Token wir dynamisch Speicher reserviert, die Listen Pointer gewechselt und der Liste mit allen Daten hinzugefügt.
+/// @param *tok als der aktuell eingelesene Token.
+/// @param type als der Typ des Tokens.
 void addToken(char *tok, type_t type){
 	// some logging
 	printf("Token: \"%s\" (%d:%d) \n", tok ? tok : "NONE", row, col);
 	// Create new token
 	token_t *tokPtr = firstTok->tok == NULL ? firstTok : malloc(sizeof(token_t));
-	// Create own copy of token string
+	// Create own copy of token stringgi
 	if(tok != NULL){
 		char *tokCopy = malloc(strlen(tok) + 1);
 		strcpy(tokCopy, tok);
@@ -135,16 +132,26 @@ void addToken(char *tok, type_t type){
 	currentTok = tokPtr;
 }
 
+/// Tokenreihenfolge tauschen.
+/// genutzt, um kombinierte Sonderzeichen für den Parser richtig anzuordnen.
 void revertToken(){
 	currentTok = currentTok->prev;
 	free(currentTok->next);
 	currentTok->next = NULL;
 }
 
+///Prüfen, ob ein character ein Sonderzeichen ist.
+///Es wird nach den Zeichen ( ) , + - * / ^ | = geprüft.
+///@param c ist das aktuell betrachtete Zeichen eines Tokens.
+/// @return insofern ein Sonderzeichen gefunden wird, wird true zurückgegeben.
 bool isSpecial(char c){
 	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|' || c == '=';
 }
 
+///Token des Programmes werden eingelesen.
+///solange kein EOF erreicht wird liest die Funktion jedes Zeichen ein und prüft den Input, ob es Sonderzeichen, welcher Typ das eingelesene Token hat und fügt es zuletzt dem TokenStream hinzu.
+/// @param file liest das geschriebene Programm als Datei ein.
+/// @return token_t ist die Liste aller im Programm vorhandenen Token
 token_t *readTokensFromFile(FILE *file){
 	row = col = 1;
 	// Buffer for current token
@@ -186,7 +193,6 @@ token_t *readTokensFromFile(FILE *file){
 			// das Sonderzeichen selbst ist ein Token und muss behandelt werden
 
 			// kombinierte Sonderzeichen ("<=", ">=") werden zu einem Token zusammengefasst
-			// ToDo: gibt es noch mehr zusammengesetzte Operatoren?
 			if((lastC == '>' || lastC == '<') && c == '='){
 				revertToken(); //ToDo
 				// Buffer befüllen
@@ -198,6 +204,7 @@ token_t *readTokensFromFile(FILE *file){
 				addToken(buf, type);
 				// Spalte aktualisieren
 				col++;
+				continue;
 			}
 
 			// Sonderzeichen als Token hinzufügen
@@ -236,9 +243,6 @@ token_t *readTokensFromFile(FILE *file){
 
 	addToken(NULL, tok_bofeof);
 
-	// ToDo: einzelne Wörter auslesen -> Beispiel: "path circle(r,n)" wird zu "path|circle|(|r|,|n|)"
-	// ToDo: Wörter Typen zuordnen -> siehe getTokenType
-	// ToDo: Tokenliste verketten und zurückgeben
 	free(buf);
 	return firstTok;
 }
