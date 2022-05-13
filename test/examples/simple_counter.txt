@@ -17,6 +17,7 @@ begin
         done
         clear
         color tb, tr, tg
+        direction @dir+45
     done
     finish
 end

@@ -1,6 +1,13 @@
+calculation somecalc(a,b)
+returns 2*a - b
+endcalc
+
+path walking
+    walk 2
+endpath
 
 begin
-    store 2 in a
+    store |-somecalc(2,2)| in a
     store 20 in color_ll
     store 100 in color_ul
     color rand(color_ll,color_ul), rand(color_ll,color_ul), rand(color_ll,color_ul)
@@ -16,7 +23,7 @@ begin
     jump sqrt(4)
     turn 90
     color rand(color_ll,color_ul), rand(color_ll,color_ul), rand(color_ll,color_ul)
-    walk a
+    path walking
     jump a
     stop
 end
