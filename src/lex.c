@@ -1,3 +1,5 @@
+/// Lexer
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -92,7 +94,7 @@ type_t getTokenType(char *tok){
 		return name_any;
 	}
 
-	fprintf("Error: Lexer (%d:%d) - Typ des Tokens ist nicht bekannt: %s\n", row, col, tok);
+	fprintf(stderr, "Error: Lexer (%d:%d) - Typ des Tokens ist nicht bekannt: %s\n", row, col, tok);
 	exit(EXIT_FAILURE);
 
 }
@@ -132,7 +134,7 @@ void addToken(char *tok, type_t type){
 	currentTok = tokPtr;
 }
 
-/// Tokenreihenfolge tauschen.
+/// Zuletzt hinugefügten Token aus der Liste löschen.
 /// genutzt, um kombinierte Sonderzeichen für den Parser richtig anzuordnen.
 void revertToken(){
 	currentTok = currentTok->prev;
@@ -140,9 +142,9 @@ void revertToken(){
 	currentTok->next = NULL;
 }
 
-///Prüfen, ob ein character ein Sonderzeichen ist.
-///Es wird nach den Zeichen ( ) , + - * / ^ | = geprüft.
-///@param c ist das aktuell betrachtete Zeichen eines Tokens.
+/// Prüfen, ob ein character ein Sonderzeichen ist.
+/// Es wird nach den Zeichen ( ) , + - * / ^ | = geprüft.
+/// @param c ist das aktuell betrachtete Zeichen eines Tokens.
 /// @return insofern ein Sonderzeichen gefunden wird, wird true zurückgegeben.
 bool isSpecial(char c){
 	return c == '(' || c == ')' || c == ',' || c =='+' || c == '-' || c == '*' || c == '/' || c == '^' || c == '|' || c == '=';
@@ -194,7 +196,8 @@ token_t *readTokensFromFile(FILE *file){
 
 			// kombinierte Sonderzeichen ("<=", ">=") werden zu einem Token zusammengefasst
 			if((lastC == '>' || lastC == '<') && c == '='){
-				revertToken(); //ToDo
+				// letzten Token wieder aus der Liste entfernen (einzelner Operator)
+				revertToken();
 				// Buffer befüllen
 				buf[0] = lastC;
 				buf[1] = c;

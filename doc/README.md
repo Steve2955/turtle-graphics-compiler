@@ -13,23 +13,28 @@ Der Parser befindet sich in der Datei `parse.c`. Dieser ruft selbstständig den 
 
 @subsection sec_usage_build Benutzung der Build-Skripts
 
+Zum Bauen des Projektes wurden Build-Skripte benutzt (`build.cmd`, `build.sh`). Im Folgenden ist der unter Linux verwendete Befehl gelistet.
+
 ```bash
 gcc `sdl2-config --cflags --libs` -lm -o build/turtle src/sdl/sdlinterf.c src/main.c src/eval.c src/parse.c src/lex.c src/nametab.c -lSDL2main -lSDL2 -Wl,--no-undefined -lm -luuid -static-libgcc
 ```
 
 @subsection sec_usage_prog Benutzung des Compilers
-Captain:
-	- Placeholder
+
+```
+turtle Programm-Datei [Zahlen ...]
+```
 
 @section sec_course Verlauf des Projektes
 
 @subsection sec_problems Schwierigkeiten
 
-- Umfang des Projektes ist dem Stundenumfang des Moduls nicht unbedingt gerecht
+- Umfang des Projektes ist dem Stundenumfang des Moduls nicht gerecht
+- Aufteilung in einzelne Abschnitte (abseits von Parser und Lexer) schwierig; daher oftmals im Pair-Programming umgesetzt
 
-@subsection sec_improve Verbesserungen
+@subsection sec_improve Verbesserungsvorschläge
 
-
+- Bessere Dokumentation der bereitgestellten Files (es war z.B. nicht immer ganz klar in welcher Struktur der Evaluator Daten erwartet)
 
 @subsection sec_joy Freude
 

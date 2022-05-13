@@ -1,7 +1,7 @@
+/// Parser
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "turtle.h"
 #include "types.h"
 
@@ -47,7 +47,7 @@ nameentry_t *findNameEntryOfType(type_t type){
 	if(n->type == name_any){
 		n->type = type;
 	}else if(n->type != type){
-		fprintf(stderr, "Namenseintrag bereits al anderer Typ vorhanden\n"); // ToDo
+		fprintf(stderr, "Error: Parser (%d:%d) - Namenseintrag bereits als anderer Typ vorhanden: %s\n", token->pos.line, token->pos.col, token->tok);
 		exit(EXIT_FAILURE);
 	}
 	return n;
@@ -59,7 +59,7 @@ nameentry_t *findVarNameEntry(){
 		n->type = name_var;
 	}
 	if(n->type != name_var && n->type != name_glob && n->type != name_pvar_rw && n->type != name_pvar_ro){
-		fprintf(stderr, "Namenseintrag bereits vorhanden\n"); // ToDo
+		fprintf(stderr, "Error: Parser (%d:%d) - Namenseintrag bereits vorhanden: %s\n", token->pos.line, token->pos.col, token->tok);
 		exit(EXIT_FAILURE);
 	}
 	return n;
@@ -199,7 +199,7 @@ treenode_t *term(){
 	return a;
 }
 
-/// Parsen von Wahrheitswerten (ToDo)
+/// Parsen von Wahrheitswerten
 treenode_t *val(){
 	treenode_t *a = malloc(sizeof(treenode_t));
 	if(token->type == oper_lpar){
@@ -234,10 +234,10 @@ treenode_t *val(){
 			return b;
 		break;
 		default:
-			fprintf("Error: Parser (%d:%d) Operator erwartet\n", token->pos.line, token->pos.col);
+			fprintf(stderr, "Error: Parser (%d:%d) Operator erwartet\n", token->pos.line, token->pos.col);
 			exit(EXIT_FAILURE);
 	}
-	fprintf("Error: Parser (%d:%d) buildung val\n", token->pos.line, token->pos.col);
+	fprintf(stderr, "Error: Parser (%d:%d) buildung val\n", token->pos.line, token->pos.col);
 }
 
 /// Parsen logischer UND-Ausdrücke
@@ -404,7 +404,7 @@ treenode_t *statement(){
 				statement->son[1] = expression();
 				statement->son[2] = NULL;
 			}else{
-				fprintf("Error: Parser (%d:%d) 'to' oder 'downto' erwartet\n", token->pos.line, token->pos.col);
+				fprintf(stderr, "Error: Parser (%d:%d) 'to' oder 'downto' erwartet\n", token->pos.line, token->pos.col);
 				exit(EXIT_FAILURE);
 			}
 			if(token->type == keyw_step){
@@ -500,12 +500,12 @@ void params(funcdef_t *f){
 	int i = 0;
 	if(token->type != oper_rpar) do {
 		if(i == MAX_ARGS){
-			fprintf(stderr, "Maximale Anzahl von Argumenten überschritten");
+			fprintf(stderr, "Error: Parser (%d:%d) - Maximale Anzahl von Argumenten überschritten\n", token->pos.line, token->pos.col);
 			exit(EXIT_FAILURE);
 		}
 		nameentry_t *p = findNameEntryOfType(name_var);
 		if(p == NULL){
-			fprintf(stderr, "Namenseintrag nicht gefunden!");
+			fprintf(stderr, "Error: Parser (%d:%d) - Namenseintrag konnte nicht gefunden werden: %s\n", token->pos.line, token->pos.col, token->tok);
 		}
 		//ToDo auf Doppelte Parameter prüfen
 		f->params[i++] = p;
@@ -524,18 +524,18 @@ void calcdef(){
 	next();
 	nameentry_t *n = findNameEntryOfType(name_calc);
 	if(n == NULL){
-		fprintf(stderr, "Kein Eintrag in der Namenstabelle gefunden\n");
+		fprintf(stderr, "Error: Parser (%d:%d) - Namenseintrag konnte nicht gefunden werden: %s\n", token->pos.line, token->pos.col, token->tok);
 		exit(EXIT_FAILURE);
 	}
 	if (n->d.func != NULL){
-		fprintf(stderr, "Calculation ist bereits definiert\n");
+		fprintf(stderr, "Error: Parser (%d:%d) - Namenseintrag ist bereits vorhanden: %s\n", token->pos.line, token->pos.col, token->tok);
 		exit(EXIT_FAILURE);
 	}
 	next();
 
 	funcdef_t *f = malloc(sizeof(funcdef_t));
 	if(!f){
-		fprintf(stderr, "Fehler beim Allokieren von Speicher\n");
+		fprintf(stderr, "Error: Parser (%d:%d) - Fehler beim Allokieren von Speicher %s\n", token->pos.line, token->pos.col);
 		exit(EXIT_FAILURE);
 	}
 	params(f);
@@ -554,18 +554,18 @@ void pathdef(){
 	next();
 	nameentry_t *n = findNameEntryOfType(name_path);
 	if(n == NULL){
-		fprintf(stderr, "Kein Eintrag in der Namenstabelle gefunden\n");
+		fprintf(stderr, "Error: Parser (%d:%d) - Namenseintrag konnte nicht gefunden werden: %s\n", token->pos.line, token->pos.col, token->tok);
 		exit(EXIT_FAILURE);
 	}
 	if (n->d.func != NULL){
-		fprintf(stderr, "Path ist bereits definiert\n");
+		fprintf(stderr, "Error: Parser (%d:%d) - Namenseintrag ist bereits vorhanden: %s\n", token->pos.line, token->pos.col, token->tok);
 		exit(EXIT_FAILURE);
 	}
 	next();
 
 	funcdef_t *f = malloc(sizeof(funcdef_t));
 	if(!f){
-		fprintf(stderr, "Fehler beim Allokieren von Speicher\n");
+		fprintf(stderr, "Error: Parser (%d:%d) - Fehler beim Allokieren von Speicher %s\n", token->pos.line, token->pos.col);
 		exit(EXIT_FAILURE);
 	}
 
@@ -609,12 +609,13 @@ treenode_t *parse(void){
 	// Lexer aufrufen -> Tokenstream
 	token = readTokensFromFile(src_file);
 
-	printf("\nParsing...\n\n");
-
-	//expectTokenType(tok_bofeof, "Dateianfang erwartet");
-	//next();
 	treenode_t *root = program();
-	//expectTokenType(tok_bofeof, "Dateiende erwartet");
+
+	while (token != NULL){
+       token_t *tmp = token;
+       token = token->next;
+       free(tmp);
+    }
 
 	return root;
 }
