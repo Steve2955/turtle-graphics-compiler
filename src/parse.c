@@ -453,6 +453,16 @@ treenode_t *statement(){
 			printf("repeat statement done\n");
 			if(token->type == keyw_stop) printf("repeat statement with stop\n");
 			return statement;
+		case keyw_path:
+			printf("path statement!!!!!!!!!!!!!!!!1\n");
+			statement->type = token->type;
+			next();
+			statement->d.p_name = findNameEntryOfType(name_path);
+			next();
+			if (token->type == oper_lpar) {
+				args(statement);
+			}
+			return statement;
 	}
 	printf("statement not found\n");
 }
@@ -550,9 +560,31 @@ void calcdef(){
 /// Parsen einer Path-definition
 void pathdef(){
 	expectTokenType(keyw_path, "\"path\" erwartet");
-	// ToDo
-	expectTokenType(keyw_endcalc, "\"endpath\" erwartet");
 	next();
+	nameentry_t *n = findNameEntryOfType(name_path);
+	if(n == NULL){
+		fprintf(stderr, "Kein Eintrag in der Namenstabelle gefunden\n");
+		exit(EXIT_FAILURE);
+	}
+	if (n->d.func != NULL){
+		fprintf(stderr, "Path ist bereits definiert\n");
+		exit(EXIT_FAILURE);
+	}
+	next();
+
+	funcdef_t *f = malloc(sizeof(funcdef_t));
+	if(!f){
+		fprintf(stderr, "Fehler beim Allokieren von Speicher\n");
+		exit(EXIT_FAILURE);
+	}
+
+	if (token->type == oper_lpar) params(f);
+	f->body = statements();
+	f->ret = NULL;
+	expectTokenType(keyw_endpath, "\"endpath\" erwartet");
+	next();
+	printf("pathdef done\n");
+	n->d.func = f;
 }
 
 /// Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)
