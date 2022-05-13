@@ -121,6 +121,7 @@ $(document).ready(function(){initNavTree('lex_8c.html',''); initResizable(); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Makrodefinitionen</h2></td></tr>
 <tr class="memitem:a6ba86e8818f2fd7667971e2872dc24b0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lex_8c.html#a6ba86e8818f2fd7667971e2872dc24b0">MAX_TOKEN_LENGTH</a>&#160;&#160;&#160;128</td></tr>
+<tr class="memdesc:a6ba86e8818f2fd7667971e2872dc24b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lexer.  <a href="lex_8c.html#a6ba86e8818f2fd7667971e2872dc24b0">Mehr ...</a><br /></td></tr>
 <tr class="separator:a6ba86e8818f2fd7667971e2872dc24b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -135,7 +136,7 @@ Funktionen</h2></td></tr>
 <tr class="memdesc:a376822f8aca53518658342c1093b63f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Der Liste einen Token hinzufügen.  <a href="lex_8c.html#a376822f8aca53518658342c1093b63f7">Mehr ...</a><br /></td></tr>
 <tr class="separator:a376822f8aca53518658342c1093b63f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6aabb92fb9e2da01c9d9ccb06d776e63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63">revertToken</a> ()</td></tr>
-<tr class="memdesc:a6aabb92fb9e2da01c9d9ccb06d776e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenreihenfolge tauschen.  <a href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63">Mehr ...</a><br /></td></tr>
+<tr class="memdesc:a6aabb92fb9e2da01c9d9ccb06d776e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zuletzt hinugefügten Token aus der Liste löschen.  <a href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63">Mehr ...</a><br /></td></tr>
 <tr class="separator:a6aabb92fb9e2da01c9d9ccb06d776e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb4ee6d0682249c03107497ef7ae865c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lex_8c.html#aeb4ee6d0682249c03107497ef7ae865c">isSpecial</a> (char c)</td></tr>
 <tr class="memdesc:aeb4ee6d0682249c03107497ef7ae865c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prüfen, ob ein character ein Sonderzeichen ist.  <a href="lex_8c.html#aeb4ee6d0682249c03107497ef7ae865c">Mehr ...</a><br /></td></tr>
@@ -171,6 +172,8 @@ Variablen</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Lexer. </p>
 
 <p class="definition">Definiert in Zeile <a class="el" href="lex_8c_source.html#l00010">10</a> der Datei <a class="el" href="lex_8c_source.html">lex.c</a>.</p>
 
@@ -391,7 +394,7 @@ Variablen</h2></td></tr>
 
 <p class="reference">Benutzt <a class="el" href="lex_8c_source.html#l00116">addToken()</a>, <a class="el" href="lex_8c_source.html#l00012">col</a>, <a class="el" href="lex_8c_source.html#l00102">firstTok</a>, <a class="el" href="lex_8c_source.html#l00020">getTokenType()</a>, <a class="el" href="lex_8c_source.html#l00107">initTokenStream()</a>, <a class="el" href="lex_8c_source.html#l00149">isSpecial()</a>, <a class="el" href="lex_8c_source.html#l00010">MAX_TOKEN_LENGTH</a>, <a class="el" href="lex_8c_source.html#l00139">revertToken()</a>, <a class="el" href="lex_8c_source.html#l00012">row</a> und <a class="el" href="types_8h_source.html#l00100">tok_bofeof</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00608">parse()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00607">parse()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -404,7 +407,7 @@ Variablen</h2></td></tr>
 <area shape="rect" href="lex_8c.html#a2d48a5454ca09bc96099d730a74a38e2" title="Den Typen des geschriebenen Tokens bestimmen und ausgeben." alt="" coords="199,56,301,83"/>
 <area shape="rect" href="lex_8c.html#aee1c10e2d6fc859665b68205c3779919" title="Den Tokenstream initialisieren." alt="" coords="192,107,308,133"/>
 <area shape="rect" href="lex_8c.html#aeb4ee6d0682249c03107497ef7ae865c" title="Prüfen, ob ein character ein Sonderzeichen ist." alt="" coords="214,157,286,184"/>
-<area shape="rect" href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63" title="Tokenreihenfolge tauschen." alt="" coords="205,208,295,235"/>
+<area shape="rect" href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63" title="Zuletzt hinugefügten Token aus der Liste löschen." alt="" coords="205,208,295,235"/>
 </map>
 </div>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -437,7 +440,7 @@ Variablen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tokenreihenfolge tauschen. </p>
+<p>Zuletzt hinugefügten Token aus der Liste löschen. </p>
 <p>genutzt, um kombinierte Sonderzeichen für den Parser richtig anzuordnen. </p>
 
 <p class="definition">Definiert in Zeile <a class="el" href="lex_8c_source.html#l00139">139</a> der Datei <a class="el" href="lex_8c_source.html">lex.c</a>.</p>
@@ -452,7 +455,7 @@ Variablen</h2></td></tr>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="lex_8c_a6aabb92fb9e2da01c9d9ccb06d776e63_icgraph.png" border="0" usemap="#alex_8c_a6aabb92fb9e2da01c9d9ccb06d776e63_icgraph" alt=""/></div>
 <map name="alex_8c_a6aabb92fb9e2da01c9d9ccb06d776e63_icgraph" id="alex_8c_a6aabb92fb9e2da01c9d9ccb06d776e63_icgraph">
-<area shape="rect" title="Tokenreihenfolge tauschen." alt="" coords="393,5,484,32"/>
+<area shape="rect" title="Zuletzt hinugefügten Token aus der Liste löschen." alt="" coords="393,5,484,32"/>
 <area shape="rect" href="lex_8c.html#a0097ef79a764af14f2cdf602a816465e" title="Token des Programmes werden eingelesen." alt="" coords="207,5,345,32"/>
 <area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,5,159,32"/>
 <area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,5,56,32"/>
@@ -588,7 +591,7 @@ Variablen</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="lex_8c.html">lex.c</a></li>
-    <li class="footer">Erzeugt am Fre Mai 13 2022 10:02:53 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Erzeugt am Fre Mai 13 2022 14:30:05 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

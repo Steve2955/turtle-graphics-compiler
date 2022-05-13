@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('lex_8c_source.html',''); initResizable
 <div class="title">lex.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="lex_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/// @file Lexer</span></div>
+<a href="lex_8c.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/// Lexer</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
@@ -184,7 +184,7 @@ $(document).ready(function(){initNavTree('lex_8c_source.html',''); initResizable
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="types_8h.html#adee610a3c7375031538811d29f6a4124ae51df9f4533d88b97fbb40828896f81c">name_any</a>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;   }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   fprintf(<span class="stringliteral">&quot;Error: Lexer (%d:%d) - Typ des Tokens ist nicht bekannt: %s\n&quot;</span>, <a class="code" href="lex_8c.html#af1d3cff2e4538e23400e260bae3dadad">row</a>, <a class="code" href="lex_8c.html#afb52e720f5f0c483db5861f9e42e924e">col</a>, tok);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   fprintf(stderr, <span class="stringliteral">&quot;Error: Lexer (%d:%d) - Typ des Tokens ist nicht bekannt: %s\n&quot;</span>, <a class="code" href="lex_8c.html#af1d3cff2e4538e23400e260bae3dadad">row</a>, <a class="code" href="lex_8c.html#afb52e720f5f0c483db5861f9e42e924e">col</a>, tok);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;   exit(EXIT_FAILURE);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
@@ -224,7 +224,7 @@ $(document).ready(function(){initNavTree('lex_8c_source.html',''); initResizable
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;   <a class="code" href="lex_8c.html#a14f7f4f72ada8d07c510d54600e3a2e7">currentTok</a> = tokPtr;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">/// Tokenreihenfolge tauschen.</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">/// Zuletzt hinugefügten Token aus der Liste löschen.</span></div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">/// genutzt, um kombinierte Sonderzeichen für den Parser richtig anzuordnen.</span></div>
 <div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63">  139</a></span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63">revertToken</a>(){</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;   <a class="code" href="lex_8c.html#a14f7f4f72ada8d07c510d54600e3a2e7">currentTok</a> = <a class="code" href="lex_8c.html#a14f7f4f72ada8d07c510d54600e3a2e7">currentTok</a>-&gt;<a class="code" href="struct__token.html#acf335945e4634285c4139fba5a212e6b">prev</a>;</div>
@@ -232,9 +232,9 @@ $(document).ready(function(){initNavTree('lex_8c_source.html',''); initResizable
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;   <a class="code" href="lex_8c.html#a14f7f4f72ada8d07c510d54600e3a2e7">currentTok</a>-&gt;<a class="code" href="struct__token.html#a2105b415c254c46a8381047afd59b31a">next</a> = NULL;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">///Prüfen, ob ein character ein Sonderzeichen ist.</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">///Es wird nach den Zeichen ( ) , + - * / ^ | = geprüft.</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">///@param c ist das aktuell betrachtete Zeichen eines Tokens.</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">/// Prüfen, ob ein character ein Sonderzeichen ist.</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">/// Es wird nach den Zeichen ( ) , + - * / ^ | = geprüft.</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">/// @param c ist das aktuell betrachtete Zeichen eines Tokens.</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/// @return insofern ein Sonderzeichen gefunden wird, wird true zurückgegeben.</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="lex_8c.html#aeb4ee6d0682249c03107497ef7ae865c">  149</a></span>&#160;<span class="comment"></span><span class="keywordtype">bool</span> <a class="code" href="lex_8c.html#aeb4ee6d0682249c03107497ef7ae865c">isSpecial</a>(<span class="keywordtype">char</span> c){</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;   <span class="keywordflow">return</span> c == <span class="charliteral">&#39;(&#39;</span> || c == <span class="charliteral">&#39;)&#39;</span> || c == <span class="charliteral">&#39;,&#39;</span> || c ==<span class="charliteral">&#39;+&#39;</span> || c == <span class="charliteral">&#39;-&#39;</span> || c == <span class="charliteral">&#39;*&#39;</span> || c == <span class="charliteral">&#39;/&#39;</span> || c == <span class="charliteral">&#39;^&#39;</span> || c == <span class="charliteral">&#39;|&#39;</span> || c == <span class="charliteral">&#39;=&#39;</span>;</div>
@@ -344,8 +344,8 @@ $(document).ready(function(){initNavTree('lex_8c_source.html',''); initResizable
 <div class="ttc" id="alex_8c_html_a14f7f4f72ada8d07c510d54600e3a2e7"><div class="ttname"><a href="lex_8c.html#a14f7f4f72ada8d07c510d54600e3a2e7">currentTok</a></div><div class="ttdeci">token_t * currentTok</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00103">lex.c:103</a></div></div>
 <div class="ttc" id="alex_8c_html_a2d48a5454ca09bc96099d730a74a38e2"><div class="ttname"><a href="lex_8c.html#a2d48a5454ca09bc96099d730a74a38e2">getTokenType</a></div><div class="ttdeci">type_t getTokenType(char *tok)</div><div class="ttdoc">Den Typen des geschriebenen Tokens bestimmen und ausgeben.</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00020">lex.c:20</a></div></div>
 <div class="ttc" id="alex_8c_html_a376822f8aca53518658342c1093b63f7"><div class="ttname"><a href="lex_8c.html#a376822f8aca53518658342c1093b63f7">addToken</a></div><div class="ttdeci">void addToken(char *tok, type_t type)</div><div class="ttdoc">Der Liste einen Token hinzufügen.</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00116">lex.c:116</a></div></div>
-<div class="ttc" id="alex_8c_html_a6aabb92fb9e2da01c9d9ccb06d776e63"><div class="ttname"><a href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63">revertToken</a></div><div class="ttdeci">void revertToken()</div><div class="ttdoc">Tokenreihenfolge tauschen.</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00139">lex.c:139</a></div></div>
-<div class="ttc" id="alex_8c_html_a6ba86e8818f2fd7667971e2872dc24b0"><div class="ttname"><a href="lex_8c.html#a6ba86e8818f2fd7667971e2872dc24b0">MAX_TOKEN_LENGTH</a></div><div class="ttdeci">#define MAX_TOKEN_LENGTH</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00010">lex.c:10</a></div></div>
+<div class="ttc" id="alex_8c_html_a6aabb92fb9e2da01c9d9ccb06d776e63"><div class="ttname"><a href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63">revertToken</a></div><div class="ttdeci">void revertToken()</div><div class="ttdoc">Zuletzt hinugefügten Token aus der Liste löschen.</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00139">lex.c:139</a></div></div>
+<div class="ttc" id="alex_8c_html_a6ba86e8818f2fd7667971e2872dc24b0"><div class="ttname"><a href="lex_8c.html#a6ba86e8818f2fd7667971e2872dc24b0">MAX_TOKEN_LENGTH</a></div><div class="ttdeci">#define MAX_TOKEN_LENGTH</div><div class="ttdoc">Lexer.</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00010">lex.c:10</a></div></div>
 <div class="ttc" id="alex_8c_html_a86f785aedd5521141797b84a4205f676"><div class="ttname"><a href="lex_8c.html#a86f785aedd5521141797b84a4205f676">tok_pos</a></div><div class="ttdeci">static srcpos_t tok_pos</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00013">lex.c:13</a></div></div>
 <div class="ttc" id="alex_8c_html_adde3d7cb285e0167f62440c90f5fb25a"><div class="ttname"><a href="lex_8c.html#adde3d7cb285e0167f62440c90f5fb25a">firstTok</a></div><div class="ttdeci">token_t * firstTok</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00102">lex.c:102</a></div></div>
 <div class="ttc" id="alex_8c_html_aeb4ee6d0682249c03107497ef7ae865c"><div class="ttname"><a href="lex_8c.html#aeb4ee6d0682249c03107497ef7ae865c">isSpecial</a></div><div class="ttdeci">bool isSpecial(char c)</div><div class="ttdoc">Prüfen, ob ein character ein Sonderzeichen ist.</div><div class="ttdef"><b>Definition:</b> <a href="lex_8c_source.html#l00149">lex.c:149</a></div></div>
@@ -395,7 +395,7 @@ $(document).ready(function(){initNavTree('lex_8c_source.html',''); initResizable
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="lex_8c.html">lex.c</a></li>
-    <li class="footer">Erzeugt am Fre Mai 13 2022 10:02:53 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Erzeugt am Fre Mai 13 2022 14:30:04 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

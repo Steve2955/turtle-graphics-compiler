@@ -102,7 +102,7 @@ type_t getTokenType(char *tok){
 token_t *firstTok;
 token_t *currentTok;
 
-/// Den Tokenstream initialisieren.
+/// Initialen Zustand des Tokenstream herstellen.
 /// Dient der dynamischen Reservierung des Speicherplatzes für Tokens.
 void initTokenStream(){
 	firstTok = currentTok = malloc(sizeof(token_t));
