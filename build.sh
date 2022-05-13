@@ -6,4 +6,4 @@ then
 fi
 mkdir -p build
 mkdir -p build/turtle
-gcc `sdl2-config --cflags --libs` -lm -o build/turtle/output.out src/sdl/sdlinterf.c src/main.c src/eval.c src/parse.c src/lex.c src/nametab.c -lSDL2main -lSDL2 -Wl,--no-undefined -lm -luuid -static-libgcc
+gcc `sdl2-config --cflags --libs` -lm -o build/turtle src/sdl/sdlinterf.c src/main.c src/eval.c src/parse.c src/lex.c src/nametab.c -lSDL2main -lSDL2 -Wl,--no-undefined -lm -luuid -static-libgcc

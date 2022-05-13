@@ -12,8 +12,10 @@ Der Lexer befindet sich in der Datei `lex.c`. Dieser wurde logisch komplett vom 
 Der Parser befindet sich in der Datei `parse.c`. Dieser ruft selbstständig den Lexer auf. Die Token-Liste des Lexer wird in einen Syntaxbaum auf Basis der vorgegebenen Datenstruktur `treenode_t` umgewandelt, die dann vom vorgefertigten Evaluator verarbeitet werden kann.
 
 @subsection sec_usage_build Benutzung der Build-Skripts
-Captain:
-	- Placeholder
+
+```bash
+gcc `sdl2-config --cflags --libs` -lm -o build/turtle src/sdl/sdlinterf.c src/main.c src/eval.c src/parse.c src/lex.c src/nametab.c -lSDL2main -lSDL2 -Wl,--no-undefined -lm -luuid -static-libgcc
+```
 
 @subsection sec_usage_prog Benutzung des Compilers
 Captain:
