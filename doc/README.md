@@ -5,6 +5,12 @@
 
 @section sec_overview Überblick
 
+Dieses Projekt wurde als Klausurersatzleistung im Rahmen des Moduls "Compilerbau" erstellt. Es handelt sich um einen Compiler für eine einfach Programmiersprache zum Zeichnen von Strichgrafiken. Auf der Grundlage eines vorgegebenen Evaluators wurden der Lexer und der Parser entwickelt.
+
+Der Lexer befindet sich in der Datei `lex.c`. Dieser wurde logisch komplett vom Parser getrennt. Dazu wurde `token_t` als eigener Datenstruktur für Tokens definiert. Diese Datenstruktur ist als zweifach verkettete Liste implementiert.
+
+Der Parser befindet sich in der Datei `parse.c`. Dieser ruft selbstständig den Lexer auf. Die Token-Liste des Lexer wird in einen Syntaxbaum auf Basis der vorgegebenen Datenstruktur `treenode_t` umgewandelt, die dann vom vorgefertigten Evaluator verarbeitet werden kann.
+
 @subsection sec_usage_build Benutzung der Build-Skripts
 Captain:
 	- Placeholder
@@ -16,13 +22,15 @@ Captain:
 @section sec_course Verlauf des Projektes
 
 @subsection sec_problems Schwierigkeiten
-Captain Placeholder
 
-@subsection sec_features Besondere Features oder kreative Leistungen
-Captain Placeholder
+- Umfang des Projektes ist dem Stundenumfang des Moduls nicht unbedingt gerecht
 
 @subsection sec_improve Verbesserungen
-Captain Placeholder
+
+
 
 @subsection sec_joy Freude
-Captain Placeholder
+
+- die Low-Level Arbeit mit C hat mal wieder Spaß gemacht, da es in unserem Umfeld sonst fast nie zum Einsatz kommt
+- das Innenleben eines Compilers bis in die Tiefe kennenzulernen war definitv ein Highlight
+- für einige Gruppenmitglieder war die Entwicklung eines solchen Projektes im Team neu und Erfahrungen in der Nutzung von Tools wie `git` (und Github) wurden daher gerne geteilt

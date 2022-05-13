@@ -101,6 +101,14 @@ $(document).ready(function(){initNavTree('struct__nameentry.html',''); initResiz
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="struct__nameentry__coll__graph.png" border="0" usemap="#a__nameentry_coll__map" alt="Collaboration graph"/></div>
+<map name="a__nameentry_coll__map" id="a__nameentry_coll__map">
+<area shape="rect" title="Typ eines Eintrags in der Namens&#45;Tabelle." alt="" coords="117,5,208,32"/>
+<area shape="rect" href="struct__funcdef.html" title="Daten einer Funktions&#45; oder Pfaddefinition: Parameternamen und Code (hängt am Funktions&#45; oder Pfadnam..." alt="" coords="50,291,120,317"/>
+<area shape="rect" href="union__nodedata.html" title="Unterschiedliche Nutzdaten eines Syntaxbaum&#45;Knotens, je nach Art des Knotens." alt="" coords="121,95,204,121"/>
+<area shape="rect" href="union__namedata.html" title="Unterschiedliche Nutzdaten eines Eintrags in der Namens&#45;Tabelle, je nach Art des Namens." alt="" coords="112,380,199,407"/>
+<area shape="rect" href="struct__treenode.html" title="Typ eines Syntaxbaum&#45;Knotens." alt="" coords="45,185,125,212"/>
+<area shape="rect" href="struct__srcpos.html" title="Position eines Tokens oder Syntax&#45;Knotens im Source&#45;File (Zeile / Spalte)" alt="" coords="30,95,97,121"/>
+</map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">Legende</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -136,7 +144,7 @@ Datenfelder</h2></td></tr>
 
 <p class="definition">Definiert in Zeile <a class="el" href="types_8h_source.html#l00176">176</a> der Datei <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00414">fcall()</a>, <a class="el" href="eval_8c_source.html#l00451">pcall()</a>, <a class="el" href="eval_8c_source.html#l00286">set_var()</a> und <a class="el" href="eval_8c_source.html#l00251">var_ptr()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00522">calcdef()</a>, <a class="el" href="eval_8c_source.html#l00414">fcall()</a>, <a class="el" href="parse_8c_source.html#l00552">pathdef()</a>, <a class="el" href="eval_8c_source.html#l00451">pcall()</a>, <a class="el" href="eval_8c_source.html#l00286">set_var()</a> und <a class="el" href="eval_8c_source.html#l00251">var_ptr()</a>.</p>
 
 </div>
 </div>
@@ -177,7 +185,7 @@ Datenfelder</h2></td></tr>
 
 <p class="definition">Definiert in Zeile <a class="el" href="types_8h_source.html#l00171">171</a> der Datei <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00414">fcall()</a>, <a class="el" href="lex_8c_source.html#l00031">getTokenType()</a>, <a class="el" href="parse_8c_source.html#l00076">operand()</a>, <a class="el" href="eval_8c_source.html#l00451">pcall()</a>, <a class="el" href="eval_8c_source.html#l00286">set_var()</a> und <a class="el" href="eval_8c_source.html#l00251">var_ptr()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00414">fcall()</a>, <a class="el" href="parse_8c_source.html#l00045">findNameEntryOfType()</a>, <a class="el" href="parse_8c_source.html#l00056">findVarNameEntry()</a>, <a class="el" href="lex_8c_source.html#l00031">getTokenType()</a>, <a class="el" href="parse_8c_source.html#l00093">operand()</a>, <a class="el" href="eval_8c_source.html#l00451">pcall()</a>, <a class="el" href="eval_8c_source.html#l00286">set_var()</a> und <a class="el" href="eval_8c_source.html#l00251">var_ptr()</a>.</p>
 
 </div>
 </div>
@@ -190,7 +198,7 @@ Datenfelder</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="struct__nameentry.html">_nameentry</a></li>
-    <li class="footer">Erzeugt am Don Mai 12 2022 06:56:29 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Erzeugt am Fre Mai 13 2022 08:21:43 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

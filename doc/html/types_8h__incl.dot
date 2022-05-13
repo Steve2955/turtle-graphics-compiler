@@ -1,9 +1,0 @@
-digraph "src/types.h"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="LiberationSans-Regular.ttf",fontsize="10",labelfontname="LiberationSans-Regular.ttf",labelfontsize="10"];
-  node [fontname="LiberationSans-Regular.ttf",fontsize="10",shape=record];
-  Node1 [label="src/types.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
-  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="LiberationSans-Regular.ttf"];
-  Node2 [label="stdbool.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-}

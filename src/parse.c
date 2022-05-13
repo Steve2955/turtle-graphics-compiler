@@ -456,7 +456,7 @@ treenode_t *statement(){
 			next();
 			statement->d.p_name = findNameEntryOfType(name_path);
 			next();
-			if (token->type == oper_lpar) {
+			if (token->type == oper_lpar){
 				args(statement);
 			}
 			return statement;

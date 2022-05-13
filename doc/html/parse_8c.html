@@ -102,6 +102,15 @@ $(document).ready(function(){initNavTree('parse_8c.html',''); initResizable(); }
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c__incl.png" border="0" usemap="#asrc_2parse_8c" alt=""/></div>
+<map name="asrc_2parse_8c" id="asrc_2parse_8c">
+<area shape="rect" title=" " alt="" coords="99,5,186,32"/>
+<area shape="rect" title=" " alt="" coords="70,155,130,181"/>
+<area shape="rect" title=" " alt="" coords="23,80,86,107"/>
+<area shape="rect" title=" " alt="" coords="110,80,175,107"/>
+<area shape="rect" href="turtle_8h.html" title=" " alt="" coords="199,80,262,107"/>
+<area shape="rect" href="types_8h.html" title=" " alt="" coords="234,155,296,181"/>
+<area shape="rect" title=" " alt="" coords="228,229,302,256"/>
+</map>
 </div>
 </div>
 <p><a href="parse_8c_source.html">gehe zum Quellcode dieser Datei</a></p>
@@ -129,9 +138,11 @@ Funktionen</h2></td></tr>
 <tr class="memitem:a0f9a0aa6c8d036339d3a494c17e1320d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d">findNameEntry</a> (char *name)</td></tr>
 <tr class="memdesc:a0f9a0aa6c8d036339d3a494c17e1320d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung -&gt; normalerweise sind Hashtables üblich)  <a href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d">Mehr ...</a><br /></td></tr>
 <tr class="separator:a0f9a0aa6c8d036339d3a494c17e1320d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e0fdb2c5bb35742441bd56faf228870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a9e0fdb2c5bb35742441bd56faf228870">findVarName</a> (void)</td></tr>
-<tr class="memdesc:a9e0fdb2c5bb35742441bd56faf228870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namenseintrag des aktuellen Token in der Namenstabelle suchen.  <a href="parse_8c.html#a9e0fdb2c5bb35742441bd56faf228870">Mehr ...</a><br /></td></tr>
-<tr class="separator:a9e0fdb2c5bb35742441bd56faf228870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f70b0d848c8d0986f92880e166633d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8">findNameEntryOfType</a> (<a class="el" href="types_8h.html#adee610a3c7375031538811d29f6a4124">type_t</a> type)</td></tr>
+<tr class="memdesc:a8f70b0d848c8d0986f92880e166633d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt, falls dies noch nicht erfolgt ist)  <a href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8">Mehr ...</a><br /></td></tr>
+<tr class="separator:a8f70b0d848c8d0986f92880e166633d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bab3e90131889138dbe6412ddd89eb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a8bab3e90131889138dbe6412ddd89eb6">findVarNameEntry</a> ()</td></tr>
+<tr class="separator:a8bab3e90131889138dbe6412ddd89eb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2163d6cb4e700c66c35600edcc97aee7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7">args</a> (<a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *f)</td></tr>
 <tr class="memdesc:a2163d6cb4e700c66c35600edcc97aee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parsen von Argument-Listen.  <a href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7">Mehr ...</a><br /></td></tr>
 <tr class="separator:a2163d6cb4e700c66c35600edcc97aee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,13 +166,17 @@ Funktionen</h2></td></tr>
 <tr class="separator:a9e6d6b84363b9a09819543e0e7c6cec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66e534895dc627672543e3dca09a168b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a66e534895dc627672543e3dca09a168b">var</a> ()</td></tr>
 <tr class="separator:a66e534895dc627672543e3dca09a168b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40a0251707913ffe7d0d75a636f4a9b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a40a0251707913ffe7d0d75a636f4a9b7">params</a> ()</td></tr>
-<tr class="separator:a40a0251707913ffe7d0d75a636f4a9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa857b9ee2f6777e95ccd7874f0a65774"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774">params</a> (<a class="el" href="types_8h.html#af27ab4bf7b8dd35c75bd814d9f2ad310">funcdef_t</a> *f)</td></tr>
+<tr class="memdesc:aa857b9ee2f6777e95ccd7874f0a65774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parsen einer Parameterliste.  <a href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774">Mehr ...</a><br /></td></tr>
+<tr class="separator:aa857b9ee2f6777e95ccd7874f0a65774"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a4ef149cbd20ef3463cca82667e7d5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e">calcdef</a> ()</td></tr>
+<tr class="memdesc:a6a4ef149cbd20ef3463cca82667e7d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parsen einer Calc-Definition.  <a href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e">Mehr ...</a><br /></td></tr>
 <tr class="separator:a6a4ef149cbd20ef3463cca82667e7d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b34107d19cf2718828afaccbe038ad1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1">pathdef</a> ()</td></tr>
+<tr class="memdesc:a6b34107d19cf2718828afaccbe038ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parsen einer Path-definition.  <a href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1">Mehr ...</a><br /></td></tr>
 <tr class="separator:a6b34107d19cf2718828afaccbe038ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab260874fc41b7e3057c449f2058e1d03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03">program</a> ()</td></tr>
+<tr class="memdesc:ab260874fc41b7e3057c449f2058e1d03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)  <a href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03">Mehr ...</a><br /></td></tr>
 <tr class="separator:ab260874fc41b7e3057c449f2058e1d03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bdf8bcb618f165019eb852b26fc6982"><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#ae14ffb952dda1fe27223b37727f46c28">treenode_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982">parse</a> (void)</td></tr>
 <tr class="memdesc:a7bdf8bcb618f165019eb852b26fc6982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hauptfunktion des Parser.  <a href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982">Mehr ...</a><br /></td></tr>
@@ -191,17 +206,30 @@ Variablen</h2></td></tr>
 
 <p>Parsen logischer UND-Ausdrücke. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00193">193</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00244">244</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00094">keyw_and</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a>, <a class="el" href="types_8h_source.html#l00264">_token::type</a> und <a class="el" href="parse_8c_source.html#l00152">val()</a>.</p>
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00094">keyw_and</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a>, <a class="el" href="types_8h_source.html#l00264">_token::type</a> und <a class="el" href="parse_8c_source.html#l00203">val()</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00207">condition()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00258">condition()</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a486115f3279c9a99d32888aa9b4122e3_cgraph.png" border="0" usemap="#aparse_8c_a486115f3279c9a99d32888aa9b4122e3_cgraph" alt=""/></div>
+<map name="aparse_8c_a486115f3279c9a99d32888aa9b4122e3_cgraph" id="aparse_8c_a486115f3279c9a99d32888aa9b4122e3_cgraph">
+<area shape="rect" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="5,43,48,69"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="822,169,869,196"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="96,93,135,120"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="187,43,261,69"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="784,448,907,475"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="183,220,265,247"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="313,220,363,247"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="411,245,465,272"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="513,315,583,341"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="660,397,707,424"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="631,347,736,373"/>
+</map>
 </div>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
@@ -209,6 +237,27 @@ Variablen</h2></td></tr>
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a486115f3279c9a99d32888aa9b4122e3_icgraph.png" border="0" usemap="#aparse_8c_a486115f3279c9a99d32888aa9b4122e3_icgraph" alt=""/></div>
+<map name="aparse_8c_a486115f3279c9a99d32888aa9b4122e3_icgraph" id="aparse_8c_a486115f3279c9a99d32888aa9b4122e3_icgraph">
+<area shape="rect" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="1055,168,1097,195"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="933,143,1007,169"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="807,131,885,157"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="827,193,865,220"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="673,131,759,157"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="561,156,624,183"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="441,80,512,107"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="560,105,625,132"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="331,5,385,32"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,31,275,57"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="691,232,741,259"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="561,232,625,259"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,269,176,296"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="455,181,499,208"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,56,393,83"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,283,381,309"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,119,53,145"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,251,273,277"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,193,163,220"/>
+</map>
 </div>
 
 </div>
@@ -231,17 +280,27 @@ Variablen</h2></td></tr>
 
 <p>Parsen von Argument-Listen. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00052">52</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00069">69</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00221">expression()</a>, <a class="el" href="types_8h_source.html#l00013">MAX_ARGS</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00103">oper_rpar</a>, <a class="el" href="types_8h_source.html#l00104">oper_sep</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00272">expression()</a>, <a class="el" href="types_8h_source.html#l00013">MAX_ARGS</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00103">oper_rpar</a>, <a class="el" href="types_8h_source.html#l00104">oper_sep</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00076">operand()</a> und <a class="el" href="eval_8c_source.html#l00382">start_call()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00093">operand()</a>, <a class="el" href="eval_8c_source.html#l00382">start_call()</a> und <a class="el" href="parse_8c_source.html#l00287">statement()</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a2163d6cb4e700c66c35600edcc97aee7_cgraph.png" border="0" usemap="#aparse_8c_a2163d6cb4e700c66c35600edcc97aee7_cgraph" alt=""/></div>
+<map name="aparse_8c_a2163d6cb4e700c66c35600edcc97aee7_cgraph" id="aparse_8c_a2163d6cb4e700c66c35600edcc97aee7_cgraph">
+<area shape="rect" title="Parsen von Argument&#45;Listen." alt="" coords="5,68,52,95"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="548,17,671,44"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="100,119,183,145"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="586,195,633,221"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="231,144,280,171"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="328,144,383,171"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="431,93,500,120"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="557,93,662,120"/>
+</map>
 </div>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
@@ -249,6 +308,32 @@ Variablen</h2></td></tr>
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a2163d6cb4e700c66c35600edcc97aee7_icgraph.png" border="0" usemap="#aparse_8c_a2163d6cb4e700c66c35600edcc97aee7_icgraph" alt=""/></div>
+<map name="aparse_8c_a2163d6cb4e700c66c35600edcc97aee7_icgraph" id="aparse_8c_a2163d6cb4e700c66c35600edcc97aee7_icgraph">
+<area shape="rect" title="Parsen von Argument&#45;Listen." alt="" coords="1472,169,1519,196"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1355,144,1424,171"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="592,93,671,120"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="223,472,297,499"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1252,144,1307,171"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="1155,144,1204,171"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="1024,144,1107,171"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="347,195,409,221"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="937,144,976,171"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="225,169,295,196"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="112,188,167,215"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,440,56,467"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="459,93,544,120"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="345,144,411,171"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="843,144,886,171"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="840,421,889,448"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="719,93,792,120"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="723,421,787,448"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="609,371,653,397"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,491,175,517"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="479,421,524,448"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,257,163,284"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="355,421,401,448"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="235,371,285,397"/>
+</map>
 </div>
 
 </div>
@@ -268,17 +353,38 @@ Variablen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00438">438</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p>Parsen einer Calc-Definition. </p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="types_8h_source.html#l00089">keyw_calculation</a>, <a class="el" href="types_8h_source.html#l00091">keyw_endcalc</a> und <a class="el" href="parse_8c_source.html#l00016">next()</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00522">522</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00454">program()</a>.</p>
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00143">_funcdef::body</a>, <a class="el" href="types_8h_source.html#l00176">_nameentry::d</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00272">expression()</a>, <a class="el" href="parse_8c_source.html#l00045">findNameEntryOfType()</a>, <a class="el" href="types_8h_source.html#l00158">_namedata::func</a>, <a class="el" href="types_8h_source.html#l00089">keyw_calculation</a>, <a class="el" href="types_8h_source.html#l00091">keyw_endcalc</a>, <a class="el" href="types_8h_source.html#l00090">keyw_returns</a>, <a class="el" href="types_8h_source.html#l00036">name_calc</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="parse_8c_source.html#l00496">params()</a>, <a class="el" href="types_8h_source.html#l00146">_funcdef::ret</a> und <a class="el" href="parse_8c_source.html#l00468">statements()</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00581">program()</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a6a4ef149cbd20ef3463cca82667e7d5e_cgraph.png" border="0" usemap="#aparse_8c_a6a4ef149cbd20ef3463cca82667e7d5e_cgraph" alt=""/></div>
+<map name="aparse_8c_a6a4ef149cbd20ef3463cca82667e7d5e_cgraph" id="aparse_8c_a6a4ef149cbd20ef3463cca82667e7d5e_cgraph">
+<area shape="rect" title="Parsen einer Calc&#45;Definition." alt="" coords="5,663,68,689"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="1432,651,1555,677"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="831,347,913,373"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="1470,245,1517,272"/>
+<area shape="rect" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="376,752,523,779"/>
+<area shape="rect" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774" title="Parsen einer Parameterliste." alt="" coords="256,777,321,804"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="116,600,201,627"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="961,296,1011,323"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1059,296,1113,323"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1161,397,1231,424"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="1308,499,1355,525"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="1279,625,1384,652"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="249,600,328,627"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="413,271,486,297"/>
+<area shape="rect" href="parse_8c.html#a8bab3e90131889138dbe6412ddd89eb6" title=" " alt="" coords="571,600,696,627"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="612,245,655,272"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="744,296,783,323"/>
+</map>
 </div>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
@@ -286,6 +392,12 @@ Variablen</h2></td></tr>
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a6a4ef149cbd20ef3463cca82667e7d5e_icgraph.png" border="0" usemap="#aparse_8c_a6a4ef149cbd20ef3463cca82667e7d5e_icgraph" alt=""/></div>
+<map name="aparse_8c_a6a4ef149cbd20ef3463cca82667e7d5e_icgraph" id="aparse_8c_a6a4ef149cbd20ef3463cca82667e7d5e_icgraph">
+<area shape="rect" title="Parsen einer Calc&#45;Definition." alt="" coords="325,5,388,32"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="207,5,277,32"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,5,159,32"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,5,56,32"/>
+</map>
 </div>
 
 </div>
@@ -307,17 +419,30 @@ Variablen</h2></td></tr>
 
 <p>Parsen logischer Ausdrücke. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00207">207</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00258">258</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00193">and()</a>, <a class="el" href="types_8h_source.html#l00095">keyw_or</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00244">and()</a>, <a class="el" href="types_8h_source.html#l00095">keyw_or</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00236">statement()</a> und <a class="el" href="parse_8c_source.html#l00152">val()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00287">statement()</a> und <a class="el" href="parse_8c_source.html#l00203">val()</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a953fce1ce73d9322eec5ab8d8927cca4_cgraph.png" border="0" usemap="#aparse_8c_a953fce1ce73d9322eec5ab8d8927cca4_cgraph" alt=""/></div>
+<map name="aparse_8c_a953fce1ce73d9322eec5ab8d8927cca4_cgraph" id="aparse_8c_a953fce1ce73d9322eec5ab8d8927cca4_cgraph">
+<area shape="rect" title="Parsen logischer Ausdrücke." alt="" coords="5,43,79,69"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="127,43,169,69"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="943,169,990,196"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="217,93,256,120"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="905,448,1028,475"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="304,220,387,247"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="435,220,484,247"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="532,245,587,272"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="635,315,704,341"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="781,397,828,424"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="752,347,857,373"/>
+</map>
 </div>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
@@ -325,6 +450,27 @@ Variablen</h2></td></tr>
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a953fce1ce73d9322eec5ab8d8927cca4_icgraph.png" border="0" usemap="#aparse_8c_a953fce1ce73d9322eec5ab8d8927cca4_icgraph" alt=""/></div>
+<map name="aparse_8c_a953fce1ce73d9322eec5ab8d8927cca4_icgraph" id="aparse_8c_a953fce1ce73d9322eec5ab8d8927cca4_icgraph">
+<area shape="rect" title="Parsen logischer Ausdrücke." alt="" coords="933,164,1007,191"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="807,240,885,267"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="827,113,865,140"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="673,240,759,267"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="561,243,624,269"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="441,269,512,296"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="560,293,625,320"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="331,296,385,323"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,271,275,297"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="695,152,737,179"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="691,95,741,121"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="561,95,625,121"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,68,176,95"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="455,195,499,221"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,245,393,272"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,43,381,69"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,359,53,385"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,93,273,120"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,144,163,171"/>
+</map>
 </div>
 
 </div>
@@ -361,13 +507,41 @@ Variablen</h2></td></tr>
 
 <p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00052">args()</a>, <a class="el" href="parse_8c_source.html#l00438">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00076">operand()</a>, <a class="el" href="parse_8c_source.html#l00446">pathdef()</a>, <a class="el" href="parse_8c_source.html#l00454">program()</a>, <a class="el" href="parse_8c_source.html#l00236">statement()</a> und <a class="el" href="parse_8c_source.html#l00152">val()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00069">args()</a>, <a class="el" href="parse_8c_source.html#l00522">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00093">operand()</a>, <a class="el" href="parse_8c_source.html#l00496">params()</a>, <a class="el" href="parse_8c_source.html#l00552">pathdef()</a>, <a class="el" href="parse_8c_source.html#l00581">program()</a>, <a class="el" href="parse_8c_source.html#l00287">statement()</a> und <a class="el" href="parse_8c_source.html#l00203">val()</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a72766d9d606eee9f4032df8622a6d70d_icgraph.png" border="0" usemap="#aparse_8c_a72766d9d606eee9f4032df8622a6d70d_icgraph" alt=""/></div>
+<map name="aparse_8c_a72766d9d606eee9f4032df8622a6d70d_icgraph" id="aparse_8c_a72766d9d606eee9f4032df8622a6d70d_icgraph">
+<area shape="rect" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="1567,183,1689,209"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="1472,296,1519,323"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1355,220,1424,247"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="347,107,409,133"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="225,157,295,184"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="592,271,671,297"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="345,157,411,184"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="937,397,976,424"/>
+<area shape="rect" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774" title="Parsen einer Parameterliste." alt="" coords="469,93,534,120"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="223,651,297,677"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1252,245,1307,272"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="1155,245,1204,272"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="1024,245,1107,272"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="112,284,167,311"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,353,56,380"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="459,245,544,272"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="843,347,886,373"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="840,499,889,525"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="719,347,792,373"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="723,651,787,677"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="609,752,653,779"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,423,175,449"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="479,701,524,728"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,865,163,892"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="355,701,401,728"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="235,752,285,779"/>
+</map>
 </div>
 
 </div>
@@ -389,17 +563,27 @@ Variablen</h2></td></tr>
 
 <p>Parsen von mathematischen Ausdrücken. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00221">221</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00272">272</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00109">oper_add</a>, <a class="el" href="types_8h_source.html#l00110">oper_sub</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00138">term()</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00109">oper_add</a>, <a class="el" href="types_8h_source.html#l00110">oper_sub</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00189">term()</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00052">args()</a>, <a class="el" href="parse_8c_source.html#l00076">operand()</a>, <a class="el" href="parse_8c_source.html#l00236">statement()</a> und <a class="el" href="parse_8c_source.html#l00152">val()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00069">args()</a>, <a class="el" href="parse_8c_source.html#l00522">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00093">operand()</a>, <a class="el" href="parse_8c_source.html#l00287">statement()</a> und <a class="el" href="parse_8c_source.html#l00203">val()</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_ae1b73fa9a679f12f99603a8e036f29a1_cgraph.png" border="0" usemap="#aparse_8c_ae1b73fa9a679f12f99603a8e036f29a1_cgraph" alt=""/></div>
+<map name="aparse_8c_ae1b73fa9a679f12f99603a8e036f29a1_cgraph" id="aparse_8c_ae1b73fa9a679f12f99603a8e036f29a1_cgraph">
+<area shape="rect" title="Parsen von mathematischen Ausdrücken." alt="" coords="5,107,88,133"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="645,93,691,120"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="136,100,185,127"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="233,100,288,127"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="336,169,405,196"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="483,296,529,323"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="607,271,729,297"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="453,195,559,221"/>
+</map>
 </div>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
@@ -407,6 +591,32 @@ Variablen</h2></td></tr>
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_ae1b73fa9a679f12f99603a8e036f29a1_icgraph.png" border="0" usemap="#aparse_8c_ae1b73fa9a679f12f99603a8e036f29a1_icgraph" alt=""/></div>
+<map name="aparse_8c_ae1b73fa9a679f12f99603a8e036f29a1_icgraph" id="aparse_8c_ae1b73fa9a679f12f99603a8e036f29a1_icgraph">
+<area shape="rect" title="Parsen von mathematischen Ausdrücken." alt="" coords="1049,183,1132,209"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="955,163,1001,189"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="837,56,907,83"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="588,335,667,361"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="343,259,405,285"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="959,309,997,336"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="715,107,789,133"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="725,56,779,83"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="603,5,652,32"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="605,107,650,133"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,183,163,209"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="474,56,521,83"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="349,5,399,32"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="236,132,280,159"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="342,107,406,133"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,132,175,159"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,208,56,235"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="455,335,540,361"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="223,284,293,311"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="341,360,407,387"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="112,259,167,285"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="851,360,893,387"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="847,157,897,184"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="715,360,789,387"/>
+</map>
 </div>
 
 </div>
@@ -428,17 +638,27 @@ Variablen</h2></td></tr>
 
 <p>Parsen von Faktoren. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00126">126</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00177">177</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00106">oper_pow</a>, <a class="el" href="parse_8c_source.html#l00076">operand()</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00106">oper_pow</a>, <a class="el" href="parse_8c_source.html#l00093">operand()</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00138">term()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00189">term()</a>.</p>
 <div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="dynsection-12-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-12-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a340afd1a010d6fc6a7d4ed1f4cd0abbf_cgraph.png" border="0" usemap="#aparse_8c_a340afd1a010d6fc6a7d4ed1f4cd0abbf_cgraph" alt=""/></div>
+<map name="aparse_8c_a340afd1a010d6fc6a7d4ed1f4cd0abbf_cgraph" id="aparse_8c_a340afd1a010d6fc6a7d4ed1f4cd0abbf_cgraph">
+<area shape="rect" title="Parsen von Faktoren." alt="" coords="5,144,60,171"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="647,195,693,221"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="108,144,177,171"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="255,195,301,221"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="379,144,501,171"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="399,245,481,272"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="225,93,331,120"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="549,296,599,323"/>
+</map>
 </div>
 <div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
@@ -446,6 +666,32 @@ Variablen</h2></td></tr>
 </div>
 <div id="dynsection-13-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a340afd1a010d6fc6a7d4ed1f4cd0abbf_icgraph.png" border="0" usemap="#aparse_8c_a340afd1a010d6fc6a7d4ed1f4cd0abbf_icgraph" alt=""/></div>
+<map name="aparse_8c_a340afd1a010d6fc6a7d4ed1f4cd0abbf_icgraph" id="aparse_8c_a340afd1a010d6fc6a7d4ed1f4cd0abbf_icgraph">
+<area shape="rect" title="Parsen von Faktoren." alt="" coords="1277,107,1332,133"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="1180,132,1229,159"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="1049,179,1132,205"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="955,141,1001,168"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="837,27,907,53"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="588,280,667,307"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="343,331,405,357"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="959,204,997,231"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="715,77,789,104"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="605,27,650,53"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,153,163,180"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="474,27,521,53"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="349,27,399,53"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="236,103,280,129"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="342,128,406,155"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,103,175,129"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,179,56,205"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="455,280,540,307"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="223,255,293,281"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="341,229,407,256"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="112,229,167,256"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="851,229,893,256"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="847,128,897,155"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="715,280,789,307"/>
+</map>
 </div>
 
 </div>
@@ -472,53 +718,149 @@ Variablen</h2></td></tr>
 
 <p class="reference">Benutzt <a class="el" href="nametab_8c_source.html#l00024">name_tab</a> und <a class="el" href="nametab_8c_source.html#l00014">nameCount</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00045">findVarName()</a> und <a class="el" href="parse_8c_source.html#l00076">operand()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00045">findNameEntryOfType()</a>, <a class="el" href="parse_8c_source.html#l00056">findVarNameEntry()</a>, <a class="el" href="parse_8c_source.html#l00093">operand()</a> und <a class="el" href="parse_8c_source.html#l00287">statement()</a>.</p>
 <div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-14-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div id="dynsection-14-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-14-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a0f9a0aa6c8d036339d3a494c17e1320d_icgraph.png" border="0" usemap="#aparse_8c_a0f9a0aa6c8d036339d3a494c17e1320d_icgraph" alt=""/></div>
+<map name="aparse_8c_a0f9a0aa6c8d036339d3a494c17e1320d_icgraph" id="aparse_8c_a0f9a0aa6c8d036339d3a494c17e1320d_icgraph">
+<area shape="rect" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="1620,513,1725,540"/>
+<area shape="rect" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="715,589,861,616"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="588,437,667,464"/>
+<area shape="rect" href="parse_8c.html#a8bab3e90131889138dbe6412ddd89eb6" title=" " alt="" coords="1329,538,1455,565"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1503,373,1572,400"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="343,488,405,514"/>
+<area shape="rect" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774" title="Parsen einer Parameterliste." alt="" coords="465,538,530,565"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="341,538,407,565"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="223,462,293,489"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="112,322,167,349"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,272,56,298"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="455,437,540,464"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1365,398,1419,425"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="1232,398,1281,425"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="1101,361,1184,388"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="1007,222,1053,249"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="1011,310,1049,337"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="751,133,825,160"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="605,82,650,109"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,158,163,185"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="474,82,521,109"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="349,32,399,58"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="236,108,280,134"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="342,133,406,160"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,108,175,134"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="913,336,955,362"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="909,234,959,261"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="751,336,825,362"/>
+</map>
 </div>
 
 </div>
 </div>
-<a id="a9e0fdb2c5bb35742441bd56faf228870"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e0fdb2c5bb35742441bd56faf228870">&#9670;&nbsp;</a></span>findVarName()</h2>
+<a id="a8f70b0d848c8d0986f92880e166633d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f70b0d848c8d0986f92880e166633d8">&#9670;&nbsp;</a></span>findNameEntryOfType()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a>* findVarName </td>
+          <td class="memname"><a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a>* findNameEntryOfType </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="types_8h.html#adee610a3c7375031538811d29f6a4124">type_t</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Namenseintrag des aktuellen Token in der Namenstabelle suchen. </p>
+<p>Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt, falls dies noch nicht erfolgt ist) </p>
 
 <p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00045">45</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00035">findNameEntry()</a>, <a class="el" href="types_8h_source.html#l00262">_token::tok</a> und <a class="el" href="parse_8c_source.html#l00013">token</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00035">findNameEntry()</a>, <a class="el" href="types_8h_source.html#l00033">name_any</a>, <a class="el" href="types_8h_source.html#l00262">_token::tok</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00171">_nameentry::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00236">statement()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00522">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00496">params()</a>, <a class="el" href="parse_8c_source.html#l00552">pathdef()</a> und <a class="el" href="parse_8c_source.html#l00287">statement()</a>.</p>
 <div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-15-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-15-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="parse_8c_a9e0fdb2c5bb35742441bd56faf228870_cgraph.png" border="0" usemap="#aparse_8c_a9e0fdb2c5bb35742441bd56faf228870_cgraph" alt=""/></div>
+<div class="center"><img src="parse_8c_a8f70b0d848c8d0986f92880e166633d8_cgraph.png" border="0" usemap="#aparse_8c_a8f70b0d848c8d0986f92880e166633d8_cgraph" alt=""/></div>
+<map name="aparse_8c_a8f70b0d848c8d0986f92880e166633d8_cgraph" id="aparse_8c_a8f70b0d848c8d0986f92880e166633d8_cgraph">
+<area shape="rect" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="5,5,152,32"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="200,5,305,32"/>
+</map>
 </div>
 <div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-16-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
 <div id="dynsection-16-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-16-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="parse_8c_a9e0fdb2c5bb35742441bd56faf228870_icgraph.png" border="0" usemap="#aparse_8c_a9e0fdb2c5bb35742441bd56faf228870_icgraph" alt=""/></div>
+<div class="center"><img src="parse_8c_a8f70b0d848c8d0986f92880e166633d8_icgraph.png" border="0" usemap="#aparse_8c_a8f70b0d848c8d0986f92880e166633d8_icgraph" alt=""/></div>
+<map name="aparse_8c_a8f70b0d848c8d0986f92880e166633d8_icgraph" id="aparse_8c_a8f70b0d848c8d0986f92880e166633d8_icgraph">
+<area shape="rect" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="699,48,845,74"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="327,22,389,49"/>
+<area shape="rect" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774" title="Parsen einer Parameterliste." alt="" coords="449,22,514,49"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="325,124,391,150"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="572,73,651,100"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="207,73,277,100"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,73,159,100"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,73,56,100"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="439,73,524,100"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8bab3e90131889138dbe6412ddd89eb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bab3e90131889138dbe6412ddd89eb6">&#9670;&nbsp;</a></span>findVarNameEntry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="types_8h.html#aa77e305c41f8d65daccb48bbda110984">nameentry_t</a>* findVarNameEntry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00056">56</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00035">findNameEntry()</a>, <a class="el" href="types_8h_source.html#l00033">name_any</a>, <a class="el" href="types_8h_source.html#l00037">name_glob</a>, <a class="el" href="types_8h_source.html#l00041">name_pvar_ro</a>, <a class="el" href="types_8h_source.html#l00042">name_pvar_rw</a>, <a class="el" href="types_8h_source.html#l00034">name_var</a>, <a class="el" href="types_8h_source.html#l00262">_token::tok</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00171">_nameentry::type</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00287">statement()</a>.</p>
+<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="parse_8c_a8bab3e90131889138dbe6412ddd89eb6_cgraph.png" border="0" usemap="#aparse_8c_a8bab3e90131889138dbe6412ddd89eb6_cgraph" alt=""/></div>
+<map name="aparse_8c_a8bab3e90131889138dbe6412ddd89eb6_cgraph" id="aparse_8c_a8bab3e90131889138dbe6412ddd89eb6_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,131,32"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="179,5,284,32"/>
+</map>
+</div>
+<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="parse_8c_a8bab3e90131889138dbe6412ddd89eb6_icgraph.png" border="0" usemap="#aparse_8c_a8bab3e90131889138dbe6412ddd89eb6_icgraph" alt=""/></div>
+<map name="aparse_8c_a8bab3e90131889138dbe6412ddd89eb6_icgraph" id="aparse_8c_a8bab3e90131889138dbe6412ddd89eb6_icgraph">
+<area shape="rect" title=" " alt="" coords="699,56,824,83"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="572,56,651,83"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="439,56,524,83"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="327,5,389,32"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="207,56,277,83"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="325,107,391,133"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,56,159,83"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,56,56,83"/>
+</map>
 </div>
 
 </div>
@@ -542,15 +884,43 @@ Variablen</h2></td></tr>
 
 <p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00016">16</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00270">_token::next</a>, <a class="el" href="types_8h_source.html#l00262">_token::tok</a> und <a class="el" href="parse_8c_source.html#l00013">token</a>.</p>
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00270">_token::next</a> und <a class="el" href="parse_8c_source.html#l00013">token</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00193">and()</a>, <a class="el" href="parse_8c_source.html#l00052">args()</a>, <a class="el" href="parse_8c_source.html#l00438">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00207">condition()</a>, <a class="el" href="parse_8c_source.html#l00221">expression()</a>, <a class="el" href="parse_8c_source.html#l00126">faktor()</a>, <a class="el" href="parse_8c_source.html#l00076">operand()</a>, <a class="el" href="parse_8c_source.html#l00446">pathdef()</a>, <a class="el" href="parse_8c_source.html#l00454">program()</a>, <a class="el" href="parse_8c_source.html#l00236">statement()</a>, <a class="el" href="parse_8c_source.html#l00138">term()</a> und <a class="el" href="parse_8c_source.html#l00152">val()</a>.</p>
-<div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-17-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00244">and()</a>, <a class="el" href="parse_8c_source.html#l00069">args()</a>, <a class="el" href="parse_8c_source.html#l00522">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00258">condition()</a>, <a class="el" href="parse_8c_source.html#l00272">expression()</a>, <a class="el" href="parse_8c_source.html#l00177">faktor()</a>, <a class="el" href="parse_8c_source.html#l00093">operand()</a>, <a class="el" href="parse_8c_source.html#l00496">params()</a>, <a class="el" href="parse_8c_source.html#l00552">pathdef()</a>, <a class="el" href="parse_8c_source.html#l00581">program()</a>, <a class="el" href="parse_8c_source.html#l00287">statement()</a>, <a class="el" href="parse_8c_source.html#l00189">term()</a> und <a class="el" href="parse_8c_source.html#l00203">val()</a>.</p>
+<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a787ad0ee03f539f4a2904660bb6b8ce7_icgraph.png" border="0" usemap="#aparse_8c_a787ad0ee03f539f4a2904660bb6b8ce7_icgraph" alt=""/></div>
+<map name="aparse_8c_a787ad0ee03f539f4a2904660bb6b8ce7_icgraph" id="aparse_8c_a787ad0ee03f539f4a2904660bb6b8ce7_icgraph">
+<area shape="rect" title="aktuellen Token auf den Nächsten setzen" alt="" coords="1476,524,1523,551"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="1067,321,1110,348"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="938,372,1011,399"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="807,676,885,703"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="561,688,624,715"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="441,637,512,664"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="560,764,625,791"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="827,321,865,348"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="1381,625,1428,652"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1264,575,1333,601"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1161,524,1216,551"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="1064,524,1113,551"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="933,575,1016,601"/>
+<area shape="rect" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774" title="Parsen einer Parameterliste." alt="" coords="683,777,749,804"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="673,676,759,703"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="331,575,385,601"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,448,275,475"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="691,271,741,297"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="561,169,625,196"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,220,176,247"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="455,119,499,145"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,353,393,380"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,220,381,247"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,5,53,32"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,169,273,196"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,119,163,145"/>
+</map>
 </div>
 
 </div>
@@ -572,30 +942,66 @@ Variablen</h2></td></tr>
 
 <p>Parsen von Operanden. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00076">76</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00093">93</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00052">args()</a>, <a class="el" href="types_8h_source.html#l00256">_treenode::d</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00221">expression()</a>, <a class="el" href="parse_8c_source.html#l00035">findNameEntry()</a>, <a class="el" href="types_8h_source.html#l00033">name_any</a>, <a class="el" href="types_8h_source.html#l00037">name_glob</a>, <a class="el" href="types_8h_source.html#l00046">name_math_cos</a>, <a class="el" href="types_8h_source.html#l00047">name_math_rand</a>, <a class="el" href="types_8h_source.html#l00046">name_math_sin</a>, <a class="el" href="types_8h_source.html#l00046">name_math_sqrt</a>, <a class="el" href="types_8h_source.html#l00046">name_math_tan</a>, <a class="el" href="types_8h_source.html#l00041">name_pvar_ro</a>, <a class="el" href="types_8h_source.html#l00042">name_pvar_rw</a>, <a class="el" href="types_8h_source.html#l00034">name_var</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00105">oper_abs</a>, <a class="el" href="types_8h_source.html#l00101">oper_const</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00111">oper_neg</a>, <a class="el" href="types_8h_source.html#l00110">oper_sub</a>, <a class="el" href="types_8h_source.html#l00184">_nodedata::p_name</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="types_8h_source.html#l00262">_token::tok</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00171">_nameentry::type</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a>, <a class="el" href="types_8h_source.html#l00264">_token::type</a> und <a class="el" href="types_8h_source.html#l00186">_nodedata::val</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00069">args()</a>, <a class="el" href="types_8h_source.html#l00256">_treenode::d</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00272">expression()</a>, <a class="el" href="parse_8c_source.html#l00035">findNameEntry()</a>, <a class="el" href="types_8h_source.html#l00033">name_any</a>, <a class="el" href="types_8h_source.html#l00036">name_calc</a>, <a class="el" href="types_8h_source.html#l00037">name_glob</a>, <a class="el" href="types_8h_source.html#l00046">name_math_cos</a>, <a class="el" href="types_8h_source.html#l00047">name_math_rand</a>, <a class="el" href="types_8h_source.html#l00046">name_math_sin</a>, <a class="el" href="types_8h_source.html#l00046">name_math_sqrt</a>, <a class="el" href="types_8h_source.html#l00046">name_math_tan</a>, <a class="el" href="types_8h_source.html#l00035">name_path</a>, <a class="el" href="types_8h_source.html#l00041">name_pvar_ro</a>, <a class="el" href="types_8h_source.html#l00042">name_pvar_rw</a>, <a class="el" href="types_8h_source.html#l00034">name_var</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00105">oper_abs</a>, <a class="el" href="types_8h_source.html#l00101">oper_const</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00111">oper_neg</a>, <a class="el" href="types_8h_source.html#l00103">oper_rpar</a>, <a class="el" href="types_8h_source.html#l00110">oper_sub</a>, <a class="el" href="types_8h_source.html#l00184">_nodedata::p_name</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="types_8h_source.html#l00262">_token::tok</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00171">_nameentry::type</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a>, <a class="el" href="types_8h_source.html#l00264">_token::type</a> und <a class="el" href="types_8h_source.html#l00186">_nodedata::val</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00126">faktor()</a>.</p>
-<div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-18-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
-<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00177">faktor()</a>.</p>
+<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_ab9515122dd01b9c3bf6934505b9d6106_cgraph.png" border="0" usemap="#aparse_8c_ab9515122dd01b9c3bf6934505b9d6106_cgraph" alt=""/></div>
+<map name="aparse_8c_ab9515122dd01b9c3bf6934505b9d6106_cgraph" id="aparse_8c_ab9515122dd01b9c3bf6934505b9d6106_cgraph">
+<area shape="rect" title="Parsen von Operanden." alt="" coords="5,144,75,171"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="152,56,199,83"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="276,5,399,32"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="296,107,379,133"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="647,157,693,184"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="123,220,228,247"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="447,157,496,184"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="544,208,599,235"/>
+</map>
 </div>
-<div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-19-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_ab9515122dd01b9c3bf6934505b9d6106_icgraph.png" border="0" usemap="#aparse_8c_ab9515122dd01b9c3bf6934505b9d6106_icgraph" alt=""/></div>
+<map name="aparse_8c_ab9515122dd01b9c3bf6934505b9d6106_icgraph" id="aparse_8c_ab9515122dd01b9c3bf6934505b9d6106_icgraph">
+<area shape="rect" title="Parsen von Operanden." alt="" coords="1360,208,1429,235"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1257,157,1312,184"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="1160,157,1209,184"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="1029,157,1112,184"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="935,259,981,285"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="588,81,667,108"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="343,5,405,32"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="939,157,977,184"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="715,309,789,336"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="605,309,650,336"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,247,163,273"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="474,259,521,285"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="349,259,399,285"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="236,247,280,273"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="342,157,406,184"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,171,175,197"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,129,56,156"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="455,81,540,108"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="223,81,293,108"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="341,56,407,83"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="112,88,167,115"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="841,157,883,184"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="837,208,887,235"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="715,107,789,133"/>
+</map>
 </div>
 
 </div>
 </div>
-<a id="a40a0251707913ffe7d0d75a636f4a9b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40a0251707913ffe7d0d75a636f4a9b7">&#9670;&nbsp;</a></span>params()</h2>
+<a id="aa857b9ee2f6777e95ccd7874f0a65774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa857b9ee2f6777e95ccd7874f0a65774">&#9670;&nbsp;</a></span>params()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -603,11 +1009,55 @@ Variablen</h2></td></tr>
         <tr>
           <td class="memname">void params </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="types_8h.html#af27ab4bf7b8dd35c75bd814d9f2ad310">funcdef_t</a> *&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parsen einer Parameterliste. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">funcdef_t</td><td>Funktionsdefinition in die die Parameterliste eingetragen wird </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00496">496</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00045">findNameEntryOfType()</a>, <a class="el" href="types_8h_source.html#l00013">MAX_ARGS</a>, <a class="el" href="types_8h_source.html#l00034">name_var</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00103">oper_rpar</a>, <a class="el" href="types_8h_source.html#l00104">oper_sep</a>, <a class="el" href="types_8h_source.html#l00148">_funcdef::params</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00522">calcdef()</a> und <a class="el" href="parse_8c_source.html#l00552">pathdef()</a>.</p>
+<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="parse_8c_aa857b9ee2f6777e95ccd7874f0a65774_cgraph.png" border="0" usemap="#aparse_8c_aa857b9ee2f6777e95ccd7874f0a65774_cgraph" alt=""/></div>
+<map name="aparse_8c_aa857b9ee2f6777e95ccd7874f0a65774_cgraph" id="aparse_8c_aa857b9ee2f6777e95ccd7874f0a65774_cgraph">
+<area shape="rect" title="Parsen einer Parameterliste." alt="" coords="5,56,71,83"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="131,5,253,32"/>
+<area shape="rect" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="119,56,265,83"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="169,107,215,133"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="313,56,419,83"/>
+</map>
+</div>
+<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="parse_8c_aa857b9ee2f6777e95ccd7874f0a65774_icgraph.png" border="0" usemap="#aparse_8c_aa857b9ee2f6777e95ccd7874f0a65774_icgraph" alt=""/></div>
+<map name="aparse_8c_aa857b9ee2f6777e95ccd7874f0a65774_icgraph" id="aparse_8c_aa857b9ee2f6777e95ccd7874f0a65774_icgraph">
+<area shape="rect" title="Parsen einer Parameterliste." alt="" coords="439,31,504,57"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="327,5,389,32"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="325,56,391,83"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="207,31,277,57"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,31,159,57"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,31,56,57"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -634,27 +1084,59 @@ Variablen</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>Die Funktion gibt einen Pointer auf den ersten Token zurück </dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Die Funktion gibt einen Pointer auf den ersten Knoten des Syntax-Baumes zurück </dd></dl>
 <dl class="section attention"><dt>Achtung</dt><dd>Die übergebene Eingabedatei muss bereits geöffnet sein! </dd></dl>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00481">481</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00608">608</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00454">program()</a>, <a class="el" href="lex_8c_source.html#l00147">readTokensFromFile()</a>, <a class="el" href="main_8c_source.html#l00016">src_file</a> und <a class="el" href="parse_8c_source.html#l00013">token</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00581">program()</a>, <a class="el" href="lex_8c_source.html#l00148">readTokensFromFile()</a>, <a class="el" href="main_8c_source.html#l00016">src_file</a> und <a class="el" href="parse_8c_source.html#l00013">token</a>.</p>
 
 <p class="reference">Wird benutzt von <a class="el" href="main_8c_source.html#l00047">main()</a>.</p>
-<div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-20-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
-<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a7bdf8bcb618f165019eb852b26fc6982_cgraph.png" border="0" usemap="#aparse_8c_a7bdf8bcb618f165019eb852b26fc6982_cgraph" alt=""/></div>
+<map name="aparse_8c_a7bdf8bcb618f165019eb852b26fc6982_cgraph" id="aparse_8c_a7bdf8bcb618f165019eb852b26fc6982_cgraph">
+<area shape="rect" title="Hauptfunktion des Parser." alt="" coords="5,828,60,855"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="142,397,213,424"/>
+<area shape="rect" href="lex_8c.html#a0097ef79a764af14f2cdf602a816465e" title=" " alt="" coords="108,1233,247,1260"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="321,372,384,399"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="1775,169,1897,196"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="1813,803,1859,829"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="459,423,544,449"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="320,232,385,259"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="1173,715,1256,741"/>
+<area shape="rect" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="719,245,865,272"/>
+<area shape="rect" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774" title="Parsen einer Parameterliste." alt="" coords="599,144,664,171"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="1304,715,1353,741"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1401,701,1456,728"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1504,600,1573,627"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="1651,600,1697,627"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="1621,448,1727,475"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="592,436,671,463"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="755,752,829,779"/>
+<area shape="rect" href="parse_8c.html#a8bab3e90131889138dbe6412ddd89eb6" title=" " alt="" coords="913,397,1039,424"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="955,777,997,804"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="1087,727,1125,753"/>
+<area shape="rect" href="lex_8c.html#a376822f8aca53518658342c1093b63f7" title=" " alt="" coords="313,1157,392,1184"/>
+<area shape="rect" href="lex_8c.html#a2d48a5454ca09bc96099d730a74a38e2" title="Kurze Beschreibung." alt="" coords="301,1208,404,1235"/>
+<area shape="rect" href="lex_8c.html#aee1c10e2d6fc859665b68205c3779919" title=" " alt="" coords="295,1259,411,1285"/>
+<area shape="rect" href="lex_8c.html#aeb4ee6d0682249c03107497ef7ae865c" title=" " alt="" coords="317,1309,389,1336"/>
+<area shape="rect" href="lex_8c.html#a6aabb92fb9e2da01c9d9ccb06d776e63" title=" " alt="" coords="307,1360,398,1387"/>
+</map>
 </div>
-<div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-21-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a7bdf8bcb618f165019eb852b26fc6982_icgraph.png" border="0" usemap="#aparse_8c_a7bdf8bcb618f165019eb852b26fc6982_icgraph" alt=""/></div>
+<map name="aparse_8c_a7bdf8bcb618f165019eb852b26fc6982_icgraph" id="aparse_8c_a7bdf8bcb618f165019eb852b26fc6982_icgraph">
+<area shape="rect" title="Hauptfunktion des Parser." alt="" coords="104,5,159,32"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,5,56,32"/>
+</map>
 </div>
 
 </div>
@@ -674,24 +1156,51 @@ Variablen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00446">446</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p>Parsen einer Path-definition. </p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="types_8h_source.html#l00091">keyw_endcalc</a>, <a class="el" href="types_8h_source.html#l00063">keyw_path</a> und <a class="el" href="parse_8c_source.html#l00016">next()</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00552">552</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00454">program()</a>.</p>
-<div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-22-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
-<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00143">_funcdef::body</a>, <a class="el" href="types_8h_source.html#l00176">_nameentry::d</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00045">findNameEntryOfType()</a>, <a class="el" href="types_8h_source.html#l00158">_namedata::func</a>, <a class="el" href="types_8h_source.html#l00088">keyw_endpath</a>, <a class="el" href="types_8h_source.html#l00063">keyw_path</a>, <a class="el" href="types_8h_source.html#l00035">name_path</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="parse_8c_source.html#l00496">params()</a>, <a class="el" href="types_8h_source.html#l00146">_funcdef::ret</a>, <a class="el" href="parse_8c_source.html#l00468">statements()</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00581">program()</a>.</p>
+<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a6b34107d19cf2718828afaccbe038ad1_cgraph.png" border="0" usemap="#aparse_8c_a6b34107d19cf2718828afaccbe038ad1_cgraph" alt=""/></div>
+<map name="aparse_8c_a6b34107d19cf2718828afaccbe038ad1_cgraph" id="aparse_8c_a6b34107d19cf2718828afaccbe038ad1_cgraph">
+<area shape="rect" title="Parsen einer Path&#45;definition." alt="" coords="5,144,71,171"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="1289,233,1412,260"/>
+<area shape="rect" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="379,144,525,171"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="1327,701,1374,728"/>
+<area shape="rect" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774" title="Parsen einer Parameterliste." alt="" coords="259,93,324,120"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="119,397,204,424"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="1298,309,1403,336"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="252,397,331,424"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="747,448,793,475"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="841,584,924,611"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="415,621,489,648"/>
+<area shape="rect" href="parse_8c.html#a8bab3e90131889138dbe6412ddd89eb6" title=" " alt="" coords="573,397,699,424"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="972,701,1021,728"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1069,600,1124,627"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1172,473,1241,500"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="615,647,657,673"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="751,596,789,623"/>
+</map>
 </div>
-<div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-23-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a6b34107d19cf2718828afaccbe038ad1_icgraph.png" border="0" usemap="#aparse_8c_a6b34107d19cf2718828afaccbe038ad1_icgraph" alt=""/></div>
+<map name="aparse_8c_a6b34107d19cf2718828afaccbe038ad1_icgraph" id="aparse_8c_a6b34107d19cf2718828afaccbe038ad1_icgraph">
+<area shape="rect" title="Parsen einer Path&#45;definition." alt="" coords="325,5,391,32"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="207,5,277,32"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,5,159,32"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,5,56,32"/>
+</map>
 </div>
 
 </div>
@@ -734,24 +1243,52 @@ Variablen</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00454">454</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p>Parsen eines gesamte Programmes (Einstiegspunkt des Parsers) </p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00438">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="types_8h_source.html#l00092">keyw_begin</a>, <a class="el" href="types_8h_source.html#l00089">keyw_calculation</a>, <a class="el" href="types_8h_source.html#l00093">keyw_end</a>, <a class="el" href="types_8h_source.html#l00063">keyw_path</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="parse_8c_source.html#l00446">pathdef()</a>, <a class="el" href="parse_8c_source.html#l00411">statements()</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00581">581</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00481">parse()</a>.</p>
-<div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-24-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
-<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00522">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="types_8h_source.html#l00092">keyw_begin</a>, <a class="el" href="types_8h_source.html#l00089">keyw_calculation</a>, <a class="el" href="types_8h_source.html#l00093">keyw_end</a>, <a class="el" href="types_8h_source.html#l00063">keyw_path</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="parse_8c_source.html#l00552">pathdef()</a>, <a class="el" href="parse_8c_source.html#l00468">statements()</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00608">parse()</a>.</p>
+<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_ab260874fc41b7e3057c449f2058e1d03_cgraph.png" border="0" usemap="#aparse_8c_ab260874fc41b7e3057c449f2058e1d03_cgraph" alt=""/></div>
+<map name="aparse_8c_ab260874fc41b7e3057c449f2058e1d03_cgraph" id="aparse_8c_ab260874fc41b7e3057c449f2058e1d03_cgraph">
+<area shape="rect" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="5,397,76,424"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="125,245,188,272"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="1553,169,1676,196"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="1591,803,1638,829"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="237,448,323,475"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="124,397,189,424"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="952,651,1035,677"/>
+<area shape="rect" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="497,347,644,373"/>
+<area shape="rect" href="parse_8c.html#aa857b9ee2f6777e95ccd7874f0a65774" title="Parsen einer Parameterliste." alt="" coords="377,144,443,171"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="1083,701,1132,728"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="1180,701,1235,728"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1283,549,1352,576"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="1429,600,1476,627"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="1400,448,1505,475"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="371,473,449,500"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="534,904,607,931"/>
+<area shape="rect" href="parse_8c.html#a8bab3e90131889138dbe6412ddd89eb6" title=" " alt="" coords="692,499,817,525"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="733,929,776,956"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="865,879,904,905"/>
+</map>
 </div>
-<div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-25-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_ab260874fc41b7e3057c449f2058e1d03_icgraph.png" border="0" usemap="#aparse_8c_ab260874fc41b7e3057c449f2058e1d03_icgraph" alt=""/></div>
+<map name="aparse_8c_ab260874fc41b7e3057c449f2058e1d03_icgraph" id="aparse_8c_ab260874fc41b7e3057c449f2058e1d03_icgraph">
+<area shape="rect" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="207,5,277,32"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,5,159,32"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,5,56,32"/>
+</map>
 </div>
 
 </div>
@@ -773,24 +1310,50 @@ Variablen</h2></td></tr>
 
 <p>Parsen einzelner Anweisungen. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00236">236</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00287">287</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00207">condition()</a>, <a class="el" href="types_8h_source.html#l00256">_treenode::d</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00221">expression()</a>, <a class="el" href="parse_8c_source.html#l00045">findVarName()</a>, <a class="el" href="types_8h_source.html#l00067">keyw_add</a>, <a class="el" href="types_8h_source.html#l00054">keyw_back</a>, <a class="el" href="types_8h_source.html#l00072">keyw_by</a>, <a class="el" href="types_8h_source.html#l00060">keyw_clear</a>, <a class="el" href="types_8h_source.html#l00064">keyw_color</a>, <a class="el" href="types_8h_source.html#l00082">keyw_counter</a>, <a class="el" href="types_8h_source.html#l00059">keyw_direction</a>, <a class="el" href="types_8h_source.html#l00073">keyw_div</a>, <a class="el" href="types_8h_source.html#l00079">keyw_do</a>, <a class="el" href="types_8h_source.html#l00081">keyw_done</a>, <a class="el" href="types_8h_source.html#l00083">keyw_downto</a>, <a class="el" href="types_8h_source.html#l00077">keyw_else</a>, <a class="el" href="types_8h_source.html#l00078">keyw_endif</a>, <a class="el" href="types_8h_source.html#l00062">keyw_finish</a>, <a class="el" href="types_8h_source.html#l00070">keyw_from</a>, <a class="el" href="types_8h_source.html#l00055">keyw_home</a>, <a class="el" href="types_8h_source.html#l00075">keyw_if</a>, <a class="el" href="types_8h_source.html#l00066">keyw_in</a>, <a class="el" href="types_8h_source.html#l00053">keyw_jump</a>, <a class="el" href="types_8h_source.html#l00057">keyw_left</a>, <a class="el" href="types_8h_source.html#l00074">keyw_mark</a>, <a class="el" href="types_8h_source.html#l00071">keyw_mul</a>, <a class="el" href="types_8h_source.html#l00086">keyw_repeat</a>, <a class="el" href="types_8h_source.html#l00058">keyw_right</a>, <a class="el" href="types_8h_source.html#l00084">keyw_step</a>, <a class="el" href="types_8h_source.html#l00061">keyw_stop</a>, <a class="el" href="types_8h_source.html#l00065">keyw_store</a>, <a class="el" href="types_8h_source.html#l00069">keyw_sub</a>, <a class="el" href="types_8h_source.html#l00076">keyw_then</a>, <a class="el" href="types_8h_source.html#l00080">keyw_times</a>, <a class="el" href="types_8h_source.html#l00068">keyw_to</a>, <a class="el" href="types_8h_source.html#l00056">keyw_turn</a>, <a class="el" href="types_8h_source.html#l00087">keyw_until</a>, <a class="el" href="types_8h_source.html#l00052">keyw_walk</a>, <a class="el" href="types_8h_source.html#l00085">keyw_while</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00104">oper_sep</a>, <a class="el" href="types_8h_source.html#l00184">_nodedata::p_name</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00411">statements()</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a>, <a class="el" href="types_8h_source.html#l00264">_token::type</a> und <a class="el" href="types_8h_source.html#l00190">_nodedata::walk</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00069">args()</a>, <a class="el" href="parse_8c_source.html#l00258">condition()</a>, <a class="el" href="types_8h_source.html#l00256">_treenode::d</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00272">expression()</a>, <a class="el" href="parse_8c_source.html#l00035">findNameEntry()</a>, <a class="el" href="parse_8c_source.html#l00045">findNameEntryOfType()</a>, <a class="el" href="parse_8c_source.html#l00056">findVarNameEntry()</a>, <a class="el" href="types_8h_source.html#l00067">keyw_add</a>, <a class="el" href="types_8h_source.html#l00054">keyw_back</a>, <a class="el" href="types_8h_source.html#l00072">keyw_by</a>, <a class="el" href="types_8h_source.html#l00060">keyw_clear</a>, <a class="el" href="types_8h_source.html#l00064">keyw_color</a>, <a class="el" href="types_8h_source.html#l00082">keyw_counter</a>, <a class="el" href="types_8h_source.html#l00059">keyw_direction</a>, <a class="el" href="types_8h_source.html#l00073">keyw_div</a>, <a class="el" href="types_8h_source.html#l00079">keyw_do</a>, <a class="el" href="types_8h_source.html#l00081">keyw_done</a>, <a class="el" href="types_8h_source.html#l00083">keyw_downto</a>, <a class="el" href="types_8h_source.html#l00077">keyw_else</a>, <a class="el" href="types_8h_source.html#l00078">keyw_endif</a>, <a class="el" href="types_8h_source.html#l00062">keyw_finish</a>, <a class="el" href="types_8h_source.html#l00070">keyw_from</a>, <a class="el" href="types_8h_source.html#l00055">keyw_home</a>, <a class="el" href="types_8h_source.html#l00075">keyw_if</a>, <a class="el" href="types_8h_source.html#l00066">keyw_in</a>, <a class="el" href="types_8h_source.html#l00053">keyw_jump</a>, <a class="el" href="types_8h_source.html#l00057">keyw_left</a>, <a class="el" href="types_8h_source.html#l00074">keyw_mark</a>, <a class="el" href="types_8h_source.html#l00071">keyw_mul</a>, <a class="el" href="types_8h_source.html#l00063">keyw_path</a>, <a class="el" href="types_8h_source.html#l00086">keyw_repeat</a>, <a class="el" href="types_8h_source.html#l00058">keyw_right</a>, <a class="el" href="types_8h_source.html#l00084">keyw_step</a>, <a class="el" href="types_8h_source.html#l00061">keyw_stop</a>, <a class="el" href="types_8h_source.html#l00065">keyw_store</a>, <a class="el" href="types_8h_source.html#l00069">keyw_sub</a>, <a class="el" href="types_8h_source.html#l00076">keyw_then</a>, <a class="el" href="types_8h_source.html#l00080">keyw_times</a>, <a class="el" href="types_8h_source.html#l00068">keyw_to</a>, <a class="el" href="types_8h_source.html#l00056">keyw_turn</a>, <a class="el" href="types_8h_source.html#l00087">keyw_until</a>, <a class="el" href="types_8h_source.html#l00052">keyw_walk</a>, <a class="el" href="types_8h_source.html#l00085">keyw_while</a>, <a class="el" href="types_8h_source.html#l00035">name_path</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00104">oper_sep</a>, <a class="el" href="types_8h_source.html#l00184">_nodedata::p_name</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00468">statements()</a>, <a class="el" href="types_8h_source.html#l00262">_token::tok</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a>, <a class="el" href="types_8h_source.html#l00264">_token::type</a> und <a class="el" href="types_8h_source.html#l00190">_nodedata::walk</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00411">statements()</a>.</p>
-<div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-26-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
-<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00468">statements()</a>.</p>
+<div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a9e6d6b84363b9a09819543e0e7c6cec5_cgraph.png" border="0" usemap="#aparse_8c_a9e6d6b84363b9a09819543e0e7c6cec5_cgraph" alt=""/></div>
+<map name="aparse_8c_a9e6d6b84363b9a09819543e0e7c6cec5_cgraph" id="aparse_8c_a9e6d6b84363b9a09819543e0e7c6cec5_cgraph">
+<area shape="rect" title="Parsen einzelner Anweisungen." alt="" coords="5,625,84,652"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="439,347,485,373"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="1045,68,1168,95"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="565,296,648,323"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="1083,397,1130,424"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="1054,676,1159,703"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="138,524,211,551"/>
+<area shape="rect" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="533,651,680,677"/>
+<area shape="rect" href="parse_8c.html#a8bab3e90131889138dbe6412ddd89eb6" title=" " alt="" coords="265,701,391,728"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="132,803,217,829"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="728,195,777,221"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="825,195,880,221"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="928,321,997,348"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="307,499,349,525"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="443,448,481,475"/>
+</map>
 </div>
-<div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-27-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-31-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a9e6d6b84363b9a09819543e0e7c6cec5_icgraph.png" border="0" usemap="#aparse_8c_a9e6d6b84363b9a09819543e0e7c6cec5_icgraph" alt=""/></div>
+<map name="aparse_8c_a9e6d6b84363b9a09819543e0e7c6cec5_icgraph" id="aparse_8c_a9e6d6b84363b9a09819543e0e7c6cec5_icgraph">
+<area shape="rect" title="Parsen einzelner Anweisungen." alt="" coords="572,56,651,83"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="439,56,524,83"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="327,5,389,32"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="207,56,277,83"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="325,107,391,133"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,56,159,83"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,56,56,83"/>
+</map>
 </div>
 
 </div>
@@ -812,24 +1375,50 @@ Variablen</h2></td></tr>
 
 <p>Parsen einer Liste von Anweisungen. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00411">411</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00468">468</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00081">keyw_done</a>, <a class="el" href="types_8h_source.html#l00077">keyw_else</a>, <a class="el" href="types_8h_source.html#l00093">keyw_end</a>, <a class="el" href="types_8h_source.html#l00091">keyw_endcalc</a>, <a class="el" href="types_8h_source.html#l00078">keyw_endif</a>, <a class="el" href="types_8h_source.html#l00088">keyw_endpath</a>, <a class="el" href="types_8h_source.html#l00087">keyw_until</a>, <a class="el" href="types_8h_source.html#l00252">_treenode::next</a>, <a class="el" href="parse_8c_source.html#l00236">statement()</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+<p class="reference">Benutzt <a class="el" href="types_8h_source.html#l00081">keyw_done</a>, <a class="el" href="types_8h_source.html#l00077">keyw_else</a>, <a class="el" href="types_8h_source.html#l00093">keyw_end</a>, <a class="el" href="types_8h_source.html#l00091">keyw_endcalc</a>, <a class="el" href="types_8h_source.html#l00078">keyw_endif</a>, <a class="el" href="types_8h_source.html#l00088">keyw_endpath</a>, <a class="el" href="types_8h_source.html#l00090">keyw_returns</a>, <a class="el" href="types_8h_source.html#l00087">keyw_until</a>, <a class="el" href="types_8h_source.html#l00252">_treenode::next</a>, <a class="el" href="parse_8c_source.html#l00287">statement()</a>, <a class="el" href="parse_8c_source.html#l00013">token</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00454">program()</a> und <a class="el" href="parse_8c_source.html#l00236">statement()</a>.</p>
-<div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-28-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
-<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00522">calcdef()</a>, <a class="el" href="parse_8c_source.html#l00552">pathdef()</a>, <a class="el" href="parse_8c_source.html#l00581">program()</a> und <a class="el" href="parse_8c_source.html#l00287">statement()</a>.</p>
+<div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-32-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_ada9012541773d9eeb63c4a4824786280_cgraph.png" border="0" usemap="#aparse_8c_ada9012541773d9eeb63c4a4824786280_cgraph" alt=""/></div>
+<map name="aparse_8c_ada9012541773d9eeb63c4a4824786280_cgraph" id="aparse_8c_ada9012541773d9eeb63c4a4824786280_cgraph">
+<area shape="rect" title="Parsen einer Liste von Anweisungen." alt="" coords="5,549,91,576"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="139,549,217,576"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="581,347,628,373"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="1167,68,1289,95"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="697,296,780,323"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="1205,397,1251,424"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="1175,676,1281,703"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="265,524,339,551"/>
+<area shape="rect" href="parse_8c.html#a8f70b0d848c8d0986f92880e166633d8" title="Namenseintrag des korrekten Types des aktuellen Token in der Namenstabelle suchen (Typ wird gesetzt,..." alt="" coords="387,651,533,677"/>
+<area shape="rect" href="parse_8c.html#a8bab3e90131889138dbe6412ddd89eb6" title=" " alt="" coords="676,701,801,728"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="849,195,899,221"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="947,195,1001,221"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="1049,321,1119,348"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="439,499,481,525"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="585,448,624,475"/>
+</map>
 </div>
-<div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-29-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-33" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-33-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div id="dynsection-33-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_ada9012541773d9eeb63c4a4824786280_icgraph.png" border="0" usemap="#aparse_8c_ada9012541773d9eeb63c4a4824786280_icgraph" alt=""/></div>
+<map name="aparse_8c_ada9012541773d9eeb63c4a4824786280_icgraph" id="aparse_8c_ada9012541773d9eeb63c4a4824786280_icgraph">
+<area shape="rect" title="Parsen einer Liste von Anweisungen." alt="" coords="452,107,537,133"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="333,5,396,32"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="207,56,277,83"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="332,107,397,133"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="325,157,404,184"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="104,56,159,83"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,56,56,83"/>
+</map>
 </div>
 
 </div>
@@ -851,24 +1440,60 @@ Variablen</h2></td></tr>
 
 <p>Parsen von Termen. </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00138">138</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00189">189</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00126">faktor()</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00108">oper_div</a>, <a class="el" href="types_8h_source.html#l00107">oper_mul</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00177">faktor()</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00108">oper_div</a>, <a class="el" href="types_8h_source.html#l00107">oper_mul</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00221">expression()</a>.</p>
-<div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-30-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
-<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00272">expression()</a>.</p>
+<div id="dynsection-34" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-34-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div id="dynsection-34-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a8455fef910204ded541f8f1aa43f2a69_cgraph.png" border="0" usemap="#aparse_8c_a8455fef910204ded541f8f1aa43f2a69_cgraph" alt=""/></div>
+<map name="aparse_8c_a8455fef910204ded541f8f1aa43f2a69_cgraph" id="aparse_8c_a8455fef910204ded541f8f1aa43f2a69_cgraph">
+<area shape="rect" title="Parsen von Termen." alt="" coords="5,119,55,145"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="103,119,157,145"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="647,195,693,221"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="205,169,275,196"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="352,195,399,221"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="476,144,599,171"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="496,296,579,323"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="323,93,428,120"/>
+</map>
 </div>
-<div id="dynsection-31" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-31-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-35" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-35-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-35-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div id="dynsection-35-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a8455fef910204ded541f8f1aa43f2a69_icgraph.png" border="0" usemap="#aparse_8c_a8455fef910204ded541f8f1aa43f2a69_icgraph" alt=""/></div>
+<map name="aparse_8c_a8455fef910204ded541f8f1aa43f2a69_icgraph" id="aparse_8c_a8455fef910204ded541f8f1aa43f2a69_icgraph">
+<area shape="rect" title="Parsen von Termen." alt="" coords="1180,330,1229,357"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="1049,204,1132,230"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="955,254,1001,281"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="837,330,907,357"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="588,89,667,116"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="343,146,405,173"/>
+<area shape="rect" href="parse_8c.html#af308eab887b87fb8f14d8df1dcddad3d" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="959,102,997,129"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="715,298,789,325"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="725,356,779,382"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="605,298,650,325"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,229,163,256"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="474,349,521,376"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="349,349,399,376"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="236,280,280,306"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="342,298,406,325"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,280,175,306"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,204,56,230"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="455,89,540,116"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="223,121,293,148"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="341,45,407,72"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="112,158,167,185"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="851,26,893,53"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="847,229,897,256"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="715,77,789,104"/>
+</map>
 </div>
 
 </div>
@@ -890,24 +1515,58 @@ Variablen</h2></td></tr>
 
 <p>Parsen von Wahrheitswerten (ToDo) </p>
 
-<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00152">152</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
+<p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00203">203</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00207">condition()</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00221">expression()</a>, <a class="el" href="types_8h_source.html#l00096">keyw_not</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00112">oper_equ</a>, <a class="el" href="types_8h_source.html#l00117">oper_gequ</a>, <a class="el" href="types_8h_source.html#l00116">oper_grtr</a>, <a class="el" href="types_8h_source.html#l00115">oper_lequ</a>, <a class="el" href="types_8h_source.html#l00114">oper_less</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00113">oper_nequ</a>, <a class="el" href="types_8h_source.html#l00103">oper_rpar</a>, <a class="el" href="types_8h_source.html#l00248">_treenode::pos</a>, <a class="el" href="types_8h_source.html#l00266">_token::pos</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
+<p class="reference">Benutzt <a class="el" href="parse_8c_source.html#l00258">condition()</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00272">expression()</a>, <a class="el" href="types_8h_source.html#l00096">keyw_not</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="types_8h_source.html#l00112">oper_equ</a>, <a class="el" href="types_8h_source.html#l00117">oper_gequ</a>, <a class="el" href="types_8h_source.html#l00116">oper_grtr</a>, <a class="el" href="types_8h_source.html#l00115">oper_lequ</a>, <a class="el" href="types_8h_source.html#l00114">oper_less</a>, <a class="el" href="types_8h_source.html#l00102">oper_lpar</a>, <a class="el" href="types_8h_source.html#l00113">oper_nequ</a>, <a class="el" href="types_8h_source.html#l00103">oper_rpar</a>, <a class="el" href="types_8h_source.html#l00248">_treenode::pos</a>, <a class="el" href="types_8h_source.html#l00266">_token::pos</a>, <a class="el" href="types_8h_source.html#l00254">_treenode::son</a>, <a class="el" href="parse_8c_source.html#l00013">token</a>, <a class="el" href="types_8h_source.html#l00246">_treenode::type</a> und <a class="el" href="types_8h_source.html#l00264">_token::type</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00193">and()</a> und <a class="el" href="eval_8c_source.html#l00337">push()</a>.</p>
-<div id="dynsection-32" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-32-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
-<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00244">and()</a> und <a class="el" href="eval_8c_source.html#l00337">push()</a>.</p>
+<div id="dynsection-36" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-36-trigger" src="closed.png" alt="+"/> Hier ist ein Graph, der zeigt, was diese Funktion aufruft:</div>
+<div id="dynsection-36-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div id="dynsection-36-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_af308eab887b87fb8f14d8df1dcddad3d_cgraph.png" border="0" usemap="#aparse_8c_af308eab887b87fb8f14d8df1dcddad3d_cgraph" alt=""/></div>
+<map name="aparse_8c_af308eab887b87fb8f14d8df1dcddad3d_cgraph" id="aparse_8c_af308eab887b87fb8f14d8df1dcddad3d_cgraph">
+<area shape="rect" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="5,107,44,133"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="97,5,170,32"/>
+<area shape="rect" href="parse_8c.html#a787ad0ee03f539f4a2904660bb6b8ce7" title="aktuellen Token auf den Nächsten setzen" alt="" coords="731,183,778,209"/>
+<area shape="rect" href="parse_8c.html#a72766d9d606eee9f4032df8622a6d70d" title="Überprüfung, ob der aktuelle Token dem erwartetem Typen entspricht &#45;&gt; Fehlermeldung + Programmabbruch..." alt="" coords="693,461,816,488"/>
+<area shape="rect" href="parse_8c.html#ae1b73fa9a679f12f99603a8e036f29a1" title="Parsen von mathematischen Ausdrücken." alt="" coords="92,259,175,285"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="226,56,269,83"/>
+<area shape="rect" href="parse_8c.html#a8455fef910204ded541f8f1aa43f2a69" title="Parsen von Termen." alt="" coords="223,208,272,235"/>
+<area shape="rect" href="parse_8c.html#a340afd1a010d6fc6a7d4ed1f4cd0abbf" title="Parsen von Faktoren." alt="" coords="320,208,375,235"/>
+<area shape="rect" href="parse_8c.html#ab9515122dd01b9c3bf6934505b9d6106" title="Parsen von Operanden." alt="" coords="423,335,492,361"/>
+<area shape="rect" href="parse_8c.html#a2163d6cb4e700c66c35600edcc97aee7" title="Parsen von Argument&#45;Listen." alt="" coords="569,461,616,488"/>
+<area shape="rect" href="parse_8c.html#a0f9a0aa6c8d036339d3a494c17e1320d" title="Lineare Suche eines Namens in der Namenstabelle (quick and dirty Lösung &#45;&gt; normalerweise sind Hashtab..." alt="" coords="540,360,645,387"/>
+</map>
 </div>
-<div id="dynsection-33" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-33-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-37" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-37-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-37-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-33-content" class="dyncontent" style="display:none;">
+<div id="dynsection-37-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_af308eab887b87fb8f14d8df1dcddad3d_icgraph.png" border="0" usemap="#aparse_8c_af308eab887b87fb8f14d8df1dcddad3d_icgraph" alt=""/></div>
+<map name="aparse_8c_af308eab887b87fb8f14d8df1dcddad3d_icgraph" id="aparse_8c_af308eab887b87fb8f14d8df1dcddad3d_icgraph">
+<area shape="rect" title="Parsen von Wahrheitswerten (ToDo)" alt="" coords="937,377,976,404"/>
+<area shape="rect" href="parse_8c.html#a486115f3279c9a99d32888aa9b4122e3" title="Parsen logischer UND&#45;Ausdrücke." alt="" coords="843,428,886,455"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="840,327,889,353"/>
+<area shape="rect" href="parse_8c.html#a953fce1ce73d9322eec5ab8d8927cca4" title="Parsen logischer Ausdrücke." alt="" coords="719,428,792,455"/>
+<area shape="rect" href="parse_8c.html#a9e6d6b84363b9a09819543e0e7c6cec5" title="Parsen einzelner Anweisungen." alt="" coords="592,428,671,455"/>
+<area shape="rect" href="parse_8c.html#ada9012541773d9eeb63c4a4824786280" title="Parsen einer Liste von Anweisungen." alt="" coords="459,428,544,455"/>
+<area shape="rect" href="parse_8c.html#a6a4ef149cbd20ef3463cca82667e7d5e" title="Parsen einer Calc&#45;Definition." alt="" coords="347,428,409,455"/>
+<area shape="rect" href="parse_8c.html#ab260874fc41b7e3057c449f2058e1d03" title="Parsen eines gesamte Programmes (Einstiegspunkt des Parsers)" alt="" coords="225,403,295,429"/>
+<area shape="rect" href="parse_8c.html#a6b34107d19cf2718828afaccbe038ad1" title="Parsen einer Path&#45;definition." alt="" coords="345,479,411,505"/>
+<area shape="rect" href="parse_8c.html#a7bdf8bcb618f165019eb852b26fc6982" title="Hauptfunktion des Parser." alt="" coords="112,257,167,284"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,207,56,233"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="723,276,787,303"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="223,225,297,252"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="609,124,653,151"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="104,5,175,32"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="479,225,524,252"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="115,61,163,88"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="355,200,401,227"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="235,124,285,151"/>
+</map>
 </div>
 
 </div>
@@ -928,12 +1587,25 @@ Variablen</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="reference">Wird benutzt von <a class="el" href="eval_8c_source.html#l00337">push()</a>.</p>
-<div id="dynsection-34" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-34-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
-<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-38" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-38-trigger" src="closed.png" alt="+"/> Hier ist ein Graph der zeigt, wo diese Funktion aufgerufen wird:</div>
+<div id="dynsection-38-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-34-content" class="dyncontent" style="display:none;">
+<div id="dynsection-38-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="parse_8c_a66e534895dc627672543e3dca09a168b_icgraph.png" border="0" usemap="#aparse_8c_a66e534895dc627672543e3dca09a168b_icgraph" alt=""/></div>
+<map name="aparse_8c_a66e534895dc627672543e3dca09a168b_icgraph" id="aparse_8c_a66e534895dc627672543e3dca09a168b_icgraph">
+<area shape="rect" title=" " alt="" coords="743,17,783,44"/>
+<area shape="rect" href="eval_8c.html#a21616ef7b9f6694d3ba523226213755e" title=" " alt="" coords="645,17,695,44"/>
+<area shape="rect" href="eval_8c.html#a711e3a83547cbf5cda6e8cc7f6ffc0c4" title=" " alt="" coords="533,43,597,69"/>
+<area shape="rect" href="eval_8c.html#aae26c99fcd5b82d115189b1122f5d0a0" title=" " alt="" coords="101,107,176,133"/>
+<area shape="rect" href="eval_8c.html#a7fe074caebef01ff0146927c0532f3cc" title=" " alt="" coords="441,195,485,221"/>
+<area shape="rect" href="eval_8c.html#a33c097f69f3e7ad2b6d18a5cd45edfd3" title=" " alt="" coords="323,320,393,347"/>
+<area shape="rect" href="eval_8c.html#ac7678808a3b57ca1539a03201cec88be" title=" " alt="" coords="335,93,381,120"/>
+<area shape="rect" href="eval_8c.html#a1207df5be5fcfe8e47e9c54abadbed96" title=" " alt="" coords="5,257,53,284"/>
+<area shape="rect" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="224,320,275,347"/>
+<area shape="rect" href="eval_8c.html#a5d44ae5aa9326005cd76588b7724e2ac" title=" " alt="" coords="226,125,273,152"/>
+<area shape="rect" href="eval_8c.html#a7255fc522dbc6c7f45f35843550b05b4" title=" " alt="" coords="114,183,163,209"/>
+</map>
 </div>
 
 </div>
@@ -955,7 +1627,7 @@ Variablen</h2></td></tr>
 
 <p class="definition">Definiert in Zeile <a class="el" href="parse_8c_source.html#l00013">13</a> der Datei <a class="el" href="parse_8c_source.html">parse.c</a>.</p>
 
-<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00193">and()</a>, <a class="el" href="parse_8c_source.html#l00052">args()</a>, <a class="el" href="parse_8c_source.html#l00207">condition()</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00221">expression()</a>, <a class="el" href="parse_8c_source.html#l00126">faktor()</a>, <a class="el" href="parse_8c_source.html#l00045">findVarName()</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="parse_8c_source.html#l00076">operand()</a>, <a class="el" href="parse_8c_source.html#l00481">parse()</a>, <a class="el" href="parse_8c_source.html#l00022">prev()</a>, <a class="el" href="parse_8c_source.html#l00454">program()</a>, <a class="el" href="parse_8c_source.html#l00236">statement()</a>, <a class="el" href="parse_8c_source.html#l00411">statements()</a>, <a class="el" href="parse_8c_source.html#l00138">term()</a> und <a class="el" href="parse_8c_source.html#l00152">val()</a>.</p>
+<p class="reference">Wird benutzt von <a class="el" href="parse_8c_source.html#l00244">and()</a>, <a class="el" href="parse_8c_source.html#l00069">args()</a>, <a class="el" href="parse_8c_source.html#l00258">condition()</a>, <a class="el" href="parse_8c_source.html#l00027">expectTokenType()</a>, <a class="el" href="parse_8c_source.html#l00272">expression()</a>, <a class="el" href="parse_8c_source.html#l00177">faktor()</a>, <a class="el" href="parse_8c_source.html#l00045">findNameEntryOfType()</a>, <a class="el" href="parse_8c_source.html#l00056">findVarNameEntry()</a>, <a class="el" href="parse_8c_source.html#l00016">next()</a>, <a class="el" href="parse_8c_source.html#l00093">operand()</a>, <a class="el" href="parse_8c_source.html#l00496">params()</a>, <a class="el" href="parse_8c_source.html#l00608">parse()</a>, <a class="el" href="parse_8c_source.html#l00552">pathdef()</a>, <a class="el" href="parse_8c_source.html#l00022">prev()</a>, <a class="el" href="parse_8c_source.html#l00581">program()</a>, <a class="el" href="parse_8c_source.html#l00287">statement()</a>, <a class="el" href="parse_8c_source.html#l00468">statements()</a>, <a class="el" href="parse_8c_source.html#l00189">term()</a> und <a class="el" href="parse_8c_source.html#l00203">val()</a>.</p>
 
 </div>
 </div>
@@ -965,7 +1637,7 @@ Variablen</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="parse_8c.html">parse.c</a></li>
-    <li class="footer">Erzeugt am Don Mai 12 2022 06:56:29 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Erzeugt am Fre Mai 13 2022 08:21:43 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

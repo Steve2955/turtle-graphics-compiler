@@ -95,6 +95,9 @@ Luis Schäfer </dd>
 Christopher Kloß</dd></dl>
 <h1><a class="anchor" id="sec_overview"></a>
 Überblick</h1>
+<p>Dieses Projekt wurde als Klausurersatzleistung im Rahmen des Moduls "Compilerbau" erstellt. Es handelt sich um einen Compiler für eine einfach Programmiersprache zum Zeichnen von Strichgrafiken. Auf der Grundlage eines vorgegebenen Evaluators wurden der Lexer und der Parser entwickelt.</p>
+<p>Der Lexer befindet sich in der Datei <code><a class="el" href="lex_8c.html">lex.c</a></code>. Dieser wurde logisch komplett vom Parser getrennt. Dazu wurde <code>token_t</code> als eigener Datenstruktur für Tokens definiert. Diese Datenstruktur ist als zweifach verkettete Liste implementiert.</p>
+<p>Der Parser befindet sich in der Datei <code><a class="el" href="parse_8c.html">parse.c</a></code>. Dieser ruft selbstständig den Lexer auf. Die Token-Liste des Lexer wird in einen Syntaxbaum auf Basis der vorgegebenen Datenstruktur <code>treenode_t</code> umgewandelt, die dann vom vorgefertigten Evaluator verarbeitet werden kann.</p>
 <h2><a class="anchor" id="sec_usage_build"></a>
 Benutzung der Build-Skripts</h2>
 <p>Captain:</p><ul>
@@ -109,23 +112,25 @@ Benutzung des Compilers</h2>
 Verlauf des Projektes</h1>
 <h2><a class="anchor" id="sec_problems"></a>
 Schwierigkeiten</h2>
-<p>Captain Placeholder</p>
-<h2><a class="anchor" id="sec_features"></a>
-Besondere Features oder kreative Leistungen</h2>
-<p>Captain Placeholder</p>
+<ul>
+<li>Umfang des Projektes ist dem Stundenumfang des Moduls nicht unbedingt gerecht</li>
+</ul>
 <h2><a class="anchor" id="sec_improve"></a>
 Verbesserungen</h2>
-<p>Captain Placeholder</p>
 <h2><a class="anchor" id="sec_joy"></a>
 Freude</h2>
-<p>Captain Placeholder </p>
+<ul>
+<li>die Low-Level Arbeit mit C hat mal wieder Spaß gemacht, da es in unserem Umfeld sonst fast nie zum Einsatz kommt</li>
+<li>das Innenleben eines Compilers bis in die Tiefe kennenzulernen war definitv ein Highlight</li>
+<li>für einige Gruppenmitglieder war die Entwicklung eines solchen Projektes im Team neu und Erfahrungen in der Nutzung von Tools wie <code>git</code> (und Github) wurden daher gerne geteilt </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Erzeugt am Don Mai 12 2022 06:56:29 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Erzeugt am Fre Mai 13 2022 08:21:43 für Turtle Graphics Compiler von <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

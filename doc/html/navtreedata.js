@@ -32,7 +32,6 @@ var NAVTREE =
       ] ],
       [ "Verlauf des Projektes", "index.html#sec_course", [
         [ "Schwierigkeiten", "index.html#sec_problems", null ],
-        [ "Besondere Features oder kreative Leistungen", "index.html#sec_features", null ],
         [ "Verbesserungen", "index.html#sec_improve", null ],
         [ "Freude", "index.html#sec_joy", null ]
       ] ]
